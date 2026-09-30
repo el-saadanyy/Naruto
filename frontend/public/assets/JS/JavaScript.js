@@ -26,9 +26,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const navBars = document.querySelector("header .bars");
   const navLinks = document.querySelector("header .links");
   if (navBars && navLinks) {
-    navBars.addEventListener("click", () => {
+    navBars.addEventListener("click", (e) => {
+      e.stopPropagation();
       navBars.classList.toggle("active");
       navLinks.classList.toggle("is-mobile-open");
+    });
+
+    // Close when clicking any nav link
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navBars.classList.remove("active");
+        navLinks.classList.remove("is-mobile-open");
+      });
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", (e) => {
+      if (header && !header.contains(e.target)) {
+        navBars.classList.remove("active");
+        navLinks.classList.remove("is-mobile-open");
+      }
     });
   }
 
@@ -216,8 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const chOrigin = document.querySelector(".chapter-origin");
     if (chOrigin) {
       const bleedNum = chOrigin.querySelector(".chapter-bleed-num");
-      const img = chOrigin.querySelector(".portrait-frame img");
-      const textWrap = chOrigin.querySelector(".story-text");
+      const img = chOrigin.querySelector(".origin-bg-img, .portrait-frame img, img");
+      const textWrap = chOrigin.querySelector(".origin-overlay, .story-text");
 
       const tl01 = gsap.timeline({
         scrollTrigger: {
