@@ -10,3 +10,8 @@ django-cors-headers==4.9.0
 # PostgreSQL Database Driver
 psycopg==3.3.6
 psycopg-binary==3.3.6
+
+# Production WSGI Server
+gunicorn==23.0.0
+packaging==26.3
+

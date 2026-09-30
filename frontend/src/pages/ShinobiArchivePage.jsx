@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchShinobiList } from '../api/archiveApi';
+import { SHINOBI_DATABASE_RECORDS } from '../components/archive/shinobiData';
 import ArchiveHeroSection from '../components/archive/ArchiveHeroSection';
 import ArchiveControlPanel from '../components/archive/ArchiveControlPanel';
 import ShinobiCard from '../components/archive/ShinobiCard';
@@ -51,14 +52,16 @@ function ShinobiArchivePage() {
           if (data && Array.isArray(data.results)) {
             setRecords(data.results);
           } else {
-            setRecords([]);
+            console.warn('Shinobi API returned non-array payload. Using local fallback dataset.');
+            setRecords(SHINOBI_DATABASE_RECORDS);
+            setApiError('API returned non-array payload. Displaying local dossier backup.');
           }
         }
       } catch (err) {
         if (isMounted) {
-          console.error('Failed to fetch live Shinobi records from PostgreSQL API:', err);
-          setRecords([]);
-          setApiError(err.message || 'Shinobi Archive API is currently unreachable.');
+          console.warn('Failed to fetch live Shinobi records from API. Using local fallback dataset:', err);
+          setRecords(SHINOBI_DATABASE_RECORDS);
+          setApiError(err.message || 'Shinobi Archive API is currently unreachable. Displaying local dossier backup.');
         }
       } finally {
         if (isMounted) {
@@ -157,7 +160,7 @@ function ShinobiArchivePage() {
         onReset={handleResetFilters}
       />
 
-      {/* Clear error alert when API connection fails */}
+      {/* Informational notice when API connection fails and fallback dataset is active */}
       {apiError && !loading && (
         <div
           className="db-fallback-notice"
@@ -165,19 +168,19 @@ function ShinobiArchivePage() {
             maxWidth: '1280px',
             margin: '0 auto 1.5rem auto',
             padding: '0.85rem 1.25rem',
-            background: 'rgba(220, 38, 38, 0.12)',
-            border: '1px solid rgba(220, 38, 38, 0.35)',
+            background: 'rgba(217, 119, 6, 0.12)',
+            border: '1px solid rgba(217, 119, 6, 0.35)',
             borderRadius: '6px',
-            color: '#f87171',
+            color: '#fbbf24',
             fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
             gap: '0.75rem',
           }}
         >
-          <i className="fa-solid fa-triangle-exclamation"></i>
+          <i className="fa-solid fa-circle-info"></i>
           <span>
-            Database Connection Error: {apiError}. Unable to synchronize classified dossiers from PostgreSQL registry.
+            Offline Mode: Live Shinobi API unavailable ({apiError}). Displaying local classified dossier backup.
           </span>
         </div>
       )}

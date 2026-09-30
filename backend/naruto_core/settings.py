@@ -18,6 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load environment variables from .env if present
 env_file = BASE_DIR / '.env'
+if not env_file.exists() and (BASE_DIR.parent / '.env').exists():
+    env_file = BASE_DIR.parent / '.env'
 if env_file.exists():
     with open(env_file, 'r', encoding='utf-8') as f:
         for line in f:
@@ -175,17 +177,17 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'assets',
+    p for p in [BASE_DIR / 'assets', BASE_DIR.parent / 'assets'] if p.exists()
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
-
+default_mailer_backend = 'django.core.mail.backends.console.EmailBackend' if DEBUG else 'django.core.mail.backends.smtp.EmailBackend'
 MAILERS = {
     'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+        'BACKEND': os.getenv('DJANGO_MAILER_BACKEND', default_mailer_backend),
     },
 }
 
@@ -209,8 +211,13 @@ CSRF_TRUSTED_ORIGINS = get_list_env(
         'http://localhost:5173',
     ]
 )
-CSRF_COOKIE_SAMESITE = 'Lax'
-SESSION_COOKIE_SAMESITE = 'Lax'
+# Cross-Origin Cookie Configuration
+# In local development (localhost), 'Lax' is used.
+# In production with separate domains (Vercel frontend -> Railway/Render backend),
+# modern browsers mandate SameSite='None' together with Secure=True for cross-origin cookie exchange.
+default_samesite = 'Lax' if DEBUG else 'None'
+SESSION_COOKIE_SAMESITE = os.getenv('SESSION_COOKIE_SAMESITE', default_samesite)
+CSRF_COOKIE_SAMESITE = os.getenv('CSRF_COOKIE_SAMESITE', default_samesite)
 CSRF_COOKIE_HTTPONLY = False
 SESSION_COOKIE_HTTPONLY = True
 
@@ -225,5 +232,5 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = get_bool_env('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=True)
     SECURE_HSTS_PRELOAD = get_bool_env('SECURE_HSTS_PRELOAD', default=True)
 
-    if get_bool_env('SECURE_PROXY_SSL_HEADER', default=False):
+    if get_bool_env('SECURE_PROXY_SSL_HEADER', default=True):
         SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

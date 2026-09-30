@@ -12,6 +12,7 @@ import {
   VILLAGE_NAV_ITEMS,
   VILLAGE_PRESENTATION_CLASSES,
   WORLD_OVERVIEW_DATA,
+  VILLAGES_DOSSIER_DATA,
 } from './villageData.js';
 import { fetchVillageList } from '../../api/villageApi.js';
 import { useFavorites } from '../../context/FavoritesContext.jsx';
@@ -38,14 +39,16 @@ function WorldMapSection() {
           if (data && Array.isArray(data.results)) {
             setVillageRecords(data.results);
           } else {
-            setVillageRecords([]);
+            console.warn('Village API returned non-array payload. Using local fallback dataset.');
+            setVillageRecords(VILLAGES_DOSSIER_DATA.filter((v) => v.id !== 'world'));
+            setApiError('API returned non-array payload. Displaying local dossier backup.');
           }
         }
       } catch (err) {
         if (isMounted) {
-          console.error('Failed to load village dossiers from backend API:', err);
-          setVillageRecords([]);
-          setApiError(err.message || 'Failed to connect to village database.');
+          console.warn('Failed to load live village dossiers from API. Using local fallback dataset:', err);
+          setVillageRecords(VILLAGES_DOSSIER_DATA.filter((v) => v.id !== 'world'));
+          setApiError(err.message || 'Village API is currently unreachable. Displaying local dossier backup.');
         }
       } finally {
         if (isMounted) {
@@ -542,18 +545,18 @@ function WorldMapSection() {
                   style={{
                     padding: '12px 16px',
                     marginBottom: '16px',
-                    background: 'rgba(220, 38, 38, 0.12)',
-                    border: '1px solid rgba(220, 38, 38, 0.35)',
+                    background: 'rgba(217, 119, 6, 0.12)',
+                    border: '1px solid rgba(217, 119, 6, 0.35)',
                     borderRadius: '6px',
-                    color: '#f87171',
+                    color: '#fbbf24',
                     fontSize: '0.82rem',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '8px',
                   }}
                 >
-                  <i className="fa-solid fa-triangle-exclamation"></i>
-                  <span>Village Registry Sync Error: {apiError}.</span>
+                  <i className="fa-solid fa-circle-info"></i>
+                  <span>Offline Mode: Live Village API unavailable ({apiError}). Displaying local dossier backup.</span>
                 </div>
               )}
               {allDossiers.map((village) => (

@@ -20,7 +20,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         overwrite = options.get('overwrite', False)
-        js_file_path = os.path.join(settings.BASE_DIR, 'frontend', 'src', 'components', 'archive', 'shinobiData.js')
+        repo_root = settings.BASE_DIR if os.path.exists(os.path.join(settings.BASE_DIR, 'frontend')) else settings.BASE_DIR.parent
+        js_file_path = os.path.join(repo_root, 'frontend', 'src', 'components', 'archive', 'shinobiData.js')
         if not os.path.exists(js_file_path):
             self.stderr.write(self.style.ERROR(f"Canonical source file not found: {js_file_path}"))
             sys.exit(1)
@@ -33,7 +34,7 @@ class Command(BaseCommand):
                 capture_output=True,
                 encoding='utf-8',
                 check=True,
-                cwd=settings.BASE_DIR
+                cwd=repo_root
             )
             records = json.loads(result.stdout.strip())
         except Exception as e:
