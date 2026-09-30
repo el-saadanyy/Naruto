@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>SHINOBI ARCHIVE | Classified Ninja Dossier</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="80 x 60"
+      href="./assets/image/LOGO.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- GSAP Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+
+  <body class="shinobi_db_page">
+    <!-- Dynamic Cinematic Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="bars"><i class="fa-solid fa-bars"></i></div>
+        <a href="./main.html"><img src="./assets/image/logo1.png" alt="Naruto Shippuden Logo" /></a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="./main.html">HOME</a></li>
+          <li><a href="./village.html">VILLAGES</a></li>
+          <li><a href="./clans.html">CLANS</a></li>
+          <li><a href="./shinobi-database.html" class="active">SHINOBI ARCHIVE</a></li>
+          <li><a href="./alliance.html">ALLIANCE</a></li>
+        </ul>
+      </div>
+      <div class="log">
+        <a class="abutton" href="./login.html">
+          <button type="button">
+            <i class="fa-regular fa-user fa-xs" style="font-weight: bolder"></i>
+            <nav>LOG IN</nav>
+          </button>
+        </a>
+      </div>
+    </header>
+
+    <main id="shinobi-database-root">
+      <!-- SECTION 01: ARCHIVE INTRO HERO -->
+      <section class="db-hero-section">
+        <img class="hero-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+        <div class="db-hero-content">
+          <div class="db-editorial-tag">
+            <span class="tag-accent-bar"></span>
+            <span class="db-tag-text"><i class="fa-solid fa-scroll"></i> CLASSIFIED DOSSIER ARCHIVE • 忍名簿</span>
+          </div>
+          <h1 class="db-title">SHINOBI ARCHIVE</h1>
+          <div class="db-japanese-sub">忍の体系 • 歴代忍名簿</div>
+          <p class="db-subtitle">
+            CENTRALIZED INTELLIGENCE DOSSIER ACROSS ALL FIVE GREAT NATIONS, NOBLE CLANS, S-RANK NINJA & HISTORICAL ERAS
+          </p>
+
+          <!-- Metrics Ribbon -->
+          <div class="db-metrics-ribbon">
+            <div class="metric-pill">
+              <i class="fa-solid fa-database"></i>
+              <span>TOTAL PROFILES: <span class="metric-highlight" id="db-total-count">20</span></span>
+            </div>
+            <div class="metric-pill">
+              <i class="fa-solid fa-filter"></i>
+              <span>MATCHING: <span class="metric-highlight" id="db-visible-count">20</span></span>
+            </div>
+            <div class="metric-pill">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>CLEARANCE: <span class="metric-highlight">S-RANK // TOP SECRET</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 02 & 03: DATABASE CONTROL & MULTI-FILTER SYSTEM -->
+      <section class="db-control-panel">
+        <!-- Search Field & Reset Controls -->
+        <div class="db-search-bar manga-panel">
+          <div class="search-input-group">
+            <i class="fa-solid fa-magnifying-glass search-icon-decor"></i>
+            <input
+              type="text"
+              id="shinobi-search-input"
+              class="shinobi-search-input"
+              placeholder="SEARCH SHINOBI BY NAME, CLAN, VILLAGE OR TECHNIQUE..."
+              autocomplete="off"
+              aria-label="Search Shinobi Records"
+            />
+            <button type="button" id="search-clear-btn" class="search-clear-btn" aria-label="Clear Search Input">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <button type="button" id="db-reset-btn" class="db-reset-btn">
+            <i class="fa-solid fa-rotate-left"></i> RESET FILTERS
+          </button>
+        </div>
+
+        <!-- Filter Matrix Rows -->
+        <div class="db-filter-matrix manga-panel">
+          <!-- Village Filter Row -->
+          <div class="filter-row">
+            <span class="filter-row-label"><i class="fa-solid fa-mountain-sun"></i> VILLAGE // 里</span>
+            <div class="filter-btn-group" data-filter-type="village">
+              <button type="button" class="db-filter-btn is-active" data-value="all">ALL</button>
+              <button type="button" class="db-filter-btn" data-value="leaf">LEAF</button>
+              <button type="button" class="db-filter-btn" data-value="sand">SAND</button>
+              <button type="button" class="db-filter-btn" data-value="rock">ROCK</button>
+              <button type="button" class="db-filter-btn" data-value="cloud">CLOUD</button>
+              <button type="button" class="db-filter-btn" data-value="mist">MIST</button>
+            </div>
+          </div>
+
+          <!-- Rank Filter Row -->
+          <div class="filter-row">
+            <span class="filter-row-label"><i class="fa-solid fa-award"></i> RANK // 階級</span>
+            <div class="filter-btn-group" data-filter-type="rank">
+              <button type="button" class="db-filter-btn is-active" data-value="all">ALL</button>
+              <button type="button" class="db-filter-btn" data-value="kage">KAGE</button>
+              <button type="button" class="db-filter-btn" data-value="jonin">JŌNIN</button>
+              <button type="button" class="db-filter-btn" data-value="chunin">CHŪNIN</button>
+              <button type="button" class="db-filter-btn" data-value="genin">GENIN</button>
+            </div>
+          </div>
+
+          <!-- Clan Filter Row -->
+          <div class="filter-row">
+            <span class="filter-row-label"><i class="fa-solid fa-dna"></i> CLAN // 一族</span>
+            <div class="filter-btn-group" data-filter-type="clan">
+              <button type="button" class="db-filter-btn is-active" data-value="all">ALL</button>
+              <button type="button" class="db-filter-btn" data-value="uchiha">UCHIHA</button>
+              <button type="button" class="db-filter-btn" data-value="senju">SENJU</button>
+              <button type="button" class="db-filter-btn" data-value="hyuga">HYŪGA</button>
+              <button type="button" class="db-filter-btn" data-value="uzumaki">UZUMAKI</button>
+              <button type="button" class="db-filter-btn" data-value="nara">NARA</button>
+              <button type="button" class="db-filter-btn" data-value="sarutobi">SARUTOBI</button>
+              <button type="button" class="db-filter-btn" data-value="other">OTHER</button>
+            </div>
+          </div>
+
+          <!-- Status Filter Row -->
+          <div class="filter-row">
+            <span class="filter-row-label"><i class="fa-solid fa-heart-pulse"></i> STATUS // 状態</span>
+            <div class="filter-btn-group" data-filter-type="status">
+              <button type="button" class="db-filter-btn is-active" data-value="all">ALL</button>
+              <button type="button" class="db-filter-btn" data-value="active">ACTIVE</button>
+              <button type="button" class="db-filter-btn" data-value="deceased">DECEASED</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 04: SHINOBI RECORDS ARCHIVE GRID -->
+      <section class="db-records-section">
+        <div class="db-results-header">
+          <div class="db-results-count">
+            <i class="fa-solid fa-address-card"></i> DOSSIER ARCHIVE (<span id="results-count-num">20</span> MATCHES)
+          </div>
+        </div>
+
+        <!-- Shinobi Records Grid Container -->
+        <div id="shinobi-grid" class="db-grid">
+          <!-- Dynamically populated via JavaScript single data source -->
+        </div>
+
+        <!-- Empty State Container -->
+        <div id="shinobi-empty-state" class="db-empty-state" style="display: none;">
+          <i class="fa-solid fa-user-slash"></i>
+          <h3>NO SHINOBI RECORDS FOUND</h3>
+          <p>No classified dossier matches the specified search and filter combination.</p>
+          <button type="button" class="db-reset-btn" id="empty-state-reset-btn">
+            <i class="fa-solid fa-rotate-left"></i> CLEAR FILTERS
+          </button>
+        </div>
+      </section>
+
+      <!-- SECTION 05: CLASSIFIED DOSSIER DETAIL MODAL OVERLAY -->
+      <div id="dossier-modal-overlay" class="dossier-modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="dossier-modal-dialog manga-panel" id="dossier-modal-dialog">
+          <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Dossier Modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <div id="modal-content-slot">
+            <!-- Dynamically populated on record click -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modern Cinematic Footer -->
+    <footer>
+      <img class="footer-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+      <div class="info">
+        <div class="right">
+          <img src="./assets/image/footer.png" alt="Naruto Emblem" />
+        </div>
+        <div class="left">
+          <nav>
+            <a href="https://www.facebook.com/mohamed.el.saadany.529585/" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </nav>
+        </div>
+      </div>
+      <div class="foot">
+        <div class="right">
+          <p>NARUTO © 2025 • The Will of Fire • 木ノ葉隠れの里 • All rights reserved</p>
+        </div>
+        <div class="lefts">
+          <nav><a href="">Legal notice</a></nav>
+          <nav>•</nav>
+          <nav><a href="">Privacy Policy</a></nav>
+          <nav>•</nav>
+          <nav><a href="">Cookies Policy</a></nav>
+          <nav>•</nav>
+          <nav><a href="./main.html">NARUTO.COM</a></nav>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./assets/JS/JavaScript.js"></script>
+  </body>
+</html>

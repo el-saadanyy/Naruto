@@ -1,0 +1,45 @@
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+env/
+venv/
+ENV/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+*.secret
+
+# Django Static & Media Collected
+staticfiles/
+media/
+*.sqlite3-journal
+
+# Frontend & Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Artifacts
+.DS_Store
+Thumbs.db
+
+# Database
+db.sqlite3
+
+# Temp / Scratch
+scratch/
+
+# Stray large files
+MSIAfterburnerSetup.zip

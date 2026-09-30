@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>NARUTO | The Will of Fire</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="80 x 60"
+      href="./assets/image/LOGO.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- GSAP & ScrollTrigger Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+  <body class="main_page">
+    <!-- Modern Cinematic Navbar -->
+    <header>
+      <div class="logo">
+        <div class="bars"><i class="fa-solid fa-bars"></i></div>
+        <a href="./main.html"><img src="./assets/image/logo1.png" alt="Naruto Shippuden Logo" /></a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="./main.html" class="active">HOME</a></li>
+          <li><a href="./village.html">VILLAGES</a></li>
+          <li><a href="./clans.html">CLANS</a></li>
+          <li><a href="./shinobi-database.html">SHINOBI ARCHIVE</a></li>
+          <li><a href="./alliance.html">ALLIANCE</a></li>
+        </ul>
+      </div>
+      <div class="log">
+        <a class="abutton" href="./login.html">
+          <button type="button">
+            <i class="fa-regular fa-user fa-xs" style="font-weight: bolder"></i>
+            <nav>LOG IN</nav>
+          </button>
+        </a>
+      </div>
+    </header>
+
+    <!-- Cinematic Hero Experience -->
+    <section class="hero-section">
+      <div class="hero-bg-wrapper">
+        <img class="hero-bg-image" src="./assets/image/main.jpeg" alt="Naruto Uzumaki Shinobi World" />
+        <div class="hero-overlay"></div>
+      </div>
+      <img class="hero-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+      <div class="hero-watermark">NARUTO</div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="shinobi-seal-tag">[ SHINOBI CHRONICLE // NO. 010260 ]</span>
+          <i class="fa-solid fa-fire"></i> THE WILL OF FIRE • 火の意志
+        </div>
+        <h1 class="hero-title">
+          UZUMAKI NARUTO
+          <span class="kanji-sub">THE SEVENTH HOKAGE • うずまきナルト</span>
+        </h1>
+        <div class="hero-energy-line">
+          <span class="chakra-spark"></span>
+        </div>
+        <p class="hero-description">
+          From a feared and ostracized orphan carrying the Nine-Tails beast to the legendary savior of the shinobi world. Witness the unbreakable journey of perseverance, bonds, and destiny.
+        </p>
+        <div class="hero-actions">
+          <a href="#story" class="btn-primary">
+            <i class="fa-solid fa-scroll"></i> Explore Saga
+          </a>
+          <a href="./village.html" class="btn-secondary">
+            <i class="fa-solid fa-mountain-sun"></i> Shinobi Villages
+          </a>
+        </div>
+      </div>
+      <a href="#awakening" class="hero-scroll-indicator" aria-label="Scroll down">
+        <span>Scroll</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- Cinematic Chakra Awakening Transition Experience -->
+    <section id="awakening" class="chakra-awakening-section">
+      <div class="awakening-backdrop">
+        <div class="awakening-radial-glow"></div>
+        <img class="awakening-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+      </div>
+
+      <div class="awakening-container">
+        <!-- Central Expanding Energy Axis -->
+        <div class="awakening-axis-line"></div>
+
+        <!-- Masked Image Reveal -->
+        <div class="awakening-media-wrapper manga-panel">
+          <img class="awakening-img" src="./assets/image/main8.jpg" alt="Naruto Chakra Awakening" />
+          <div class="awakening-img-overlay"></div>
+        </div>
+
+        <!-- Cinematic Awakening Typography -->
+        <div class="awakening-text-content">
+          <div class="awakening-badge">
+            <i class="fa-solid fa-fire-flame-curved"></i> CHAKRA AWAKENING • チャクラ覚醒
+          </div>
+          <h2 class="awakening-title">THE WILL OF FIRE</h2>
+          <p class="awakening-subtitle">The strength to endure. The will to protect.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Asymmetrical Cinematic Story Chapters -->
+    <main id="story" class="story-container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-scroll"></i> LEGENDARY CHRONICLES • 伝説の年代記</span>
+        <h2 class="section-heading">THE JOURNEY OF A SHINOBI</h2>
+      </div>
+
+      <!-- Chapter 01: ORIGIN (Cinematic Full-Bleed Story Panel) -->
+      <section class="chapter-origin manga-panel">
+        <img class="origin-bg-img" src="./assets/image/main5.jpg" alt="Naruto's lonely childhood in Konoha" />
+        <div class="origin-overlay">
+          <span class="chapter-badge-origin">
+            <i class="fa-solid fa-fire"></i> CHAPTER 01 • ORIGIN <span class="ch-kanji">【起】孤独と宿命</span>
+          </span>
+          <h2>The Jinchūriki Boy</h2>
+          <div class="origin-text-grid">
+            <p>
+              Naruto’s childhood was marked by a deep and haunting darkness.
+              Isolated from the very moment he could walk, he grew up surrounded
+              by cold stares and whispered hatred from the villagers who feared
+              the Nine-Tails sealed within him. He never knew the warmth of a
+              family or the comfort of being understood; instead, he wandered
+              through empty streets and silent nights, questioning why he
+              existed at all. The loneliness carved itself into his heart,
+              turning every day into a quiet battle against despair. Yet,
+              beneath that darkness, a stubborn spark remained—one that refused
+              to let the world break him.
+            </p>
+            <p>
+              Growing up as an orphan in the Hidden Leaf Village, he had no
+              parents to guide him, no warm voice to comfort him, and no family
+              to return to at the end of the day. What made it worse was that
+              the villagers avoided him, whispering behind his back and treating
+              him like an outcast because of the Nine-Tails sealed inside him.
+              Naruto spent his early years longing for even a small piece of
+              affection — a smile, a friend, someone who would see him as more
+              than a monster. This constant isolation shaped his heart, filling
+              it with both sadness and an unbreakable determination to prove his
+              worth to the world.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chapter 02: ASCENSION (Cinematic Full-Bleed Story Panel) -->
+      <section class="chapter-ascension manga-panel">
+        <img class="ascension-bg-img" src="./assets/image/main9.jpg" alt="Sage Mode Naruto confronting Pain" />
+        <div class="ascension-overlay">
+          <span class="chapter-badge-ascension">
+            <i class="fa-solid fa-bolt"></i> CHAPTER 02 • ASCENSION <span class="ch-kanji">【承】師弟と継承</span>
+          </span>
+          <h2>The Hidden Leaf’s Chosen Savior</h2>
+          <div class="ascension-text-grid">
+            <p>
+              As Naruto grew older, he threw himself into intense training,
+              determined to prove his worth. He spent years mastering various
+              ninja techniques—from the Shadow Clone Jutsu to the Rasengan—and
+              each skill he learned pushed him to become stronger. Over time,
+              his power and confidence grew, and people started to see that he
+              was far more than the troublemaking kid they once knew. His
+              relentless training and unbreakable spirit gave him an important
+              role in every major battle, until he eventually became the
+              strongest ninja in Konoha and its true savior in times of danger.
+            </p>
+            <p>
+              Naruto faced the greatest threat ever to strike the Hidden Leaf
+              when Pain launched his devastating attack. Despite the destruction
+              and the fear that spread through the village, Naruto stood firm as
+              Konoha’s final hope. Through courage, growth, and unshakable
+              determination, he confronted Pain head-on and ultimately defeated
+              him, ending the terror and saving the entire village from
+              complete annihilation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chapter 03: CLIMAX (Monumental Full-Width Experience) -->
+      <section class="chapter-climax manga-panel">
+        <img class="climax-bg-img" src="./assets/image/main7.jpg" alt="Seventh Hokage Naruto Uzumaki" />
+        <div class="climax-overlay">
+          <span class="chapter-badge-climax">
+            <i class="fa-solid fa-crown"></i> CHAPTER 03 • PINNACLE <span class="ch-kanji">【結】火の意志と英雄</span>
+          </span>
+          <h2>The Child Who Became a Hokage</h2>
+          <div class="climax-text-grid">
+            <p>
+              Through countless battles and unwavering dedication, Naruto rose
+              from being an outcast to becoming the strongest shinobi in the
+              Hidden Leaf. His perseverance and unbreakable spirit led him to
+              fulfill his lifelong ambition of becoming Hokage, the trusted
+              leader who guides and protects the village.
+            </p>
+            <p>
+              Naruto’s rise didn’t stop at becoming Hokage — he became an icon
+              and a true legend of the Hidden Leaf. His strength, leadership,
+              and unwavering resolve were the turning point in the Fourth Great
+              Ninja War, making him one of the main reasons the shinobi world
+              was saved and peace was restored.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==========================================================================
+         CINEMATIC PINNED EXPERIENCE: THE SHINOBI CHRONICLE (忍の年代記)
+         ========================================================================== -->
+    <section id="chronicle" class="chronicle-section">
+      <div class="chronicle-backdrop">
+        <div class="chronicle-ambient-aura"></div>
+        <img class="chronicle-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+      </div>
+
+      <div class="chronicle-container">
+        <!-- Top Cinematic Stage Progress Indicator -->
+        <div class="chronicle-timeline-bar">
+          <div class="chronicle-header-tag">
+            <i class="fa-solid fa-scroll"></i> THE SHINOBI CHRONICLE • 忍の年代記
+          </div>
+          <div class="chronicle-progress-track">
+            <div class="chronicle-node node-1 is-active">
+              <span class="node-num">01</span>
+              <span class="node-label">ORIGIN</span>
+            </div>
+            <div class="chronicle-track-line">
+              <div class="track-fill fill-1"></div>
+            </div>
+            <div class="chronicle-node node-2">
+              <span class="node-num">02</span>
+              <span class="node-label">SHINOBI</span>
+            </div>
+            <div class="chronicle-track-line">
+              <div class="track-fill fill-2"></div>
+            </div>
+            <div class="chronicle-node node-3">
+              <span class="node-num">03</span>
+              <span class="node-label">HOKAGE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Master Viewport with 3 Synchronized Evolution Stages -->
+        <div class="chronicle-stage-viewport">
+          <!-- Background Stage Numbers -->
+          <div class="chronicle-bg-numbers" aria-hidden="true">
+            <span class="bg-num num-01 active">01</span>
+            <span class="bg-num num-02">02</span>
+            <span class="bg-num num-03">03</span>
+          </div>
+
+          <!-- Central Cinematic Visual Viewport with Stacked Visual Stages -->
+          <div class="chronicle-visual-deck">
+            <!-- Slash / Energy Beam Transition Elements -->
+            <div class="chronicle-slash-line" aria-hidden="true"></div>
+            <div class="chronicle-pillar-beam" aria-hidden="true"></div>
+
+            <!-- Stage 01 Image Frame -->
+            <div class="chronicle-frame frame-01 active manga-panel">
+              <img src="./assets/image/main5.jpg" alt="Naruto as the Lonely Boy" class="chronicle-img img-01" />
+              <div class="frame-overlay"></div>
+            </div>
+
+            <!-- Stage 02 Image Frame (Diagonal Clip Reveal) -->
+            <div class="chronicle-frame frame-02 manga-panel">
+              <img src="./assets/image/shinobi_naruto.jpg" alt="Naruto as the Rising Shinobi" class="chronicle-img img-02" />
+              <div class="frame-overlay"></div>
+            </div>
+
+            <!-- Stage 03 Image Frame (Aperture / Scale Reveal) -->
+            <div class="chronicle-frame frame-03 manga-panel">
+              <img src="./assets/image/main7.jpg" alt="Naruto as the Seventh Hokage" class="chronicle-img img-03" />
+              <div class="frame-overlay"></div>
+            </div>
+          </div>
+
+          <!-- Text Narrative Deck -->
+          <div class="chronicle-narrative-deck">
+            <!-- Stage 01 Narrative -->
+            <div class="chronicle-card card-01 active">
+              <div class="chronicle-stage-badge">
+                <span class="era-tag">[ ERA 01 // 宿命の影 ]</span>
+                <i class="fa-solid fa-moon"></i> THE LONELY BOY
+              </div>
+              <h3 class="chronicle-stage-title">ISOLATION & THE SPARK</h3>
+              <p class="chronicle-stage-desc">
+                Bearing the burden of the Nine-Tails in profound solitude, an ostracized child found resolve in empty streets — vowing that the village that shunned him would one day acknowledge his existence.
+              </p>
+              <div class="chronicle-stage-meta">
+                <span>STATUS: JINCHŪRIKI OUTCAST</span>
+                <span>•</span>
+                <span>ERA: PRE-GENIN</span>
+              </div>
+            </div>
+
+            <!-- Stage 02 Narrative -->
+            <div class="chronicle-card card-02">
+              <div class="chronicle-stage-badge">
+                <span class="era-tag">[ ERA 02 // 英雄の胎動 ]</span>
+                <i class="fa-solid fa-bolt"></i> THE SHINOBI
+              </div>
+              <h3 class="chronicle-stage-title">UNBREAKABLE BONDS & SAGE RESOLVE</h3>
+              <p class="chronicle-stage-desc">
+                Forged through relentless battles, sacred Senjutsu disciplines, and unwavering loyalty to his comrades, Naruto inherited Jiraiya's dream of peace and stood as Konoha’s ultimate savior against Pain.
+              </p>
+              <div class="chronicle-stage-meta">
+                <span>STATUS: HERO OF KONOHA</span>
+                <span>•</span>
+                <span>ERA: SAGE MODE SHINOBI</span>
+              </div>
+            </div>
+
+            <!-- Stage 03 Narrative -->
+            <div class="chronicle-card card-03">
+              <div class="chronicle-stage-badge">
+                <span class="era-tag">[ ERA 03 // 永遠の火影 ]</span>
+                <i class="fa-solid fa-crown"></i> THE HOKAGE
+              </div>
+              <h3 class="chronicle-stage-title">THE SEVENTH HOKAGE</h3>
+              <p class="chronicle-stage-desc">
+                Culminating a lifetime of perseverance, the outcast stands atop the Hokage Monument. Donning the mantle of leadership, he unites the Five Great Shinobi Nations and preserves the eternal Will of Fire.
+              </p>
+              <div class="chronicle-stage-meta">
+                <span>STATUS: SUPREME LEADER</span>
+                <span>•</span>
+                <span>ERA: SEVENTH HOKAGE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CINEMATIC PINNED EXPERIENCE: THE SHINOBI SYSTEM (忍の体系)
+         ========================================================================== -->
+    <section id="shinobi-system" class="shinobi-system-section">
+      <div class="system-backdrop">
+        <div class="system-ambient-aura"></div>
+        <div class="system-grid-lines"></div>
+      </div>
+
+      <div class="system-container">
+        <!-- Top System Tracker -->
+        <div class="system-tracker-bar">
+          <div class="system-header-tag">
+            <i class="fa-solid fa-dharmachakra"></i> THE SHINOBI SYSTEM • 忍の体系
+          </div>
+          <div class="system-phase-track">
+            <div class="system-node node-chakra is-active">
+              <span class="node-dot"></span>
+              <span class="node-label">CHAKRA</span>
+            </div>
+            <div class="system-track-connector">
+              <div class="system-track-fill fill-chakra"></div>
+            </div>
+            <div class="system-node node-nature">
+              <span class="node-dot"></span>
+              <span class="node-label">NATURE</span>
+            </div>
+            <div class="system-track-connector">
+              <div class="system-track-fill fill-nature"></div>
+            </div>
+            <div class="system-node node-jutsu">
+              <span class="node-dot"></span>
+              <span class="node-label">JUTSU</span>
+            </div>
+            <div class="system-track-connector">
+              <div class="system-track-fill fill-jutsu"></div>
+            </div>
+            <div class="system-node node-shinobi">
+              <span class="node-dot"></span>
+              <span class="node-label">SHINOBI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Central Interactive Synthesis Arena -->
+        <div class="system-arena">
+          <!-- Left/Center: Dynamic SVG Chakra & Elemental Diagram -->
+          <div class="system-visual-core">
+            <div class="system-energy-halo"></div>
+
+            <svg class="system-svg-matrix" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Outer Rotating Seal Ring -->
+              <circle class="svg-outer-ring" cx="300" cy="300" r="260" stroke="rgba(217, 119, 6, 0.25)" stroke-width="1.5" stroke-dasharray="6 8" />
+              <circle class="svg-middle-ring" cx="300" cy="300" r="210" stroke="rgba(245, 240, 235, 0.15)" stroke-width="1" stroke-dasharray="14 10" />
+
+              <!-- Five Radial Connecting Conduits (Center to 5 Nature Points) -->
+              <!-- Top: Fire (300, 90) -->
+              <line class="element-conduit conduit-fire" x1="300" y1="300" x2="300" y2="90" stroke="rgba(226, 90, 42, 0.35)" stroke-width="2" stroke-dasharray="210" stroke-dashoffset="210" />
+              <!-- Top-Right: Lightning (495, 235) -->
+              <line class="element-conduit conduit-lightning" x1="300" y1="300" x2="495" y2="235" stroke="rgba(250, 204, 21, 0.35)" stroke-width="2" stroke-dasharray="210" stroke-dashoffset="210" />
+              <!-- Bottom-Right: Earth (420, 470) -->
+              <line class="element-conduit conduit-earth" x1="300" y1="300" x2="420" y2="470" stroke="rgba(180, 83, 9, 0.35)" stroke-width="2" stroke-dasharray="210" stroke-dashoffset="210" />
+              <!-- Bottom-Left: Water (180, 470) -->
+              <line class="element-conduit conduit-water" x1="300" y1="300" x2="180" y2="470" stroke="rgba(56, 189, 248, 0.35)" stroke-width="2" stroke-dasharray="210" stroke-dashoffset="210" />
+              <!-- Top-Left: Wind (105, 235) -->
+              <line class="element-conduit conduit-wind" x1="300" y1="300" x2="105" y2="235" stroke="rgba(52, 211, 153, 0.35)" stroke-width="2" stroke-dasharray="210" stroke-dashoffset="210" />
+
+              <!-- Pentagram Geometry Interconnecting Elements -->
+              <polygon class="svg-pentagram" points="300,90 420,470 105,235 495,235 180,470" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+
+              <!-- Inner Sacred Chakra Core -->
+              <circle class="svg-chakra-core-outer" cx="300" cy="300" r="75" stroke="var(--primary-crimson-bright)" stroke-width="2" />
+              <circle class="svg-chakra-core-inner" cx="300" cy="300" r="45" stroke="var(--secondary-gold-bright)" stroke-width="1.5" stroke-dasharray="4 6" />
+              <circle class="svg-chakra-center-point" cx="300" cy="300" r="14" fill="var(--primary-crimson-bright)" />
+            </svg>
+
+            <!-- 5 Elemental Interactive Orbit Nodes -->
+            <div class="element-node elem-fire" data-elem="fire">
+              <div class="elem-node-inner">
+                <span class="elem-kanji">火</span>
+                <span class="elem-name">FIRE • KATON</span>
+              </div>
+            </div>
+            <div class="element-node elem-wind" data-elem="wind">
+              <div class="elem-node-inner">
+                <span class="elem-kanji">風</span>
+                <span class="elem-name">WIND • FŪTON</span>
+              </div>
+            </div>
+            <div class="element-node elem-lightning" data-elem="lightning">
+              <div class="elem-node-inner">
+                <span class="elem-kanji">雷</span>
+                <span class="elem-name">LIGHTNING • RAITON</span>
+              </div>
+            </div>
+            <div class="element-node elem-earth" data-elem="earth">
+              <div class="elem-node-inner">
+                <span class="elem-kanji">土</span>
+                <span class="elem-name">EARTH • DOTON</span>
+              </div>
+            </div>
+            <div class="element-node elem-water" data-elem="water">
+              <div class="elem-node-inner">
+                <span class="elem-kanji">水</span>
+                <span class="elem-name">WATER • SUITON</span>
+              </div>
+            </div>
+
+            <!-- Central Seal Manifestation Burst -->
+            <div class="jutsu-seal-stamp">
+              <span class="seal-kanji">封</span>
+            </div>
+          </div>
+
+          <!-- Right: Phase Storytelling Display Deck -->
+          <div class="system-narrative-deck">
+            <!-- Mobile-Only Slider Controls -->
+            <div class="system-mobile-slider-controls">
+              <button
+                type="button"
+                class="sys-slider-btn sys-prev"
+                aria-label="Previous Phase"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <div class="sys-slider-indicator">
+                <span class="sys-indicator-badge">SYSTEM GUIDE</span>
+                <span class="sys-indicator-title" id="sys-slider-title">STAGE 01 / 04: CHAKRA</span>
+              </div>
+              <button
+                type="button"
+                class="sys-slider-btn sys-next"
+                aria-label="Next Phase"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+
+            <!-- Cards Viewport -->
+            <div class="system-cards-viewport">
+              <!-- Phase 1: CHAKRA -->
+              <div class="system-phase-card phase-chakra mobile-slide-active is-active">
+                <div class="system-phase-badge">
+                  <span class="system-badge-tag">[ FOUNDATION // 起源 ]</span>
+                  <i class="fa-solid fa-atom"></i> PRIMAL ENERGY
+                </div>
+                <h3 class="system-phase-title">CHAKRA</h3>
+                <div class="system-phase-kanji">チャクラ • 身体と精神の融合</div>
+                <p class="system-phase-desc">
+                  The vital energy within every living shinobi — generated by intertwining physical energy from countless cells with spiritual discipline honed through training.
+                </p>
+                <div class="system-phase-meta">
+                  <span>FORMULA: PHYSICAL ENERGY ＋ SPIRITUAL ENERGY</span>
+                </div>
+              </div>
+
+              <!-- Phase 2: NATURE -->
+              <div class="system-phase-card phase-nature">
+                <div class="system-phase-badge">
+                  <span class="system-badge-tag">[ TRANSFORMATION // 性質変化 ]</span>
+                  <i class="fa-solid fa-fire-flame-curved"></i> ELEMENTAL MATRIX
+                </div>
+                <h3 class="system-phase-title">NATURE</h3>
+                <div class="system-phase-kanji">五大性質変化 • 火 風 雷 土 水</div>
+                <p class="system-phase-desc">
+                  By altering chakra’s elemental affinity, a ninja channels raw power into five primordial forces: Fire, Wind, Lightning, Earth, and Water — each holding strict affinity and dominance.
+                </p>
+                <div class="system-phase-meta">
+                  <span>SYSTEM: 5 PRIMORDIAL NATURE AFFINITIES</span>
+                </div>
+              </div>
+
+              <!-- Phase 3: JUTSU -->
+              <div class="system-phase-card phase-jutsu">
+                <div class="system-phase-badge">
+                  <span class="system-badge-tag">[ MANIFESTATION // 術の創出 ]</span>
+                  <i class="fa-solid fa-hand-dots"></i> THE ART OF COMBAT
+                </div>
+                <h3 class="system-phase-title">JUTSU</h3>
+                <div class="system-phase-kanji">忍術 • 体術 • 幻術 の結晶</div>
+                <p class="system-phase-desc">
+                  The mystical techniques executed by weaving intricate hand seals. Nature transformation and chakra shape manipulation converge to produce Ninjutsu, Genjutsu, and Taijutsu.
+                </p>
+                <div class="system-phase-meta">
+                  <span>MECHANISM: HAND SEALS ✕ SHAPE MANIPULATION</span>
+                </div>
+              </div>
+
+              <!-- Phase 4: SHINOBI -->
+              <div class="system-phase-card phase-shinobi">
+                <div class="system-phase-badge">
+                  <span class="system-badge-tag">[ HARMONY // 忍の真髄 ]</span>
+                  <i class="fa-solid fa-user-ninja"></i> THE LIVING WILL
+                </div>
+                <h3 class="system-phase-title">SHINOBI</h3>
+                <div class="system-phase-kanji">忍 • 己の道を紡ぐ者</div>
+                <p class="system-phase-desc">
+                  The ultimate embodiment of the system. A shinobi is not merely a wielder of power, but one who endures — harmonizing chakra, nature, and technique to protect their comrades and uphold the Will of Fire.
+                </p>
+                <div class="system-equation-badge">
+                  <span>CHAKRA</span>
+                  <i class="fa-solid fa-plus"></i>
+                  <span>NATURE</span>
+                  <i class="fa-solid fa-plus"></i>
+                  <span>JUTSU</span>
+                  <i class="fa-solid fa-equals"></i>
+                  <span class="shinobi-highlight">SHINOBI</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile-Only Slider Pagination Dots -->
+            <div class="system-slider-dots">
+              <button type="button" class="sys-dot active" data-slide="0" aria-label="Go to CHAKRA"></button>
+              <button type="button" class="sys-dot" data-slide="1" aria-label="Go to NATURE"></button>
+              <button type="button" class="sys-dot" data-slide="2" aria-label="Go to JUTSU"></button>
+              <button type="button" class="sys-dot" data-slide="3" aria-label="Go to SHINOBI"></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Character Mentors Archive: Featured Master + Supporting Profile Grid -->
+    <section id="mentors" class="mentors-section main4">
+      <div class="section-tag" style="text-align: center; margin-bottom: 8px;">
+        <i class="fa-solid fa-users-viewfinder"></i> SHINOBI MENTOR ARCHIVE • 師弟の絆
+      </div>
+      <div class="galary-title">The Masters Who Shaped The Legend</div>
+      <div class="mentor-archive-grid">
+        <!-- Featured Master (Jiraiya) -->
+        <div class="featured-mentor-card manga-panel">
+          <img src="./assets/image/jiraya.jpg" alt="Jiraiya Sensei" />
+          <div class="featured-mentor-overlay">
+            <span class="role-badge"><i class="fa-solid fa-stamp"></i> SANNIN MASTER • 伝説の三忍 <span class="ninja-id">[REG. 002300]</span></span>
+            <nav>Jiraiya Sensei</nav>
+            <p class="P_test">
+              The Legendary Sannin who shaped Naruto’s philosophy, taught him the Rasengan, guided him in harnessing the Nine-Tails, and passed on the dream of peace.
+            </p>
+          </div>
+        </div>
+
+        <!-- Supporting Profiles Column -->
+        <div class="supporting-mentors-column">
+          <div class="supporting-mentor-item manga-panel">
+            <img src="./assets/image/kakashi2.jpg" alt="Kakashi Hatake Sensei" />
+            <div class="supporting-mentor-info">
+              <span class="role-badge">TEAM 7 JŌNIN • 写輪眼のカカシ <span class="ninja-id">[REG. 009720]</span></span>
+              <nav>Kakashi Sensei</nav>
+              <p class="P_test">The mentor who stood by Naruto and taught him teamwork.</p>
+            </div>
+          </div>
+
+          <div class="supporting-mentor-item manga-panel">
+            <img src="./assets/image/Iruka.jpeg" alt="Iruka Umino Sensei" />
+            <div class="supporting-mentor-info">
+              <span class="role-badge">FIRST BOND • 初代の恩師 <span class="ninja-id">[REG. 011850]</span></span>
+              <nav>Iruka Sensei</nav>
+              <p class="P_test">The first person in Konoha who recognized Naruto’s humanity.</p>
+            </div>
+          </div>
+
+          <div class="supporting-mentor-item manga-panel">
+            <img src="./assets/image/Fucasaku.jpg" alt="Fukasaku Sage Master" />
+            <div class="supporting-mentor-info">
+              <span class="role-badge">MYŌBOKUZAN SAGE • 妙木山の大仙人</span>
+              <nav>Fukasaku Sensei</nav>
+              <p class="P_test">Guided Naruto through Mount Myōboku's Senjutsu discipline.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modern Cinematic Footer -->
+    <footer>
+      <img class="footer-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+      <div class="info">
+        <div class="right">
+          <img src="./assets/image/footer.png" alt="Naruto Emblem" />
+        </div>
+        <div class="left">
+          <nav>
+            <a href="https://www.facebook.com/mohamed.el.saadany.529585/" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </nav>
+        </div>
+      </div>
+      <div class="foot">
+        <div class="right">
+          <p>NARUTO © 2025 • The Will of Fire • 木ノ葉隠れの里 • All rights reserved</p>
+        </div>
+        <div class="lefts">
+          <nav><a href="">Legal notice</a></nav>
+          <nav>•</nav>
+          <nav><a href="">Privacy Policy</a></nav>
+          <nav>•</nav>
+          <nav><a href="">Cookies Policy</a></nav>
+          <nav>•</nav>
+          <nav><a href="./main.html">NARUTO.COM</a></nav>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="./assets/JS/JavaScript.js" defer></script>
+</html>

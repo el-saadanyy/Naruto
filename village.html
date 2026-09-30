@@ -1,0 +1,1451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>THE SHINOBI WORLD | The Five Great Villages</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="80 x 60"
+      href="./assets/image/LOGO.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- GSAP & ScrollTrigger Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+
+  <body class="village_page">
+    <!-- Dynamic Cinematic Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="bars"><i class="fa-solid fa-bars"></i></div>
+        <a href="./main.html"><img src="./assets/image/logo1.png" alt="Naruto Logo" /></a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="./main.html">HOME</a></li>
+          <li><a href="./village.html" class="active">VILLAGES</a></li>
+          <li><a href="./clans.html">CLANS</a></li>
+          <li><a href="./shinobi-database.html">SHINOBI ARCHIVE</a></li>
+          <li><a href="./alliance.html">ALLIANCE</a></li>
+        </ul>
+      </div>
+      <div class="log">
+        <a class="abutton" href="./login.html">
+          <button type="button">
+            <i class="fa-regular fa-user fa-xs" style="font-weight: bolder"></i>
+            <nav>LOG IN</nav>
+          </button>
+        </a>
+      </div>
+    </header>
+
+    <!-- SECTION 1: MINIMAL CINEMATIC WORLD VIEW OPENING -->
+    <section class="world-intro-hero">
+      <div class="world-intro-backdrop">
+        <img class="world-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+        <div class="world-intro-aura"></div>
+      </div>
+      <div class="world-intro-content">
+        <div class="world-editorial-tag">
+          <span class="tag-accent-bar"></span>
+          <span class="world-tag-text"><i class="fa-solid fa-compass"></i> 忍の世界 • TERRITORIAL ATLAS</span>
+        </div>
+        <h1 class="world-hero-title">THE SHINOBI WORLD</h1>
+        <div class="world-japanese-sub">忍の世界 • 五大国</div>
+        <p class="world-hero-subtitle">THE FIVE GREAT SHINOBI VILLAGES</p>
+        <div class="world-explore-prompt">
+          <span>SCROLL OR CLICK TO EXPLORE LOCATIONS</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE CINEMATIC SHINOBI WORLD MAP -->
+    <section id="shinobi-world-map" class="shinobi-world-section">
+      <div class="world-ambient-backdrop">
+        <div class="world-radial-aura"></div>
+        <div class="world-grid-overlay"></div>
+      </div>
+
+      <div class="world-map-wrapper">
+        <!-- Master Tactical Canvas & Village Reveal Viewport -->
+        <div class="world-stage-container">
+          <!-- LEFT / CENTER: Interactive Vector World Map Column with Integrated HUD -->
+          <div class="world-map-column">
+            <!-- Tactical Status Label (Directly above the menu) -->
+            <div class="world-hud-status">
+              <span class="hud-radar-blip"></span>
+              <span class="hud-label">SHINOBI WORLD MAP // 5 MAJOR BASTIONS</span>
+            </div>
+
+            <!-- Quick Location Switcher Buttons (Directly above the map) -->
+            <div class="world-location-nav" role="tablist" aria-label="Village Locations">
+              <button type="button" class="loc-nav-btn is-active" data-location="world" role="tab" aria-selected="true" tabindex="0">
+                <span class="btn-dot dot-world"></span>
+                <span class="btn-text">WORLD MAP</span>
+              </button>
+              <button type="button" class="loc-nav-btn" data-location="leaf" role="tab" aria-selected="false" tabindex="-1">
+                <span class="btn-dot dot-leaf"></span>
+                <span class="btn-text">01 LEAF</span>
+              </button>
+              <button type="button" class="loc-nav-btn" data-location="sand" role="tab" aria-selected="false" tabindex="-1">
+                <span class="btn-dot dot-sand"></span>
+                <span class="btn-text">02 SAND</span>
+              </button>
+              <button type="button" class="loc-nav-btn" data-location="rock" role="tab" aria-selected="false" tabindex="-1">
+                <span class="btn-dot dot-rock"></span>
+                <span class="btn-text">03 ROCK</span>
+              </button>
+              <button type="button" class="loc-nav-btn" data-location="cloud" role="tab" aria-selected="false" tabindex="-1">
+                <span class="btn-dot dot-cloud"></span>
+                <span class="btn-text">04 CLOUD</span>
+              </button>
+              <button type="button" class="loc-nav-btn" data-location="mist" role="tab" aria-selected="false" tabindex="-1">
+                <span class="btn-dot dot-mist"></span>
+                <span class="btn-text">05 MIST</span>
+              </button>
+            </div>
+
+            <div class="world-canvas-container" id="map-camera">
+            <svg
+              class="world-map-svg"
+              viewBox="0 0 1000 680"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="Interactive Shinobi World Map"
+            >
+              <!-- Tactical Grid & Coordinate Rings -->
+              <g class="map-grid-layer" opacity="0.35">
+                <circle cx="500" cy="340" r="300" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 6" />
+                <circle cx="500" cy="340" r="200" stroke="rgba(255,255,255,0.08)" />
+                <circle cx="500" cy="340" r="100" stroke="rgba(255,255,255,0.06)" stroke-dasharray="2 4" />
+                <line x1="500" y1="20" x2="500" y2="660" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4 4" />
+                <line x1="20" y1="340" x2="980" y2="340" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4 4" />
+                <rect x="30" y="30" width="940" height="620" stroke="rgba(255,255,255,0.06)" fill="none" />
+                <!-- Coordinates Text -->
+                <text x="45" y="55" fill="rgba(197,160,89,0.5)" font-family="Montserrat" font-size="10" letter-spacing="2">SECTOR NORTH-WEST // N 38°</text>
+                <text x="820" y="55" fill="rgba(197,160,89,0.5)" font-family="Montserrat" font-size="10" letter-spacing="2">EAST ARCHIPELAGO</text>
+                <text x="45" y="635" fill="rgba(197,160,89,0.5)" font-family="Montserrat" font-size="10" letter-spacing="2">GREAT DESERT ZONE</text>
+                <text x="820" y="635" fill="rgba(197,160,89,0.5)" font-family="Montserrat" font-size="10" letter-spacing="2">ISOLATED WATERS</text>
+              </g>
+
+              <!-- Stylized Shinobi Territory Landmasses -->
+              <g class="map-territories-layer">
+                <!-- Land of Earth (North-West) -->
+                <path
+                  class="territory-path path-earth"
+                  d="M 120 80 Q 220 60 360 90 Q 380 190 320 270 Q 200 290 130 220 Z"
+                  fill="rgba(180, 83, 9, 0.08)"
+                  stroke="rgba(180, 83, 9, 0.35)"
+                  stroke-width="1.5"
+                />
+                <text x="210" y="115" class="territory-label">土ノ国 LAND OF EARTH</text>
+
+                <!-- Land of Lightning (North-East) -->
+                <path
+                  class="territory-path path-lightning"
+                  d="M 640 70 Q 820 60 900 130 Q 890 250 780 270 Q 670 230 630 160 Z"
+                  fill="rgba(56, 189, 248, 0.08)"
+                  stroke="rgba(56, 189, 248, 0.35)"
+                  stroke-width="1.5"
+                />
+                <text x="730" y="105" class="territory-label">雷ノ国 LAND OF LIGHTNING</text>
+
+                <!-- Land of Fire (Central-Heart) -->
+                <path
+                  class="territory-path path-fire"
+                  d="M 370 260 Q 520 220 660 270 Q 670 450 540 530 Q 380 500 360 380 Z"
+                  fill="rgba(226, 90, 42, 0.09)"
+                  stroke="rgba(226, 90, 42, 0.45)"
+                  stroke-width="1.5"
+                />
+                <text x="480" y="275" class="territory-label highlight-fire">火ノ国 LAND OF FIRE</text>
+
+                <!-- Land of Wind (South-West) -->
+                <path
+                  class="territory-path path-wind"
+                  d="M 100 320 Q 280 300 340 390 Q 350 560 220 610 Q 90 560 90 440 Z"
+                  fill="rgba(240, 165, 0, 0.08)"
+                  stroke="rgba(240, 165, 0, 0.35)"
+                  stroke-width="1.5"
+                />
+                <text x="170" y="375" class="territory-label">風ノ国 LAND OF WIND</text>
+
+                <!-- Land of Water (Far-East Islands) -->
+                <path
+                  class="territory-path path-water"
+                  d="M 770 360 Q 890 330 940 400 Q 930 540 820 560 Q 750 490 760 410 Z"
+                  fill="rgba(37, 142, 166, 0.08)"
+                  stroke="rgba(37, 142, 166, 0.35)"
+                  stroke-width="1.5"
+                />
+                <text x="820" y="375" class="territory-label">水ノ国 LAND OF WATER</text>
+              </g>
+
+              <!-- World SVG Connection Route Lines -->
+              <g class="map-routes-layer">
+                <!-- Route: Leaf to Sand -->
+                <path id="route-leaf-sand" class="map-route-line" d="M 510 400 Q 370 450 240 470" />
+                <!-- Route: Leaf to Rock -->
+                <path id="route-leaf-rock" class="map-route-line" d="M 510 400 Q 380 290 250 190" />
+                <!-- Route: Leaf to Cloud -->
+                <path id="route-leaf-cloud" class="map-route-line" d="M 510 400 Q 640 280 770 180" />
+                <!-- Route: Leaf to Mist -->
+                <path id="route-leaf-mist" class="map-route-line" d="M 510 400 Q 680 430 850 460" />
+                <!-- Bordering Connections -->
+                <path id="route-rock-sand" class="map-route-sub" d="M 250 190 Q 180 320 240 470" />
+                <path id="route-rock-cloud" class="map-route-sub" d="M 250 190 Q 500 130 770 180" />
+                <path id="route-cloud-mist" class="map-route-sub" d="M 770 180 Q 870 310 850 460" />
+              </g>
+
+              <!-- INTERACTIVE LOCATION NODES -->
+              <!-- 01: HIDDEN LEAF (Center-South: cx 510, cy 400) -->
+              <g class="svg-map-node node-leaf" data-loc="leaf" transform="translate(510, 400)">
+                <circle class="node-sonar" r="28" />
+                <circle class="node-sonar delayed" r="42" />
+                <circle class="node-base-ring" r="14" />
+                <circle class="node-core-dot" r="6" />
+                <text y="-20" text-anchor="middle" class="node-svg-title">01 LEAF</text>
+                <text y="24" text-anchor="middle" class="node-svg-kanji">木ノ葉</text>
+              </g>
+
+              <!-- 02: HIDDEN SAND (South-West: cx 240, cy 470) -->
+              <g class="svg-map-node node-sand" data-loc="sand" transform="translate(240, 470)">
+                <circle class="node-sonar" r="24" />
+                <circle class="node-base-ring" r="13" />
+                <circle class="node-core-dot" r="5" />
+                <text y="-18" text-anchor="middle" class="node-svg-title">02 SAND</text>
+                <text y="22" text-anchor="middle" class="node-svg-kanji">砂隠れ</text>
+              </g>
+
+              <!-- 03: HIDDEN ROCK (North-West: cx 250, cy 190) -->
+              <g class="svg-map-node node-rock" data-loc="rock" transform="translate(250, 190)">
+                <circle class="node-sonar" r="24" />
+                <circle class="node-base-ring" r="13" />
+                <circle class="node-core-dot" r="5" />
+                <text y="-18" text-anchor="middle" class="node-svg-title">03 ROCK</text>
+                <text y="22" text-anchor="middle" class="node-svg-kanji">岩隠れ</text>
+              </g>
+
+              <!-- 04: HIDDEN CLOUD (North-East: cx 770, cy 180) -->
+              <g class="svg-map-node node-cloud" data-loc="cloud" transform="translate(770, 180)">
+                <circle class="node-sonar" r="24" />
+                <circle class="node-base-ring" r="13" />
+                <circle class="node-core-dot" r="5" />
+                <text y="-18" text-anchor="middle" class="node-svg-title">04 CLOUD</text>
+                <text y="22" text-anchor="middle" class="node-svg-kanji">雲隠れ</text>
+              </g>
+
+              <!-- 05: HIDDEN MIST (Far-East: cx 850, cy 460) -->
+              <g class="svg-map-node node-mist" data-loc="mist" transform="translate(850, 460)">
+                <circle class="node-sonar" r="24" />
+                <circle class="node-base-ring" r="13" />
+                <circle class="node-core-dot" r="5" />
+                <text y="-18" text-anchor="middle" class="node-svg-title">05 MIST</text>
+                <text y="22" text-anchor="middle" class="node-svg-kanji">霧隠れ</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+          <!-- RIGHT: Village Visual Frame Reveal & Factual Information Dossier -->
+          <div class="world-dossier-panel">
+            <!-- Village Reveal Visual Frame Deck -->
+            <div class="dossier-media-deck">
+              <!-- Location 00: Shinobi World Overview Frame -->
+              <div class="dossier-frame frame-world is-active" data-location="world">
+                <img class="dossier-img" src="./assets/image/world_map_overview.jpg" alt="The Shinobi World Overview" />
+                <div class="dossier-ambient-overlay"></div>
+                <div class="frame-manga-bracket top-left"></div>
+                <div class="frame-manga-bracket bottom-right"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-compass"></i> SHINOBI ATLAS</div>
+              </div>
+
+              <!-- Location 01: Hidden Leaf Frame -->
+              <div class="dossier-frame frame-leaf" data-location="leaf">
+                <img class="dossier-img" src="./assets/image/leaf viliage.jpg" alt="The Hidden Leaf Village" />
+                <div class="dossier-ambient-overlay"></div>
+                <div class="frame-manga-bracket top-left"></div>
+                <div class="frame-manga-bracket bottom-right"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-fire"></i> KONOHAGAKURE</div>
+              </div>
+
+              <!-- Location 02: Hidden Sand Frame -->
+              <div class="dossier-frame frame-sand" data-location="sand">
+                <img class="dossier-img" src="./assets/image/sand viliage3.jpg" alt="The Hidden Sand Village" />
+                <div class="dossier-ambient-overlay"></div>
+                <div class="frame-manga-bracket top-left"></div>
+                <div class="frame-manga-bracket bottom-right"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-wind"></i> SUNAGAKURE</div>
+              </div>
+
+              <!-- Location 03: Hidden Rock Frame -->
+              <div class="dossier-frame frame-rock" data-location="rock">
+                <img class="dossier-img" src="./assets/image/rockk villiage.jpg" alt="The Hidden Rock Village" />
+                <div class="dossier-ambient-overlay"></div>
+                <div class="frame-manga-bracket top-left"></div>
+                <div class="frame-manga-bracket bottom-right"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-mountain"></i> IWAGAKURE</div>
+              </div>
+
+              <!-- Location 04: Hidden Cloud Frame -->
+              <div class="dossier-frame frame-cloud" data-location="cloud">
+                <img class="dossier-img" src="./assets/image/cloud villiage1.jpg" alt="The Hidden Cloud Village" />
+                <div class="dossier-ambient-overlay"></div>
+                <div class="frame-manga-bracket top-left"></div>
+                <div class="frame-manga-bracket bottom-right"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-bolt"></i> KUMOGAKURE</div>
+              </div>
+
+              <!-- Location 05: Hidden Mist Frame -->
+              <div class="dossier-frame frame-mist" data-location="mist">
+                <img class="dossier-img" src="./assets/image/smoke viliage.jpg" alt="The Hidden Mist Village" />
+                <div class="dossier-ambient-overlay"></div>
+                <div class="frame-manga-bracket top-left"></div>
+                <div class="frame-manga-bracket bottom-right"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-droplet"></i> KIRIGAKURE</div>
+              </div>
+            </div>
+
+            <!-- Factual Information Cards Deck -->
+            <div class="dossier-content-deck">
+              <!-- Card 00: World Overview -->
+              <div class="dossier-card card-world is-active" data-location="world">
+                <div class="dossier-card-badge badge-world">
+                  <span class="d-era-tag">【五大国】 FIVE GREAT SHINOBI NATIONS</span>
+                  <i class="fa-solid fa-compass"></i> TERRITORIAL ATLAS
+                </div>
+                <h2 class="dossier-card-title">SHINOBI WORLD MAP</h2>
+                <div class="dossier-card-kanji">忍の世界 • 五大忍術大国</div>
+                <p class="dossier-card-desc">
+                  The geopolitical landscape dominated by the Five Great Shinobi Nations. Each sovereign territory maintains military supremacy through its Hidden Village and elemental mastery.
+                </p>
+                <div class="dossier-meta-grid">
+                  <span class="d-meta-badge"><i class="fa-solid fa-fire"></i> Fire (火遁)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-wind"></i> Wind (風遁)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-mountain"></i> Earth (土遁)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-bolt"></i> Lightning (雷遁)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-droplet"></i> Water (水遁)</span>
+                </div>
+              </div>
+
+              <!-- Card 01: Leaf -->
+              <div class="dossier-card card-leaf" data-location="leaf">
+                <div class="dossier-card-badge badge-leaf">
+                  <span class="d-era-tag">【火ノ国】 LAND OF FIRE</span>
+                  <i class="fa-solid fa-fire"></i> LOCATION 01
+                </div>
+                <h2 class="dossier-card-title">THE HIDDEN LEAF</h2>
+                <div class="dossier-card-kanji">木ノ葉隠れの里 • 火の意志</div>
+                <p class="dossier-card-desc">
+                  Founded on the eternal Will of Fire and nestled deep within dense forests, Konoha stands as the primary bastion of the Land of Fire and birthplace of legendary Hokage leadership.
+                </p>
+                <div class="dossier-meta-grid">
+                  <span class="d-meta-badge"><i class="fa-solid fa-fire"></i> Fire (火遁)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-crown"></i> Hokage (火影)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-shield"></i> Uchiha / Senju</span>
+                </div>
+              </div>
+
+              <!-- Card 02: Sand -->
+              <div class="dossier-card card-sand" data-location="sand">
+                <div class="dossier-card-badge badge-sand">
+                  <span class="d-era-tag">【風の国】 LAND OF WIND</span>
+                  <i class="fa-solid fa-wind"></i> LOCATION 02
+                </div>
+                <h2 class="dossier-card-title">THE HIDDEN SAND</h2>
+                <div class="dossier-card-kanji">砂隠れの里 • 砂漠の防壁</div>
+                <p class="dossier-card-desc">
+                  Fortified within harsh desert valleys, Sunagakure harnesses the howling winds and arid sands, commanding formidable puppet mastery and resilient Kazekage defense.
+                </p>
+                <div class="dossier-meta-grid">
+                  <span class="d-meta-badge"><i class="fa-solid fa-wind"></i> Wind (風遁)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-crown"></i> Kazekage (風影)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-shield"></i> Kazekage Clan</span>
+                </div>
+              </div>
+
+              <!-- Card 03: Rock -->
+              <div class="dossier-card card-rock" data-location="rock">
+                <div class="dossier-card-badge badge-rock">
+                  <span class="d-era-tag">【土の国】 LAND OF EARTH</span>
+                  <i class="fa-solid fa-mountain"></i> LOCATION 03
+                </div>
+                <h2 class="dossier-card-title">THE HIDDEN ROCK</h2>
+                <div class="dossier-card-kanji">岩隠れの里 • 難攻不落の岩壁</div>
+                <p class="dossier-card-desc">
+                  Surrounded by jagged stone mountain ranges and steep ravines, Iwagakure boasts impenetrable natural ramparts, unyielding stone discipline, and tactical Tsuchikage supremacy.
+                </p>
+                <div class="dossier-meta-grid">
+                  <span class="d-meta-badge"><i class="fa-solid fa-mountain"></i> Earth (土遁)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-crown"></i> Tsuchikage (土影)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-shield"></i> Kamizuru Clan</span>
+                </div>
+              </div>
+
+              <!-- Card 04: Cloud -->
+              <div class="dossier-card card-cloud" data-location="cloud">
+                <div class="dossier-card-badge badge-cloud">
+                  <span class="d-era-tag">【雷の国】 LAND OF LIGHTNING</span>
+                  <i class="fa-solid fa-bolt"></i> LOCATION 04
+                </div>
+                <h2 class="dossier-card-title">THE HIDDEN CLOUD</h2>
+                <div class="dossier-card-kanji">雲隠れの里 • 雷鳴の高嶺</div>
+                <p class="dossier-card-desc">
+                  Perched high upon cloud-shrouded mountain peaks, Kumogakure channels the raw fury of lightning, famed for thunderous Taijutsu swordsmanship and decisive Raikage authority.
+                </p>
+                <div class="dossier-meta-grid">
+                  <span class="d-meta-badge"><i class="fa-solid fa-bolt"></i> Lightning (雷遁)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-crown"></i> Raikage (雷影)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-shield"></i> Yotsuki Clan</span>
+                </div>
+              </div>
+
+              <!-- Card 05: Mist -->
+              <div class="dossier-card card-mist" data-location="mist">
+                <div class="dossier-card-badge badge-mist">
+                  <span class="d-era-tag">【水の国】 LAND OF WATER</span>
+                  <i class="fa-solid fa-droplet"></i> LOCATION 05
+                </div>
+                <h2 class="dossier-card-title">THE HIDDEN MIST</h2>
+                <div class="dossier-card-kanji">霧隠れの里 • 深霧の湖島</div>
+                <p class="dossier-card-desc">
+                  Enveloped by deep oceanic fog and isolated islands, Kirigakure commands the lethal arts of silent killing, water release mastery, and the legendary Seven Ninja Swordsmen.
+                </p>
+                <div class="dossier-meta-grid">
+                  <span class="d-meta-badge"><i class="fa-solid fa-droplet"></i> Water (水遁)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-crown"></i> Mizukage (水影)</span>
+                  <span class="d-meta-badge"><i class="fa-solid fa-shield"></i> Hozuki Clan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FLOATING / STICKY BIJUU POWER INDEX HUD (COLLAPSIBLE)
+         ========================================================================== -->
+    <aside class="bijuu-sticky-hud is-collapsed" id="bijuu-nav-hud" aria-label="Bijuu Navigation Index">
+      <!-- Outer Toggle Trigger Tab -->
+      <button type="button" class="hud-toggle-tab" id="bijuu-hud-toggle" aria-label="Toggle Tailed Beasts Navigation Menu" title="Toggle Tailed Beasts Index">
+        <i class="fa-solid fa-fire-flame-curved hud-tab-icon"></i>
+        <span class="hud-tab-label">TAILED BEASTS</span>
+        <i class="fa-solid fa-chevron-left hud-tab-arrow"></i>
+      </button>
+
+      <div class="hud-inner">
+        <div class="hud-header">
+          <div class="hud-header-info">
+            <span class="hud-dot"></span>
+            <span class="hud-title">TAILED BEASTS // 尾獣</span>
+          </div>
+          <button type="button" class="hud-close-btn" id="bijuu-hud-close" aria-label="Close Tailed Beasts Menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <nav class="hud-links">
+          <a href="#bijuu-shukaku" class="hud-link is-active" data-bijuu="01">
+            <span class="h-num">01</span>
+            <span class="h-name">SHUKAKU</span>
+          </a>
+          <a href="#bijuu-matatabi" class="hud-link" data-bijuu="02">
+            <span class="h-num">02</span>
+            <span class="h-name">MATATABI</span>
+          </a>
+          <a href="#bijuu-isobu" class="hud-link" data-bijuu="03">
+            <span class="h-num">03</span>
+            <span class="h-name">ISOBU</span>
+          </a>
+          <a href="#bijuu-son-goku" class="hud-link" data-bijuu="04">
+            <span class="h-num">04</span>
+            <span class="h-name">SON GOKŪ</span>
+          </a>
+          <a href="#bijuu-kokuo" class="hud-link" data-bijuu="05">
+            <span class="h-num">05</span>
+            <span class="h-name">KOKUŌ</span>
+          </a>
+          <a href="#bijuu-saiken" class="hud-link" data-bijuu="06">
+            <span class="h-num">06</span>
+            <span class="h-name">SAIKEN</span>
+          </a>
+          <a href="#bijuu-chomei" class="hud-link" data-bijuu="07">
+            <span class="h-num">07</span>
+            <span class="h-name">CHŌMEI</span>
+          </a>
+          <a href="#bijuu-gyuki" class="hud-link" data-bijuu="08">
+            <span class="h-num">08</span>
+            <span class="h-name">GYŪKI</span>
+          </a>
+          <a href="#bijuu-kurama" class="hud-link" data-bijuu="09">
+            <span class="h-num">09</span>
+            <span class="h-name">KURAMA</span>
+          </a>
+          <a href="#jinchuriki-vessels-section" class="hud-link hud-vessels-link" data-bijuu="vessels">
+            <span class="h-num"><i class="fa-solid fa-person-burst"></i></span>
+            <span class="h-name">THE VESSELS</span>
+          </a>
+        </nav>
+    </aside>
+
+    <!-- ==========================================================================
+         SECTION 3: CINEMATIC TRANSITION (VILLAGES -> BIJUU)
+         ========================================================================== -->
+    <section class="bijuu-transition-section" id="bijuu-world-transition">
+      <div class="bijuu-transition-backdrop">
+        <img class="bijuu-trans-bg-img" src="./assets/image/bijuu_transition_assembly.png" alt="Nine Tailed Beasts Gathering" />
+        <div class="bijuu-trans-overlay"></div>
+        <div class="bijuu-trans-particles"></div>
+      </div>
+      <div class="bijuu-trans-content">
+        <div class="trans-badge">
+          <span class="badge-accent-bar"></span>
+          <span class="trans-badge-text"><i class="fa-solid fa-fire-flame-curved"></i> PRIMORDIAL POWER • 忍と尾獣の歴史</span>
+        </div>
+        <h2 class="trans-title">THE NINE TAILED BEASTS</h2>
+        <div class="trans-kanji-sub">九大尾獣 • 歴史と国境を形作った生けるチャクラ</div>
+        <p class="trans-lead-quote">
+          "THE FIVE GREAT VILLAGES WERE FORGED BY BOUNDARIES. THE NINE BEASTS FORGED THEIR DESTINY."
+        </p>
+        <p class="trans-desc">
+          Born from the shattered chakra of the Ten-Tails and distributed by the First Hokage at the historic First Five Kage Summit, the Bijuu served as the supreme military deterrents of the shinobi world. Explore the nine living titans and the unbreakable bonds forged with their human vessels.
+        </p>
+        <div class="trans-scroll-down">
+          <span>BEGIN TAILED BEAST CHRONICLE</span>
+          <i class="fa-solid fa-angles-down"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: THE NINE TAILED BEASTS STAGES (01 TO 09)
+         ========================================================================== -->
+
+    <!-- BIJUU 01: SHUKAKU -->
+    <section class="bijuu-stage stage-shukaku" id="bijuu-shukaku">
+      <div class="bijuu-env-aura aura-shukaku"></div>
+      <div class="bijuu-container">
+        <div class="bijuu-header-bar">
+          <div class="bijuu-tail-badge badge-sand-theme">
+            <span class="tail-num">01 TAIL</span>
+            <span class="tail-kanji">一尾 (ICHIBI)</span>
+          </div>
+          <div class="bijuu-domain-tag"><i class="fa-solid fa-wind"></i> DESERT STORM // SUNAGAKURE TRADITION</div>
+        </div>
+
+        <div class="bijuu-stage-grid">
+          <div class="bijuu-visual-col">
+            <div class="bijuu-media-frame manga-panel frame-shukaku">
+              <img class="bijuu-img img-shukaku" src="./assets/image/bijuu_01_shukaku.png" alt="Shukaku the One-Tail" />
+              <div class="bijuu-media-overlay"></div>
+              <div class="bijuu-seal-stamp stamp-sand">
+                <span class="stamp-kanji">砂</span>
+                <span class="stamp-label">DESERT SEAL</span>
+              </div>
+            </div>
+
+            <div class="bijuu-metric-strip manga-panel">
+              <div class="b-metric">
+                <span class="bm-label">ELEMENTAL AFFINITIES</span>
+                <span class="bm-value highlight-gold">WIND (風) • EARTH (土) • MAGNET (磁)</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">COMBAT ARCHETYPE</span>
+                <span class="bm-value">CURSED JUINJUTSU & SAND MANIPULATION</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">DETERRENCE STATUS</span>
+                <span class="bm-value highlight-green">SOVEREIGN DEFENDER OF SUNA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bijuu-intel-col">
+            <span class="bijuu-intel-badge badge-sand-theme"><i class="fa-solid fa-shield-cat"></i> BIJUU DOSSIER // 01</span>
+            <h3 class="bijuu-name">SHUKAKU</h3>
+            <div class="bijuu-kanji-title">一尾・守鶴 (THE SAND INCARNATION)</div>
+            
+            <p class="bijuu-synopsis">
+              The One-Tail of Sunagakure, manifesting as a gigantic tanuki patterned with natural black cursed seal formula (Juinjutsu). Possessing pride as vast as the desert dunes, Shukaku controls sand with supernatural fluidity and unleashes deafening Wind Release air bullets capable of leveling rocky valleys.
+            </p>
+
+            <div class="bijuu-connection-box manga-panel border-sand">
+              <div class="conn-header">
+                <i class="fa-solid fa-link"></i>
+                <span class="conn-title">VILLAGE ✕ JINCHŪRIKI RELATIONSHIP</span>
+              </div>
+              <div class="conn-grid">
+                <div class="conn-item">
+                  <span class="conn-label">HISTORICAL VILLAGE</span>
+                  <span class="conn-val text-gold"><i class="fa-solid fa-wind"></i> Sunagakure (Hidden Sand)</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-label">PRIMARY JINCHŪRIKI</span>
+                  <span class="conn-val text-white">Gaara (5th Kazekage) & Priest Bunpuku</span>
+                </div>
+              </div>
+              <p class="conn-summary">
+                Originally sealed inside a tea kettle and watched over by priest Bunpuku, Shukaku was later transferred into Gaara by Rasa to safeguard Sunagakure's borders. The bond evolved from violent insomnia into an enduring alliance during the Fourth Shinobi World War.
+              </p>
+            </div>
+
+            <div class="bijuu-breakdown-card manga-panel">
+              <h4 class="b-card-title text-gold"><i class="fa-solid fa-bolt"></i> SIGNATURE MYTHOLOGY & COMBAT TRAITS</h4>
+              <div class="bijuu-traits-grid">
+                <div class="trait-node"><strong>Magnet Release (Jiton):</strong> Harnesses innate magnetic chakra infused with ancient cursed seal scripts.</div>
+                <div class="trait-node"><strong>Sand Bullet Barrage:</strong> Pressurizes desert sand into devastating pneumatic artillery strikes.</div>
+                <div class="trait-node"><strong>Desert Layered Imperial Funeral:</strong> Encases colossal targets in miles of pressurized sand pyramids.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIJUU 02: MATATABI -->
+    <section class="bijuu-stage stage-matatabi" id="bijuu-matatabi">
+      <div class="bijuu-env-aura aura-matatabi"></div>
+      <div class="bijuu-container">
+        <div class="bijuu-header-bar">
+          <div class="bijuu-tail-badge badge-blue-theme">
+            <span class="tail-num">02 TAILS</span>
+            <span class="tail-kanji">二尾 (NIBI)</span>
+          </div>
+          <div class="bijuu-domain-tag"><i class="fa-solid fa-fire"></i> BLUE FLAME // KUMOGAKURE ALLOCATION</div>
+        </div>
+
+        <div class="bijuu-stage-grid">
+          <div class="bijuu-visual-col">
+            <div class="bijuu-media-frame manga-panel frame-matatabi">
+              <img class="bijuu-img img-matatabi" src="./assets/image/bijuu_02_matatabi.png" alt="Matatabi the Two-Tails" />
+              <div class="bijuu-media-overlay"></div>
+              <div class="bijuu-seal-stamp stamp-blue">
+                <span class="stamp-kanji">雷</span>
+                <span class="stamp-label">CLOUD EMBLEM</span>
+              </div>
+            </div>
+
+            <div class="bijuu-metric-strip manga-panel">
+              <div class="b-metric">
+                <span class="bm-label">ELEMENTAL AFFINITIES</span>
+                <span class="bm-value highlight-cyan">FIRE (火遁 - BLUE FLAME)</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">COMBAT ARCHETYPE</span>
+                <span class="bm-value">FLEET AGILITY & SCORCHING INCINERATION</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">DETERRENCE STATUS</span>
+                <span class="bm-value highlight-cyan">SPEED VANGUARD OF KUMOGAKURE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bijuu-intel-col">
+            <span class="bijuu-intel-badge badge-blue-theme"><i class="fa-solid fa-paw"></i> BIJUU DOSSIER // 02</span>
+            <h3 class="bijuu-name text-cyan">MATATABI</h3>
+            <div class="bijuu-kanji-title text-cyan">二尾・又旅 (THE BLUE FLAME MONSTER CAT)</div>
+            
+            <p class="bijuu-synopsis">
+              A colossal feline beast composed entirely of engulfing cobalt-blue spiritual flames trimmed with black markings. Known as the Monster Cat (Bakeneko), Matatabi is renowned for its courteous speech, polite demeanor, and unmatched swiftness across difficult mountainous terrain.
+            </p>
+
+            <div class="bijuu-connection-box manga-panel border-cyan">
+              <div class="conn-header">
+                <i class="fa-solid fa-link"></i>
+                <span class="conn-title">VILLAGE ✕ JINCHŪRIKI RELATIONSHIP</span>
+              </div>
+              <div class="conn-grid">
+                <div class="conn-item">
+                  <span class="conn-label">HISTORICAL VILLAGE</span>
+                  <span class="conn-val text-cyan"><i class="fa-solid fa-bolt"></i> Kumogakure (Hidden Cloud)</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-label">PRIMARY JINCHŪRIKI</span>
+                  <span class="conn-val text-white">Yugito Nii (Kumo Jōnin Master)</span>
+                </div>
+              </div>
+              <p class="conn-summary">
+                Allocated to the Land of Lightning during the First Kage Summit. Through relentless tactical discipline, Yugito Nii achieved voluntary full-body transformation, earning high respect as Kumogakure's pride before facing Hidan and Kakuzu.
+              </p>
+            </div>
+
+            <div class="bijuu-breakdown-card manga-panel">
+              <h4 class="b-card-title text-cyan"><i class="fa-solid fa-fire-burner"></i> SIGNATURE MYTHOLOGY & COMBAT TRAITS</h4>
+              <div class="bijuu-traits-grid">
+                <div class="trait-node"><strong>Ghostly Blue Fireball:</strong> Fires concentrated blue blaze spheres that explode into blazing pyres.</div>
+                <div class="trait-node"><strong>Flexible Claws & Agility:</strong> Shreds solid stone with flexible fiery claws while moving at blinding speeds.</div>
+                <div class="trait-node"><strong>Polite Demeanor:</strong> Unlike hostile beasts, Matatabi speaks with refined honorifics to fellow spirits.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIJUU 03: ISOBU -->
+    <section class="bijuu-stage stage-isobu" id="bijuu-isobu">
+      <div class="bijuu-env-aura aura-isobu"></div>
+      <div class="bijuu-container">
+        <div class="bijuu-header-bar">
+          <div class="bijuu-tail-badge badge-mist-theme">
+            <span class="tail-num">03 TAILS</span>
+            <span class="tail-kanji">三尾 (SANBI)</span>
+          </div>
+          <div class="bijuu-domain-tag"><i class="fa-solid fa-water"></i> OCEAN DEEPS // KIRIGAKURE MILITARY HISTORY</div>
+        </div>
+
+        <div class="bijuu-stage-grid">
+          <div class="bijuu-visual-col">
+            <div class="bijuu-media-frame manga-panel frame-isobu">
+              <img class="bijuu-img img-isobu" src="./assets/image/bijuu_03_isobu.png" alt="Isobu the Three-Tails" />
+              <div class="bijuu-media-overlay"></div>
+              <div class="bijuu-seal-stamp stamp-mist">
+                <span class="stamp-kanji">霧</span>
+                <span class="stamp-label">MIST EMBLEM</span>
+              </div>
+            </div>
+
+            <div class="bijuu-metric-strip manga-panel">
+              <div class="b-metric">
+                <span class="bm-label">ELEMENTAL AFFINITIES</span>
+                <span class="bm-value highlight-cyan">WATER (水遁) • CORAL (珊瑚) • ILLUSION MIST</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">COMBAT ARCHETYPE</span>
+                <span class="bm-value">HEAVY ARMORED SHELL & SUBMERGED FORCE</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">DETERRENCE STATUS</span>
+                <span class="bm-value highlight-cyan">MARITIME GUARDIAN OF THE MIST</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bijuu-intel-col">
+            <span class="bijuu-intel-badge badge-mist-theme"><i class="fa-solid fa-water"></i> BIJUU DOSSIER // 03</span>
+            <h3 class="bijuu-name text-mist">ISOBU</h3>
+            <div class="bijuu-kanji-title text-mist">三尾・磯撫 (THE GIANT ARMORED TURTLE)</div>
+            
+            <p class="bijuu-synopsis">
+              A massive sea-dwelling turtle enveloped by an impenetrable spiky carapace and crab-like plating. Isobu rules the deep waters, generating tidal surges and hallucinogenic mist capable of confusing entire enemy divisions before crushing them in a rolling shell charge.
+            </p>
+
+            <div class="bijuu-connection-box manga-panel border-mist">
+              <div class="conn-header">
+                <i class="fa-solid fa-link"></i>
+                <span class="conn-title">VILLAGE ✕ JINCHŪRIKI RELATIONSHIP</span>
+              </div>
+              <div class="conn-grid">
+                <div class="conn-item">
+                  <span class="conn-label">HISTORICAL VILLAGE</span>
+                  <span class="conn-val text-mist"><i class="fa-solid fa-droplet"></i> Kirigakure (Hidden Mist)</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-label">PRIMARY JINCHŪRIKI</span>
+                  <span class="conn-val text-white">Yagura Karatachi (4th Mizukage) & Rin Nohara</span>
+                </div>
+              </div>
+              <p class="conn-summary">
+                Forced into Rin Nohara in a covert plot during the Third Shinobi War, Isobu later bonded with Fourth Mizukage Yagura Karatachi, who mastered full mutual control before being manipulated in the shadows by Obito Uchiha.
+              </p>
+            </div>
+
+            <div class="bijuu-breakdown-card manga-panel">
+              <h4 class="b-card-title text-mist"><i class="fa-solid fa-shield"></i> SIGNATURE MYTHOLOGY & COMBAT TRAITS</h4>
+              <div class="bijuu-traits-grid">
+                <div class="trait-node"><strong>Coral Palm Infliction:</strong> Sprouts dense coral formations on targets to completely freeze their movement.</div>
+                <div class="trait-node"><strong>Shadow Rolling Shell:</strong> Curls into a colossal spiked sphere to crush entire coastlines.</div>
+                <div class="trait-node"><strong>Illusion Mist Deception:</strong> Releases dense fog that traps pursuers in waking nightmare genjutsu.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIJUU 04: SON GOKŪ -->
+    <section class="bijuu-stage stage-son-goku" id="bijuu-son-goku">
+      <div class="bijuu-env-aura aura-son-goku"></div>
+      <div class="bijuu-container">
+        <div class="bijuu-header-bar">
+          <div class="bijuu-tail-badge badge-lava-theme">
+            <span class="tail-num">04 TAILS</span>
+            <span class="tail-kanji">四尾 (YONBI)</span>
+          </div>
+          <div class="bijuu-domain-tag"><i class="fa-solid fa-volcano"></i> VOLCANIC MAGMA // IWAGAKURE HERITAGE</div>
+        </div>
+
+        <div class="bijuu-stage-grid">
+          <div class="bijuu-visual-col">
+            <div class="bijuu-media-frame manga-panel frame-son-goku">
+              <img class="bijuu-img img-son-goku" src="./assets/image/bijuu_04_son_goku.png" alt="Son Goku the Four-Tails" />
+              <div class="bijuu-media-overlay"></div>
+              <div class="bijuu-seal-stamp stamp-lava">
+                <span class="stamp-kanji">岩</span>
+                <span class="stamp-label">STONE EMBLEM</span>
+              </div>
+            </div>
+
+            <div class="bijuu-metric-strip manga-panel">
+              <div class="b-metric">
+                <span class="bm-label">ELEMENTAL AFFINITIES</span>
+                <span class="bm-value highlight-red">FIRE (火) + EARTH (土) = LAVA RELEASE (熔遁)</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">COMBAT ARCHETYPE</span>
+                <span class="bm-value">MOLTEN CRAGS & TITANIC PHYSICAL BRAWLING</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">DETERRENCE STATUS</span>
+                <span class="bm-value highlight-red">VOLCANIC VANGUARD OF IWAGAKURE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bijuu-intel-col">
+            <span class="bijuu-intel-badge badge-lava-theme"><i class="fa-solid fa-volcano"></i> BIJUU DOSSIER // 04</span>
+            <h3 class="bijuu-name text-lava">SON GOKŪ</h3>
+            <div class="bijuu-kanji-title text-lava">四尾・孫悟空 (THE MONKEY KING OF SAGE CAVES)</div>
+            
+            <p class="bijuu-synopsis">
+              The proud Monkey King (Suitentei) of the Water Screen Cave. Son Gokū resembles a red-furred, green-skinned gorilla wielding the devastating power of Lava Release (Yōton), capable of spitting molten boulders and incinerating entire battlefield sectors.
+            </p>
+
+            <div class="bijuu-connection-box manga-panel border-lava">
+              <div class="conn-header">
+                <i class="fa-solid fa-link"></i>
+                <span class="conn-title">VILLAGE ✕ JINCHŪRIKI RELATIONSHIP</span>
+              </div>
+              <div class="conn-grid">
+                <div class="conn-item">
+                  <span class="conn-label">HISTORICAL VILLAGE</span>
+                  <span class="conn-val text-lava"><i class="fa-solid fa-mountain"></i> Iwagakure (Hidden Stone)</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-label">PRIMARY JINCHŪRIKI</span>
+                  <span class="conn-val text-white">Rōshi (Veteran Hermit Shinobi)</span>
+                </div>
+              </div>
+              <p class="conn-summary">
+                Allocated to Iwagakure during the First Kage Summit. Rōshi spent over forty years wandering as an ascetic hermit attempting to understand the beast's true essence before discovering mutual respect alongside Naruto Uzumaki.
+              </p>
+            </div>
+
+            <div class="bijuu-breakdown-card manga-panel">
+              <h4 class="b-card-title text-lava"><i class="fa-solid fa-mountain"></i> SIGNATURE MYTHOLOGY & COMBAT TRAITS</h4>
+              <div class="bijuu-traits-grid">
+                <div class="trait-node"><strong>Lava Release Scorching:</strong> Melts subterranean rock into torrents of boiling magma at will.</div>
+                <div class="trait-node"><strong>Monkey King Taijutsu:</strong> Deploys colossal brute strength to grapple even the largest summon monsters.</div>
+                <div class="trait-node"><strong>Great Flower-Fruit Mountain:</strong> Detonates a volcanic eruption directly underneath enemy forces.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIJUU 05: KOKUŌ -->
+    <section class="bijuu-stage stage-kokuo" id="bijuu-kokuo">
+      <div class="bijuu-env-aura aura-kokuo"></div>
+      <div class="bijuu-container">
+        <div class="bijuu-header-bar">
+          <div class="bijuu-tail-badge badge-steam-theme">
+            <span class="tail-num">05 TAILS</span>
+            <span class="tail-kanji">五尾 (GOBI)</span>
+          </div>
+          <div class="bijuu-domain-tag"><i class="fa-solid fa-cloud-arrow-up"></i> STEAM RAMMING // IWAGAKURE MILITARY HEAVYWEIGHT</div>
+        </div>
+
+        <div class="bijuu-stage-grid">
+          <div class="bijuu-visual-col">
+            <div class="bijuu-media-frame manga-panel frame-kokuo">
+              <img class="bijuu-img img-kokuo" src="./assets/image/bijuu_05_kokuo.png" alt="Kokuo the Five-Tails" />
+              <div class="bijuu-media-overlay"></div>
+              <div class="bijuu-seal-stamp stamp-steam">
+                <span class="stamp-kanji">蒸</span>
+                <span class="stamp-label">STEAM EMBLEM</span>
+              </div>
+            </div>
+
+            <div class="bijuu-metric-strip manga-panel">
+              <div class="b-metric">
+                <span class="bm-label">ELEMENTAL AFFINITIES</span>
+                <span class="bm-value highlight-steam">WATER (水) + FIRE (火) = BOIL RELEASE (沸遁)</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">COMBAT ARCHETYPE</span>
+                <span class="bm-value">VAPOUR PROPULSION & UNRIVALED HORN CHARGES</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">DETERRENCE STATUS</span>
+                <span class="bm-value highlight-steam">HEAVY IMPACT DETERRENT OF STONE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bijuu-intel-col">
+            <span class="bijuu-intel-badge badge-steam-theme"><i class="fa-solid fa-horse"></i> BIJUU DOSSIER // 05</span>
+            <h3 class="bijuu-name text-steam">KOKUŌ</h3>
+            <div class="bijuu-kanji-title text-steam">五尾・穆王 (THE WHITE ILLUSION STEED)</div>
+            
+            <p class="bijuu-synopsis">
+              A magnificent hybrid beast possessing the body of a white horse and the crested head of a dolphin. Kokuō channels Boil Release (Futton) to heat its chakra to boiling point, generating colossal steam propulsion that drives its horn charges through steel barriers.
+            </p>
+
+            <div class="bijuu-connection-box manga-panel border-steam">
+              <div class="conn-header">
+                <i class="fa-solid fa-link"></i>
+                <span class="conn-title">VILLAGE ✕ JINCHŪRIKI RELATIONSHIP</span>
+              </div>
+              <div class="conn-grid">
+                <div class="conn-item">
+                  <span class="conn-label">HISTORICAL VILLAGE</span>
+                  <span class="conn-val text-steam"><i class="fa-solid fa-mountain"></i> Iwagakure (Hidden Stone)</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-label">PRIMARY JINCHŪRIKI</span>
+                  <span class="conn-val text-white">Han (The Steam Shinobi Titan)</span>
+                </div>
+              </div>
+              <p class="conn-summary">
+                Partnered with Han in Iwagakure, Kokuō utilized steam armor to become a living battering ram during border skirmishes. Following its release after the Fourth War, Kokuō chose a secluded, peaceful forest existence away from human conflict.
+              </p>
+            </div>
+
+            <div class="bijuu-breakdown-card manga-panel">
+              <h4 class="b-card-title text-steam"><i class="fa-solid fa-wind"></i> SIGNATURE MYTHOLOGY & COMBAT TRAITS</h4>
+              <div class="bijuu-traits-grid">
+                <div class="trait-node"><strong>Boil Release Propelled Charge:</strong> Melts steam pressure to accelerate ramming horns with mountain-shattering force.</div>
+                <div class="trait-node"><strong>Horn Breaker Impact:</strong> Physical impacts capable of sending Eight-Tails skidding hundreds of meters.</div>
+                <div class="trait-node"><strong>Quiet Pride:</strong> Values calm natural balance, communicating softly and avoiding pointless war.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIJUU 06: SAIKEN -->
+    <section class="bijuu-stage stage-saiken" id="bijuu-saiken">
+      <div class="bijuu-env-aura aura-saiken"></div>
+      <div class="bijuu-container">
+        <div class="bijuu-header-bar">
+          <div class="bijuu-tail-badge badge-acid-theme">
+            <span class="tail-num">06 TAILS</span>
+            <span class="tail-kanji">六尾 (ROKUBI)</span>
+          </div>
+          <div class="bijuu-domain-tag"><i class="fa-solid fa-vial"></i> CORROSIVE ACID // KIRIGAKURE REAGENTS</div>
+        </div>
+
+        <div class="bijuu-stage-grid">
+          <div class="bijuu-visual-col">
+            <div class="bijuu-media-frame manga-panel frame-saiken">
+              <img class="bijuu-img img-saiken" src="./assets/image/bijuu_06_saiken.png" alt="Saiken the Six-Tails" />
+              <div class="bijuu-media-overlay"></div>
+              <div class="bijuu-seal-stamp stamp-acid">
+                <span class="stamp-kanji">酸</span>
+                <span class="stamp-label">ACID EMBLEM</span>
+              </div>
+            </div>
+
+            <div class="bijuu-metric-strip manga-panel">
+              <div class="b-metric">
+                <span class="bm-label">ELEMENTAL AFFINITIES</span>
+                <span class="bm-value highlight-acid">WATER (水遁) • CORROSIVE ALKALI MUKUS</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">COMBAT ARCHETYPE</span>
+                <span class="bm-value">CORROSIVE GAS & SLIME ABSORPTION</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">DETERRENCE STATUS</span>
+                <span class="bm-value highlight-acid">CORROSIVE FLUID ASSET OF THE MIST</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bijuu-intel-col">
+            <span class="bijuu-intel-badge badge-acid-theme"><i class="fa-solid fa-flask"></i> BIJUU DOSSIER // 06</span>
+            <h3 class="bijuu-name text-acid">SAIKEN</h3>
+            <div class="bijuu-kanji-title text-acid">六尾・犀犬 (THE GIANT SLIME SLUG)</div>
+            
+            <p class="bijuu-synopsis">
+              A colossal, white, six-tailed slug covered in a thick layer of viscous, corrosive secretion. Saiken exudes lethal acidic gas and caustic slime that instantaneously dissolves flesh, steel armor, and ninjutsu barriers on contact.
+            </p>
+
+            <div class="bijuu-connection-box manga-panel border-acid">
+              <div class="conn-header">
+                <i class="fa-solid fa-link"></i>
+                <span class="conn-title">VILLAGE ✕ JINCHŪRIKI RELATIONSHIP</span>
+              </div>
+              <div class="conn-grid">
+                <div class="conn-item">
+                  <span class="conn-label">HISTORICAL VILLAGE</span>
+                  <span class="conn-val text-acid"><i class="fa-solid fa-droplet"></i> Kirigakure (Hidden Mist)</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-label">PRIMARY JINCHŪRIKI</span>
+                  <span class="conn-val text-white">Utakata (Rogue Bubble Shinobi)</span>
+                </div>
+              </div>
+              <p class="conn-summary">
+                Sealed within Utakata in Kirigakure, a tragic misunderstanding with master Harusame caused Utakata to flee into exile. Utakata fused Saiken's corrosive fluids with Soap Bubble Ninjutsu (Shabondama) before being captured by Pain's Six Paths.
+              </p>
+            </div>
+
+            <div class="bijuu-breakdown-card manga-panel">
+              <h4 class="b-card-title text-acid"><i class="fa-solid fa-biohazard"></i> SIGNATURE MYTHOLOGY & COMBAT TRAITS</h4>
+              <div class="bijuu-traits-grid">
+                <div class="trait-node"><strong>Corrosive Gas Spray:</strong> Expels caustic vapor capable of melting entire fortress gates in seconds.</div>
+                <div class="trait-node"><strong>Viscous Mucus Trapping:</strong> Exudes adhesive fluid to anchor, disarm, and suffocate enemy vanguards.</div>
+                <div class="trait-node"><strong>Soft Elastic Form:</strong> Absorbs tremendous kinetic impacts by deforming its gelatinous mass.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIJUU 07: CHŌMEI -->
+    <section class="bijuu-stage stage-chomei" id="bijuu-chomei">
+      <div class="bijuu-env-aura aura-chomei"></div>
+      <div class="bijuu-container">
+        <div class="bijuu-header-bar">
+          <div class="bijuu-tail-badge badge-forest-theme">
+            <span class="tail-num">07 TAILS</span>
+            <span class="tail-kanji">七尾 (NANABI / SHICHIBI)</span>
+          </div>
+          <div class="bijuu-domain-tag"><i class="fa-solid fa-feather-pointed"></i> AERIAL FORESTS // TAKIGAKURE SOVEREIGNTY</div>
+        </div>
+
+        <div class="bijuu-stage-grid">
+          <div class="bijuu-visual-col">
+            <div class="bijuu-media-frame manga-panel frame-chomei">
+              <img class="bijuu-img img-chomei" src="./assets/image/bijuu_07_chomei.png" alt="Chomei the Seven-Tails" />
+              <div class="bijuu-media-overlay"></div>
+              <div class="bijuu-seal-stamp stamp-forest">
+                <span class="stamp-kanji">滝</span>
+                <span class="stamp-label">WATERFALL EMBLEM</span>
+              </div>
+            </div>
+
+            <div class="bijuu-metric-strip manga-panel">
+              <div class="b-metric">
+                <span class="bm-label">ELEMENTAL AFFINITIES</span>
+                <span class="bm-value highlight-forest">WIND (風遁) • BLINDING SCALE PHOSPHOR</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">COMBAT ARCHETYPE</span>
+                <span class="bm-value">HIGH-ALTITUDE FLIGHT & INSECT CHITIN STRIKES</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">DETERRENCE STATUS</span>
+                <span class="bm-value highlight-forest">SOLE BIJUU ALLOCATED OUTSIDE 5 NATIONS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bijuu-intel-col">
+            <span class="bijuu-intel-badge badge-forest-theme"><i class="fa-solid fa-bug"></i> BIJUU DOSSIER // 07</span>
+            <h3 class="bijuu-name text-forest">CHŌMEI</h3>
+            <div class="bijuu-kanji-title text-forest">七尾・重明 (THE LUCKY SEVEN KABUTOMUSHI)</div>
+            
+            <p class="bijuu-synopsis">
+              Resembling a colossal armored rhinoceros beetle with six insect wings and one tail making up its seven appendages. Nicknamed "Lucky Seven Chōmei", it is the only Bijuu capable of sustained supersonic flight, firing luminous blinding scale powders.
+            </p>
+
+            <div class="bijuu-connection-box manga-panel border-forest">
+              <div class="conn-header">
+                <i class="fa-solid fa-link"></i>
+                <span class="conn-title">VILLAGE ✕ JINCHŪRIKI RELATIONSHIP</span>
+              </div>
+              <div class="conn-grid">
+                <div class="conn-item">
+                  <span class="conn-label">HISTORICAL VILLAGE</span>
+                  <span class="conn-val text-forest"><i class="fa-solid fa-water"></i> Takigakure (Hidden Waterfall)</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-label">PRIMARY JINCHŪRIKI</span>
+                  <span class="conn-val text-white">Fū (The Spirited Kunoichi)</span>
+                </div>
+              </div>
+              <p class="conn-summary">
+                The sole Bijuu possessed by a minor hidden village (Takigakure). Fū grew up sheltered by village leader Shibuki and sought to befriend one hundred allies during the joint Chūnin Exams before encountering the Akatsuki.
+              </p>
+            </div>
+
+            <div class="bijuu-breakdown-card manga-panel">
+              <h4 class="b-card-title text-forest"><i class="fa-solid fa-angles-up"></i> SIGNATURE MYTHOLOGY & COMBAT TRAITS</h4>
+              <div class="bijuu-traits-grid">
+                <div class="trait-node"><strong>Blinding Scale Powder:</strong> Releases radiant scales that blind enemy ocular sensors and Sharingan.</div>
+                <div class="trait-node"><strong>Supersonic Aerial Ramming:</strong> Dives at extreme velocities using razor-hard beetle horns.</div>
+                <div class="trait-node"><strong>Cocoon Regeneration:</strong> Weaves dense chakra threads to form protective healing cocoons.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIJUU 08: GYŪKI -->
+    <section class="bijuu-stage stage-gyuki" id="bijuu-gyuki">
+      <div class="bijuu-env-aura aura-gyuki"></div>
+      <div class="bijuu-container">
+        <div class="bijuu-header-bar">
+          <div class="bijuu-tail-badge badge-cloud-theme">
+            <span class="tail-num">08 TAILS</span>
+            <span class="tail-kanji">八尾 (HACHIBI)</span>
+          </div>
+          <div class="bijuu-domain-tag"><i class="fa-solid fa-bolt"></i> THUNDER PEAKS // KUMOGAKURE PILLAR</div>
+        </div>
+
+        <div class="bijuu-stage-grid">
+          <div class="bijuu-visual-col">
+            <div class="bijuu-media-frame manga-panel frame-gyuki">
+              <img class="bijuu-img img-gyuki" src="./assets/image/bijuu_08_gyuki.png" alt="Gyuki the Eight-Tails" />
+              <div class="bijuu-media-overlay"></div>
+              <div class="bijuu-seal-stamp stamp-cloud">
+                <span class="stamp-kanji">雲</span>
+                <span class="stamp-label">CLOUD EMBLEM</span>
+              </div>
+            </div>
+
+            <div class="bijuu-metric-strip manga-panel">
+              <div class="b-metric">
+                <span class="bm-label">ELEMENTAL AFFINITIES</span>
+                <span class="bm-value highlight-cyan">SEALING INK (墨) • LIGHTNING INFUSION</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">COMBAT ARCHETYPE</span>
+                <span class="bm-value">TITANIC MUSCLE BRAWLING & CONTINENTAL TAIL TWISTERS</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">DETERRENCE STATUS</span>
+                <span class="bm-value highlight-cyan">SUPREME TACTICAL ANCHOR OF KUMO</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bijuu-intel-col">
+            <span class="bijuu-intel-badge badge-cloud-theme"><i class="fa-solid fa-bolt-lightning"></i> BIJUU DOSSIER // 08</span>
+            <h3 class="bijuu-name text-kumo">GYŪKI</h3>
+            <div class="bijuu-kanji-title text-kumo">八尾・牛鬼 (THE GIANT OX-CEPHALOPOD)</div>
+            
+            <p class="bijuu-synopsis">
+              A colossal cephalopod-ox hybrid (Ushi-oni) possessing four muscular horns and eight massive octopus tentacles for tails. Boasting monumental strength second only to Kurama, Gyūki commands blinding ink seals and colossal 360-degree tail twisters.
+            </p>
+
+            <div class="bijuu-connection-box manga-panel border-cloud">
+              <div class="conn-header">
+                <i class="fa-solid fa-link"></i>
+                <span class="conn-title">VILLAGE ✕ JINCHŪRIKI RELATIONSHIP</span>
+              </div>
+              <div class="conn-grid">
+                <div class="conn-item">
+                  <span class="conn-label">HISTORICAL VILLAGE</span>
+                  <span class="conn-val text-kumo"><i class="fa-solid fa-bolt"></i> Kumogakure (Hidden Cloud)</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-label">PRIMARY JINCHŪRIKI</span>
+                  <span class="conn-val text-white">Killer B (Brother of the 4th Raikage) & Blue B</span>
+                </div>
+              </div>
+              <p class="conn-summary">
+                After multiple tragic host failures in Kumogakure, young Killer B matched Gyūki's spirit with pure mutual brotherhood, becoming the world's most renowned Perfect Jinchūriki and master instructor of Tailed Beast cooperation.
+              </p>
+            </div>
+
+            <div class="bijuu-breakdown-card manga-panel">
+              <h4 class="b-card-title text-kumo"><i class="fa-solid fa-tornado"></i> SIGNATURE MYTHOLOGY & COMBAT TRAITS</h4>
+              <div class="bijuu-traits-grid">
+                <div class="trait-node"><strong>Tailed Beast Eight Twister:</strong> Spins octopus tails with hurricane force to flatten surrounding forests.</div>
+                <div class="trait-node"><strong>Sealing Ink Matrix:</strong> Expels high-density ink clones that bind and immobilize enemy squads.</div>
+                <div class="trait-node"><strong>Rapid Regenerative Tentacles:</strong> Severed tentacles regrow swiftly and can serve as decoy body doubles.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIJUU 09: KURAMA -->
+    <section class="bijuu-stage stage-kurama" id="bijuu-kurama">
+      <div class="bijuu-env-aura aura-kurama"></div>
+      <div class="bijuu-container">
+        <div class="bijuu-header-bar">
+          <div class="bijuu-tail-badge badge-fire-theme">
+            <span class="tail-num">09 TAILS</span>
+            <span class="tail-kanji">九尾 (KYŪBI)</span>
+          </div>
+          <div class="bijuu-domain-tag"><i class="fa-solid fa-fire"></i> SUPREME CHAKRA // KONOHAGAKURE PILLAR</div>
+        </div>
+
+        <div class="bijuu-stage-grid">
+          <div class="bijuu-visual-col">
+            <div class="bijuu-media-frame manga-panel frame-kurama">
+              <img class="bijuu-img img-kurama" src="./assets/image/bijuu_09_kurama.png?v=3" alt="Kurama the Nine-Tails" />
+              <div class="bijuu-media-overlay"></div>
+              <div class="bijuu-seal-stamp stamp-fire">
+                <span class="stamp-kanji">木</span>
+                <span class="stamp-label">LEAF SUPREME</span>
+              </div>
+            </div>
+
+            <div class="bijuu-metric-strip manga-panel">
+              <div class="b-metric">
+                <span class="bm-label">ELEMENTAL AFFINITIES</span>
+                <span class="bm-value highlight-gold">FIRE (火) • WIND (風) • PRIMORDIAL LIFE FORCE CHAKRA</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">COMBAT ARCHETYPE</span>
+                <span class="bm-value">CONTINENTAL CALAMITY & PLANETARY DETONATIONS</span>
+              </div>
+              <div class="b-metric">
+                <span class="bm-label">DETERRENCE STATUS</span>
+                <span class="bm-value highlight-gold">SUPREME POWER OF THE SHINOBI WORLD</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bijuu-intel-col">
+            <span class="bijuu-intel-badge badge-fire-theme"><i class="fa-solid fa-fire"></i> BIJUU DOSSIER // 09</span>
+            <h3 class="bijuu-name">KURAMA</h3>
+            <div class="bijuu-kanji-title">九尾・九喇嘛 (THE NINE-TAILED DEMON FOX)</div>
+            
+            <p class="bijuu-synopsis">
+              The strongest of the nine Tailed Beasts, Kurama is a colossal nine-tailed Kitsune whose chakra reserves dwarf the other eight beasts combined. Once viewed as an avatar of hatred, Kurama forged a historic bond with Naruto Uzumaki, becoming the ultimate savior of the shinobi world.
+            </p>
+
+            <div class="bijuu-connection-box manga-panel border-leaf">
+              <div class="conn-header">
+                <i class="fa-solid fa-link"></i>
+                <span class="conn-title">VILLAGE ✕ JINCHŪRIKI RELATIONSHIP</span>
+              </div>
+              <div class="conn-grid">
+                <div class="conn-item">
+                  <span class="conn-label">HISTORICAL VILLAGE</span>
+                  <span class="conn-val text-gold"><i class="fa-solid fa-leaf"></i> Konohagakure (Hidden Leaf)</span>
+                </div>
+                <div class="conn-item">
+                  <span class="conn-label">PRIMARY JINCHŪRIKI</span>
+                  <span class="conn-val text-white">Naruto Uzumaki, Kushina, Mito, Minato</span>
+                </div>
+              </div>
+              <p class="conn-summary">
+                Originally sealed by Hashirama into Mito Uzumaki, transferred to Kushina, and divided into Yin/Yang halves by Minato Namikaze. Through Naruto's unwavering empathy, Kurama shed centuries of hatred to unlock Kurama Mode and save reality from Kaguya Ōtsutsuki.
+              </p>
+            </div>
+
+            <div class="bijuu-breakdown-card manga-panel">
+              <h4 class="b-card-title text-gold"><i class="fa-solid fa-gear"></i> SIGNATURE MYTHOLOGY & COMBAT TRAITS</h4>
+              <div class="bijuu-traits-grid">
+                <div class="trait-node"><strong>Negative Emotion Sensing:</strong> Detects malicious intent and hidden chakra across entire continents.</div>
+                <div class="trait-node"><strong>Planetary Tailed Beast Ball:</strong> Obliterates entire mountain ranges with a single super-compressed blast.</div>
+                <div class="trait-node"><strong>Baryon Mode Fusion:</strong> Fuses Naruto and Kurama's chakra nuclei into raw nuclear energy to drain rival lifespans.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: THE VESSELS (JINCHŪRIKI CINEMATIC CHARACTER GALLERY)
+         ========================================================================== -->
+    <section class="jinchuriki-section" id="jinchuriki-vessels-section">
+      <div class="jinchuriki-ambient-aura" id="vessel-ambient-aura"></div>
+      <div class="jinchuriki-container">
+        <!-- Gallery Header -->
+        <div class="jinchuriki-header text-center">
+          <div class="section-tag-gold">
+            <i class="fa-solid fa-people-arrows"></i> HUMAN VESSELS • 人柱力の系譜
+          </div>
+          <h2 class="section-title-white">THE VESSELS OF DESTINY</h2>
+          <div class="section-japanese-sub">人柱力 • 尾獣を宿し世界を支えた忍たち</div>
+          <p class="section-lead-desc">
+            Shunned as living weapons yet destined to shape international history, the Jinchūriki bore the immense burden of harboring primordial chakra calamities within their souls.
+          </p>
+        </div>
+
+        <!-- Master Interactive Character Showcase Stage -->
+        <div class="vessels-showcase-stage manga-panel" id="vessels-showcase-stage">
+          <!-- Top Telemetry Bar -->
+          <div class="vessels-telemetry-bar">
+            <div class="v-telemetry-left">
+              <span class="v-status-dot"></span>
+              <span class="v-telemetry-label">CLASSIFIED JINCHŪRIKI ARCHIVE // 09 RECORDS</span>
+            </div>
+            <div class="v-telemetry-controls">
+              <button type="button" class="vessel-arrow-btn" id="vessel-prev-btn" aria-label="Previous Jinchūriki">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <span class="vessel-counter" id="vessel-counter"><span id="vessel-cur-num">01</span> <span class="counter-slash">/</span> 09</span>
+              <button type="button" class="vessel-arrow-btn" id="vessel-next-btn" aria-label="Next Jinchūriki">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Main Gallery Split: Dominant Character Viewport (Left/Center) + Intelligence Dossier (Right) -->
+          <div class="vessel-display-grid">
+            <!-- Left: Dominant Character Portrait Frame -->
+            <div class="vessel-portrait-column">
+              <div class="vessel-portrait-frame" id="vessel-portrait-frame">
+                <img id="active-vessel-img" class="active-vessel-img" src="./assets/image/shinobi_gaara.png" alt="Gaara" />
+                <div class="vessel-portrait-gradient"></div>
+                <div class="vessel-frame-border-glow"></div>
+                
+                <!-- Overlay Bound Bijuu Watermark / Stamp -->
+                <div class="vessel-bound-stamp" id="vessel-bound-stamp">
+                  <span class="stamp-icon"><i class="fa-solid fa-link"></i></span>
+                  <div class="stamp-meta">
+                    <span class="stamp-bijuu-num" id="stamp-bijuu-num">1-TAIL</span>
+                    <span class="stamp-bijuu-name" id="stamp-bijuu-name">SHUKAKU</span>
+                  </div>
+                </div>
+
+                <!-- Index Badge -->
+                <div class="vessel-index-badge" id="vessel-index-badge">
+                  <span class="idx-text">RECORD</span>
+                  <span class="idx-num" id="active-vessel-idx">01</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Intelligence Dossier Panel -->
+            <div class="vessel-dossier-column" id="vessel-dossier-column">
+              <div class="v-dossier-header">
+                <div class="v-dossier-tags">
+                  <span class="v-tag v-tag-village" id="dossier-village-tag"><i class="fa-solid fa-sun"></i> SUNAGAKURE</span>
+                  <span class="v-tag v-tag-bijuu" id="dossier-bijuu-tag"><i class="fa-solid fa-fire"></i> BOUND TO 1-TAIL</span>
+                </div>
+                <h3 class="v-dossier-name" id="dossier-name">Gaara</h3>
+                <div class="v-dossier-kanji" id="dossier-kanji">我愛羅 • 第五代風影</div>
+                <div class="v-dossier-title" id="dossier-title">Fifth Kazekage // Sand Sovereign</div>
+              </div>
+
+              <div class="v-dossier-body">
+                <div class="v-section-label"><i class="fa-solid fa-scroll"></i> CLASSIFIED HISTORICAL DOSSIER</div>
+                <p class="v-dossier-summary" id="dossier-summary">
+                  Transformed from an isolated, feared weapon into the revered Fifth Kazekage and Supreme Commander of the Allied Shinobi Forces. Gaara forged a bond of mutual respect with Shukaku during the Fourth Shinobi World War, wielding absolute sand manipulation and impenetrable defense.
+                </p>
+
+                <div class="v-section-label"><i class="fa-solid fa-bolt"></i> SIGNATURE TRAITS & BIJUU MASTERY</div>
+                <div class="v-traits-list" id="dossier-traits-list">
+                  <div class="v-trait-item"><i class="fa-solid fa-circle-check"></i> Absolute Sand Defense & Shield of Sand</div>
+                  <div class="v-trait-item"><i class="fa-solid fa-circle-check"></i> Magnet Release (Jiton) Cursed Sealing</div>
+                  <div class="v-trait-item"><i class="fa-solid fa-circle-check"></i> Desert Layered Imperial Funeral</div>
+                </div>
+              </div>
+
+              <div class="v-dossier-footer" id="dossier-footer">
+                <a href="./shinobi-database.html" class="vessel-record-link" id="dossier-db-link">
+                  <i class="fa-solid fa-folder-open"></i> VIEW SHINOBI RECORD →
+                </a>
+                <span class="vessel-restricted-badge" id="dossier-restricted-badge" style="display: none;">
+                  <i class="fa-solid fa-lock"></i> RECORD RESTRICTED // ANBU ARCHIVE
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom: Interactive Thumbnail Navigation Strip -->
+          <div class="vessels-thumbnail-nav" id="vessels-thumbnail-nav" role="tablist" aria-label="Jinchūriki Vessels Gallery">
+            <!-- Dynamically populated / interactive 9 thumbnails -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 6: CONCLUSION & CROSS-PORTAL NAVIGATION
+         ========================================================================== -->
+    <section class="bijuu-portal-section">
+      <div class="portal-container text-center">
+        <div class="portal-quote-decor"><i class="fa-solid fa-scroll"></i></div>
+        <h2 class="portal-quote">"A SINGLE SHINOBI'S HEART CAN CHANGE A BEAST."</h2>
+        <p class="portal-subquote">
+          From ancient territorial fortresses to the primordial beasts within, continue your exploration across noble bloodlines, classified operatives, and wartime coalitions.
+        </p>
+
+        <div class="portal-cards-grid">
+          <a href="./clans.html" class="portal-card manga-panel">
+            <i class="fa-solid fa-dna"></i>
+            <h3>ANCESTRAL CLANS</h3>
+            <p>Explore the noble bloodlines, Kekkai Genkai inheritances, and founders of the hidden villages.</p>
+            <span class="portal-btn-label">OPEN CLAN CODEX →</span>
+          </a>
+
+          <a href="./shinobi-database.html" class="portal-card manga-panel">
+            <i class="fa-solid fa-id-card"></i>
+            <h3>SHINOBI ARCHIVE</h3>
+            <p>Inspect classified dossiers, nature affinities, rank certifications, and signature jutsu lists.</p>
+            <span class="portal-btn-label">ACCESS DATABASE →</span>
+          </a>
+
+          <a href="./alliance.html" class="portal-card manga-panel">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>MILITARY ALLIANCES</h3>
+            <p>Examine the Allied Shinobi Forces, Akatsuki syndicate, Kara, and legendary tactical squads.</p>
+            <span class="portal-btn-label">VIEW ALLIANCE ARCHIVE →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <img class="footer-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+      <div class="info">
+        <div class="right">
+          <img src="./assets/image/footer.png" alt="Naruto Emblem" />
+        </div>
+        <div class="left">
+          <nav>
+            <a href="https://www.facebook.com/mohamed.el.saadany.529585/" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </nav>
+        </div>
+      </div>
+      <div class="foot">
+        <div class="right">
+          <p>NARUTO &copy; 2025 &bull; The Will of Fire &bull; All rights reserved</p>
+        </div>
+        <div class="lefts">
+          <nav><a href="">Legal notice</a></nav>
+          <nav>&bull;</nav>
+          <nav><a href="">Privacy Policy</a></nav>
+          <nav>&bull;</nav>
+          <nav><a href="">Cookies Policy</a></nav>
+          <nav>&bull;</nav>
+          <nav><a href="./main.html">NARUTO.COM</a></nav>
+        </div>
+      </div>
+    </footer>
+    <script src="./assets/JS/JavaScript.js"></script>
+  </body>
+</html>
+

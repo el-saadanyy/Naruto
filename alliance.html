@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>ALLIANCE | Factions of the Shinobi World</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="80 x 60"
+      href="./assets/image/LOGO.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- GSAP & ScrollTrigger Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+
+  <body class="alliance_page">
+    <!-- Dynamic Cinematic Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="bars"><i class="fa-solid fa-bars"></i></div>
+        <a href="./main.html"><img src="./assets/image/logo1.png" alt="Naruto Shippuden Logo" /></a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="./main.html">HOME</a></li>
+          <li><a href="./village.html">VILLAGES</a></li>
+          <li><a href="./clans.html">CLANS</a></li>
+          <li><a href="./shinobi-database.html">SHINOBI ARCHIVE</a></li>
+          <li><a href="./alliance.html" class="active">ALLIANCE</a></li>
+        </ul>
+      </div>
+      <div class="log">
+        <a class="abutton" href="./login.html">
+          <button type="button">
+            <i class="fa-regular fa-user fa-xs" style="font-weight: bolder"></i>
+            <nav>LOG IN</nav>
+          </button>
+        </a>
+      </div>
+    </header>
+
+    <!-- FLOATING / STICKY SHINOBI POWER INDEX HUD -->
+    <aside class="faction-sticky-hud-wrapper" id="faction-nav-hud" aria-label="Faction Quick Navigation Index">
+      <button type="button" class="hud-toggle-trigger" id="hud-toggle-btn" aria-expanded="false" title="Open Power Index Menu">
+        <span class="hud-dot" aria-hidden="true"></span>
+        <span class="hud-toggle-text">POWER INDEX</span>
+        <i class="fa-solid fa-chevron-left hud-toggle-icon" aria-hidden="true"></i>
+      </button>
+
+      <div id="hud-collapsible-menu" class="hud-collapsible-panel" aria-hidden="true">
+        <div class="hud-inner">
+          <div class="hud-header" id="hud-header-close" role="button" tabindex="0" title="Click to collapse Power Index">
+            <div class="hud-header-left">
+              <span class="hud-dot" aria-hidden="true"></span>
+              <span class="hud-title">POWER INDEX // 勢力</span>
+            </div>
+            <button type="button" class="hud-close-btn" id="hud-close-btn" aria-label="Close Power Index menu">
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+          <nav class="hud-links">
+            <a href="#faction-allied-forces" class="hud-link is-active" data-faction="01">
+              <span class="h-num">01</span>
+              <span class="h-name">ALLIED FORCES</span>
+            </a>
+            <a href="#faction-akatsuki" class="hud-link" data-faction="02">
+              <span class="h-num">02</span>
+              <span class="h-name">AKATSUKI</span>
+            </a>
+            <a href="#faction-kara" class="hud-link" data-faction="03">
+              <span class="h-num">03</span>
+              <span class="h-name">KARA</span>
+            </a>
+            <a href="#faction-konoha-suna" class="hud-link" data-faction="04">
+              <span class="h-num">04</span>
+              <span class="h-name">KONOHA × SUNA</span>
+            </a>
+            <a href="#faction-taka" class="hud-link" data-faction="05">
+              <span class="h-num">05</span>
+              <span class="h-name">TAKA / HEBI</span>
+            </a>
+            <a href="#faction-seven-swordsmen" class="hud-link" data-faction="06">
+              <span class="h-num">06</span>
+              <span class="h-name">SEVEN SWORDS</span>
+            </a>
+            <a href="#faction-comparative-matrix" class="hud-link hud-matrix-link" data-faction="matrix">
+              <span class="h-num"><i class="fa-solid fa-chart-simple"></i></span>
+              <span class="h-name">COMPARATIVE INDEX</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </aside>
+
+    <main id="alliance-main-root">
+      <!-- SECTION 01: IMMERSIVE CINEMATIC OPENING -->
+      <section class="alliance-hero-section">
+        <div class="alliance-hero-atmosphere">
+          <div class="hero-smoke-particles"></div>
+          <div class="hero-crimson-vignette"></div>
+          <img class="hero-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+        </div>
+        
+        <div class="alliance-hero-content">
+          <div class="faction-badge">
+            <span class="badge-line"></span>
+            <span class="badge-text"><i class="fa-solid fa-shield-halved"></i> WAR ARCHIVES • 忍の勢力記録</span>
+          </div>
+          <h1 class="alliance-title">ALLIANCE</h1>
+          <div class="alliance-kanji-sub">忍の勢力 • 歴史を変えた軍事連合と影の結社</div>
+          <p class="alliance-subtitle">
+            "FACTIONS THAT CHANGED THE SHINOBI WORLD"
+          </p>
+          <p class="alliance-lead-desc">
+            A classified intelligence retrospective exploring the great military coalitions, global shadow syndicates, and legendary combat units that reshaped international warfare, balance of power, and historical destiny.
+          </p>
+
+          <!-- Analytical Scale Notice -->
+          <div class="ranking-disclaimer-box manga-panel">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+              <strong>ANALYTICAL CLASSIFICATION NOTICE:</strong>
+              <span>This archive is an editorial historical comparison indexed by collective military scale, geopolitical influence, individual member lethality, and war impact across distinct eras. Entries distinguish between sovereign military coalitions, shadow syndicates, diplomatic treaties, and strike units.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           FACTION 01: ALLIED SHINOBI FORCES
+           ========================================================================== -->
+      <section class="faction-stage faction-allied" id="faction-allied-forces">
+        <div class="faction-bg-aura aura-allied"></div>
+        <div class="faction-container">
+          <div class="faction-header-bar">
+            <div class="faction-rank-badge">
+              <span class="rank-num">RANK 01</span>
+              <span class="rank-type">TOTAL MILITARY COALITION // 忍連合軍</span>
+            </div>
+            <div class="faction-era-tag"><i class="fa-solid fa-flag"></i> FOURTH SHINOBI WORLD WAR</div>
+          </div>
+
+          <div class="faction-layout-grid">
+            <div class="faction-visual-col">
+              <div class="faction-media-frame manga-panel">
+                <img class="faction-img" src="./assets/image/faction_allied_forces_cliff.png" alt="Allied Shinobi Forces Army and Five Kage on Cliff" loading="lazy" />
+                <div class="faction-media-overlay"></div>
+                <div class="faction-insignia-stamp">
+                  <span class="insignia-kanji">忍</span>
+                  <span class="insignia-label">UNIVERSAL EMBLEM</span>
+                </div>
+              </div>
+
+              <!-- Key Metrics Matrix -->
+              <div class="faction-metric-strip manga-panel">
+                <div class="f-metric">
+                  <span class="fm-label">ESTIMATED COMBAT FORCE</span>
+                  <span class="fm-value highlight-gold">80,000+ SHINOBI & SAMURAI</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">SUPREME COMMAND</span>
+                  <span class="fm-value">FIVE KAGE & GENERAL MIFUNE</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">MILITARY STATUS</span>
+                  <span class="fm-value highlight-green">VICTORIOUS // WORLD PRESERVED</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="faction-intel-col">
+              <span class="intel-classification"><i class="fa-solid fa-shield"></i> CLASSIFIED DOSSIER // 01</span>
+              <h2 class="faction-name">ALLIED SHINOBI FORCES</h2>
+              <div class="faction-kanji-title">忍連合軍 (SHINOBI RENGŌGUN)</div>
+              
+              <p class="faction-synopsis">
+                The grandest and most formidable military coalition in recorded shinobi history. Formed during the emergency Five Kage Summit to combat the existential threat of Tobi (Obito Uchiha), Kabuto Yakushi's Edo Tensei legions, and the Ten-Tails, this coalition marked the first time the Five Great Shinobi Nations united alongside the Land of Iron Samurai under a single banner and shared headband bearing the kanji for <strong>"Shinobi" (忍)</strong>.
+              </p>
+
+              <div class="faction-breakdown-card manga-panel">
+                <h3 class="breakdown-title"><i class="fa-solid fa-network-wired"></i> COALITION BASTIONS & PARTICIPATING POWERS</h3>
+                <div class="allied-powers-list">
+                  <span class="power-tag"><i class="fa-solid fa-leaf"></i> Hidden Leaf (Konohagakure)</span>
+                  <span class="power-tag"><i class="fa-solid fa-wind"></i> Hidden Sand (Sunagakure)</span>
+                  <span class="power-tag"><i class="fa-solid fa-mountain"></i> Hidden Stone (Iwagakure)</span>
+                  <span class="power-tag"><i class="fa-solid fa-bolt"></i> Hidden Cloud (Kumogakure)</span>
+                  <span class="power-tag"><i class="fa-solid fa-water"></i> Hidden Mist (Kirigakure)</span>
+                  <span class="power-tag samurai-tag"><i class="fa-solid fa-khanda"></i> Land of Iron (Samurai Army)</span>
+                </div>
+
+                <h3 class="breakdown-title mt-4"><i class="fa-solid fa-chess"></i> BATTLEFIELD DIVISION COMMANDERS</h3>
+                <div class="division-grid">
+                  <div class="div-item">
+                    <span class="div-name">FIRST DIVISION (MID-RANGE)</span>
+                    <span class="div-leader">Commander Darui</span>
+                  </div>
+                  <div class="div-item">
+                    <span class="div-name">SECOND DIVISION (CLOSE-RANGE)</span>
+                    <span class="div-leader">Commander Kitsuchi</span>
+                  </div>
+                  <div class="div-item">
+                    <span class="div-name">THIRD DIVISION (SHORT-MID RANGE)</span>
+                    <span class="div-leader">Commander Kakashi Hatake</span>
+                  </div>
+                  <div class="div-item">
+                    <span class="div-name">FOURTH DIVISION (LONG-RANGE / PROXY GENERAL)</span>
+                    <span class="div-leader">Regimental Commander Gaara</span>
+                  </div>
+                  <div class="div-item">
+                    <span class="div-name">FIFTH DIVISION (SPECIAL OPERATIONS)</span>
+                    <span class="div-leader">General Mifune (Samurai)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           FACTION 02: AKATSUKI
+           ========================================================================== -->
+      <section class="faction-stage faction-akatsuki-stage" id="faction-akatsuki">
+        <div class="faction-bg-aura aura-akatsuki"></div>
+        <div class="faction-container">
+          <div class="faction-header-bar">
+            <div class="faction-rank-badge rank-crimson">
+              <span class="rank-num">RANK 02</span>
+              <span class="rank-type">SHADOW MERCENARY SYNDICATE // 暁</span>
+            </div>
+            <div class="faction-era-tag"><i class="fa-solid fa-cloud-moon"></i> GLOBAL S-RANK THREAT ERA</div>
+          </div>
+
+          <div class="faction-layout-grid">
+            <div class="faction-visual-col">
+              <div class="faction-media-frame manga-panel frame-akatsuki">
+                <img class="faction-img" src="./assets/image/faction_akatsuki_members.png" alt="Akatsuki Organization Members" loading="lazy" />
+                <div class="faction-media-overlay overlay-akatsuki"></div>
+                <div class="faction-insignia-stamp stamp-akatsuki">
+                  <span class="insignia-kanji">暁</span>
+                  <span class="insignia-label">RED CLOUD EMBLEM</span>
+                </div>
+              </div>
+
+              <!-- Threat Matrix -->
+              <div class="faction-metric-strip manga-panel">
+                <div class="f-metric">
+                  <span class="fm-label">THREAT TIER</span>
+                  <span class="fm-value highlight-red">CATASTROPHIC // CONTINENTAL</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">MEMBERSHIP SCALE</span>
+                  <span class="fm-value">10 S-RANK ROGUE SPECIALISTS</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">PRIMARY OBJECTIVE</span>
+                  <span class="fm-value highlight-red">TAILED BEAST EXTRACTION & MOON EYE PLAN</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="faction-intel-col">
+              <span class="intel-classification intel-crimson"><i class="fa-solid fa-triangle-exclamation"></i> CLASSIFIED DOSSIER // 02</span>
+              <h2 class="faction-name text-crimson">AKATSUKI</h2>
+              <div class="faction-kanji-title text-crimson">暁 (THE RED CLOUD SYNDICATE)</div>
+              
+              <p class="faction-synopsis">
+                The most notorious and lethal criminal organization in modern ninja history. Originally founded in Amegakure by Yahiko, Nagato, and Konan as a pacifist coalition, it was subsequently co-opted and restructured into a mercenary syndicate composed of S-rank missing-nin from the major hidden villages, operating in two-man cells to systematically hunt and extract the Nine Tailed Beasts.
+              </p>
+
+              <div class="faction-breakdown-card manga-panel card-akatsuki-border">
+                <h3 class="breakdown-title text-crimson"><i class="fa-solid fa-users-viewfinder"></i> CORE S-RANK ROSTER & TWO-MAN CELLS</h3>
+                <div class="akatsuki-roster-grid">
+                  <div class="ak-member"><span class="ring-badge">玉 • Jewel</span> <strong>Sasori / Tobi</strong> <small>Human Puppetry / Kamui</small></div>
+                  <div class="ak-member"><span class="ring-badge">青 • Blue</span> <strong>Deidara</strong> <small>Explosion Clay (Bakuton)</small></div>
+                  <div class="ak-member"><span class="ring-badge">三 • Three</span> <strong>Hidan</strong> <small>Jashin Immortality / Curse</small></div>
+                  <div class="ak-member"><span class="ring-badge">北 • North</span> <strong>Kakuzu</strong> <small>Earth Grudge / Five Hearts</small></div>
+                  <div class="ak-member"><span class="ring-badge">空 • Void</span> <strong>Orochimaru (Former)</strong> <small>Living Reincarnation</small></div>
+                  <div class="ak-member"><span class="ring-badge">亥 • Boar</span> <strong>Zetsu (Black & White)</strong> <small>Infiltration & Intelligence</small></div>
+                </div>
+
+                <div class="intel-quote mt-4">
+                  <em>"True peace cannot exist without knowing pain. When the world witnesses catastrophe, deterrence brings harmony."</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           FACTION 03: KARA
+           ========================================================================== -->
+      <section class="faction-stage faction-kara-stage" id="faction-kara">
+        <div class="faction-bg-aura aura-kara"></div>
+        <div class="faction-container">
+          <div class="faction-header-bar">
+            <div class="faction-rank-badge rank-cyan">
+              <span class="rank-num">RANK 03</span>
+              <span class="rank-type">SCIENTIFIC SECRET SOCIETY // 殻</span>
+            </div>
+            <div class="faction-era-tag"><i class="fa-solid fa-microchip"></i> BORUTO ERA // POST-WAR MODERN AGE</div>
+          </div>
+
+          <div class="faction-layout-grid">
+            <div class="faction-visual-col">
+              <div class="faction-media-frame manga-panel frame-kara">
+                <img class="faction-img" src="./assets/image/faction_kara.png" alt="Kara Organization Inners and Jigen" loading="lazy" />
+                <div class="faction-media-overlay overlay-kara"></div>
+                <div class="faction-insignia-stamp stamp-kara">
+                  <span class="insignia-kanji">殻</span>
+                  <span class="insignia-label">CYBERNETIC COVEN</span>
+                </div>
+              </div>
+
+              <!-- Tech Matrix -->
+              <div class="faction-metric-strip manga-panel">
+                <div class="f-metric">
+                  <span class="fm-label">ORGANIZATION ARCHITECTURE</span>
+                  <span class="fm-value highlight-cyan">INNERS & OUTERS (ROMAN NUMERALS)</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">CORE TECHNOLOGY</span>
+                  <span class="fm-value">SCIENTIFIC NINJA TOOLS & KARMA</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">SUPREME THREAT FOCUS</span>
+                  <span class="fm-value highlight-red">ŌTSUTSUKI DIVINE TREE HARVEST</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="faction-intel-col">
+              <span class="intel-classification intel-cyan"><i class="fa-solid fa-code-branch"></i> CLASSIFIED DOSSIER // 03</span>
+              <h2 class="faction-name text-cyan">KARA</h2>
+              <div class="faction-kanji-title">殻 (THE HUSK) — SECRET CYBERNETIC ORDER</div>
+              
+              <p class="faction-synopsis">
+                A secret, highly advanced syndicate operating during the Boruto era. Led by Jigen (the vessel of Isshiki Ōtsutsuki) and powered by the genius cybernetic engineering of Head Researcher Amado, Kara operated completely outside conventional chakra doctrine. Its core members possessed microscopic Shinobi-Ware modifications, regenerative cellular implants, and space-time transportation capabilities that posed a direct planetary threat to Naruto Uzumaki and Sasuke Uchiha.
+              </p>
+
+              <div class="faction-breakdown-card manga-panel card-dark-cyan">
+                <h3 class="breakdown-title text-cyan"><i class="fa-solid fa-sitemap"></i> KARA HIERARCHY & INNER CIRCLE</h3>
+                <div class="kara-roster-grid">
+                  <div class="kara-node"><strong>Leader: Jigen (IV)</strong> — Vessel of Isshiki Ōtsutsuki / Sukunahikona Shrinking</div>
+                  <div class="kara-node"><strong>Delta (I)</strong> — Complete Shinobi-Ware Body / Destructive Drone Eye</div>
+                  <div class="kara-node"><strong>Boro (III)</strong> — Microscopic Virus Fog / Core-Based Regeneration</div>
+                  <div class="kara-node"><strong>Victor (V)</strong> — Quadruple Nature Regeneration / Pharmaceutical Front</div>
+                  <div class="kara-node"><strong>Code (VI)</strong> — White Karma Vessel / Limitless Claw Marks</div>
+                  <div class="kara-node"><strong>Kashin Koji</strong> — Jiraiya Clone / True Fire of Samadhi Infiltrator</div>
+                  <div class="kara-node"><strong>Amado</strong> — Chief of Research / Architect of Cybernetic Bodies</div>
+                </div>
+
+                <div class="era-badge mt-4">
+                  <i class="fa-solid fa-atom"></i> Boruto-Era Intelligence File: Classified Technological Threat
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           FACTION 04: KONOHA–SUNA ALLIANCE
+           ========================================================================== -->
+      <section class="faction-stage faction-konoha-suna-stage" id="faction-konoha-suna">
+        <div class="faction-bg-aura aura-konoha-suna"></div>
+        <div class="faction-container">
+          <div class="faction-header-bar">
+            <div class="faction-rank-badge rank-gold">
+              <span class="rank-num">RANK 04</span>
+              <span class="rank-type">SOVEREIGN DIPLOMATIC TREATY // 木ノ葉・砂同盟</span>
+            </div>
+            <div class="faction-era-tag"><i class="fa-solid fa-handshake"></i> POST-CHUNIN EXAM ERA TO MODERN AGE</div>
+          </div>
+
+          <div class="faction-layout-grid">
+            <div class="faction-visual-col">
+              <div class="faction-media-frame manga-panel frame-dual">
+                <img class="faction-img" src="./assets/image/faction_konoha_suna_handshake.png" alt="Konoha and Suna Alliance Naruto and Gaara Handshake" loading="lazy" />
+                <div class="faction-media-overlay overlay-dual"></div>
+                <div class="faction-insignia-stamp stamp-dual">
+                  <span class="insignia-kanji">木 ✕ 砂</span>
+                  <span class="insignia-label">BILATERAL PACT</span>
+                </div>
+              </div>
+
+              <!-- Diplomatic Matrix -->
+              <div class="faction-metric-strip manga-panel">
+                <div class="f-metric">
+                  <span class="fm-label">TREATY STATUS</span>
+                  <span class="fm-value highlight-gold">PERMANENT DEFENSIVE ALLIANCE</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">CORE ARCHITECTS</span>
+                  <span class="fm-value">NARUTO UZUMAKI & GAARA (5TH KAZEKAGE)</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">MILITARY RELIABILITY</span>
+                  <span class="fm-value highlight-green">UNBROKEN SOLIDARITY</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="faction-intel-col">
+              <span class="intel-classification intel-gold"><i class="fa-solid fa-landmark"></i> CLASSIFIED DOSSIER // 04</span>
+              <h2 class="faction-name text-gold">KONOHA–SUNA ALLIANCE</h2>
+              <div class="faction-kanji-title">木ノ葉隠れ・砂隠れの同盟 (LEAF × SAND SOLIDARITY)</div>
+              
+              <p class="faction-synopsis">
+                The most resilient bilateral alliance in modern geopolitical history. Following Orochimaru's deceitful Konoha Crush manipulation, the bond forged between Naruto Uzumaki and Gaara transformed two historical rivals into inseparable allies. This alliance provided critical reinforcements during the Sasuke Retrieval Mission, mutual support during the Kazekage Rescue, and laid the ideological groundwork for the Allied Shinobi Forces.
+              </p>
+
+              <div class="faction-breakdown-card manga-panel card-dual-split">
+                <div class="split-columns">
+                  <div class="split-col-leaf">
+                    <h4 class="col-title text-green"><i class="fa-solid fa-leaf"></i> HIDDEN LEAF SECTOR</h4>
+                    <p>Contributed elite medical support, tactical strike squads, and reconnaissance divisions. Provided immediate emergency relief when Sunagakure was targeted by Akatsuki.</p>
+                  </div>
+                  <div class="split-col-sand">
+                    <h4 class="col-title text-gold"><i class="fa-solid fa-sun"></i> HIDDEN SAND SECTOR</h4>
+                    <p>Contributed desert vanguard combatants, master puppeteers (Kankurō), and gale-force wind battlers (Temari). Intercepted the Sound Four during the Sasuke retrieval crisis.</p>
+                  </div>
+                </div>
+
+                <div class="historical-milestones mt-4">
+                  <h4 class="breakdown-title"><i class="fa-solid fa-scroll"></i> HISTORICAL TURNING POINTS</h4>
+                  <ul class="milestone-list">
+                    <li><strong>Post-Invasion Reconciliation:</strong> Suna formally exposed the Sound's deceit and ratified a non-aggression pact.</li>
+                    <li><strong>Sasuke Retrieval Interception:</strong> Suna siblings arrived to save Shikamaru, Kiba, and Rock Lee.</li>
+                    <li><strong>Kazekage Rescue Deployment:</strong> Team Kakashi and Team Guy crossed borders to rescue Gaara from Akatsuki.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           FACTION 05: TAKA / HEBI
+           ========================================================================== -->
+      <section class="faction-stage faction-taka-stage" id="faction-taka">
+        <div class="faction-bg-aura aura-taka"></div>
+        <div class="faction-container">
+          <div class="faction-header-bar">
+            <div class="faction-rank-badge rank-purple">
+              <span class="rank-num">RANK 05</span>
+              <span class="rank-type">AUTONOMOUS ELITE STRIKE SQUAD // 鷹 / 蛇</span>
+            </div>
+            <div class="faction-era-tag"><i class="fa-solid fa-feather-pointed"></i> SHIPPUDEN VENGEANCE & SUMMIT INFILTRATION</div>
+          </div>
+
+          <div class="faction-layout-grid">
+            <div class="faction-visual-col">
+              <div class="faction-media-frame manga-panel frame-taka">
+                <img class="faction-img" src="./assets/image/faction_taka.png" alt="Taka and Hebi Sasuke Karin Suigetsu Jugo" loading="lazy" />
+                <div class="faction-media-overlay overlay-taka"></div>
+                <div class="faction-insignia-stamp stamp-taka">
+                  <span class="insignia-kanji">鷹</span>
+                  <span class="insignia-label">THE HAWK</span>
+                </div>
+              </div>
+
+              <!-- Strike Matrix -->
+              <div class="faction-metric-strip manga-panel">
+                <div class="f-metric">
+                  <span class="fm-label">UNIT COMPOSITION</span>
+                  <span class="fm-value highlight-purple">4 SPECIALIZED INDIVIDUALS</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">LEADERSHIP</span>
+                  <span class="fm-value">SASUKE UCHIHA</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">OPERATIONAL ROLE</span>
+                  <span class="fm-value highlight-gold">HUNTING / HIGH-VALUE ASSASSINATION</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="faction-intel-col">
+              <span class="intel-classification intel-purple"><i class="fa-solid fa-crosshairs"></i> CLASSIFIED DOSSIER // 05</span>
+              <h2 class="faction-name text-purple">TAKA / HEBI</h2>
+              <div class="faction-kanji-title">蛇 (HEBI - SNAKE) ➔ 鷹 (TAKA - HAWK)</div>
+              
+              <p class="faction-synopsis">
+                A compact, elite rogue strike squad formed by Sasuke Uchiha after severing ties with Orochimaru. Classified not as a world-scale military alliance, but as an autonomous high-lethality strike unit. Originally named <strong>Hebi (Snake)</strong> to hunt Itachi Uchiha, the unit transitioned to <strong>Taka (Hawk)</strong> after learning the truth of the Uchiha Clan massacre, briefly aligning with Akatsuki to assault the Five Kage Summit.
+              </p>
+
+              <div class="faction-breakdown-card manga-panel card-dark-purple">
+                <h3 class="breakdown-title text-purple"><i class="fa-solid fa-user-ninja"></i> SQUAD ROSTER & COMBAT SPECIALTIES</h3>
+                <div class="taka-roster-grid">
+                  <div class="taka-card">
+                    <strong>Sasuke Uchiha (Leader)</strong>
+                    <span>Chidori Flow, Curse Mark Stage 2, Mangekyō Sharingan & Amaterasu Flame Control.</span>
+                  </div>
+                  <div class="taka-card">
+                    <strong>Suigetsu Hōzuki (Vanguard Swordsman)</strong>
+                    <span>Hydrification Technique (water body fluidity) and wielder of the Executioner's Blade (Kubikiribōchō).</span>
+                  </div>
+                  <div class="taka-card">
+                    <strong>Karin Uzumaki (Sensory & Medical Support)</strong>
+                    <span>Mind's Eye of the Kagura long-range chakra sensory radar and Heal Bite vitality transference.</span>
+                  </div>
+                  <div class="taka-card">
+                    <strong>Jūgo (Heavy Artillery & Sage Tank)</strong>
+                    <span>Originator of the Curse Mark enzyme; commands Sage Transformation cellular cannons and kinetic shields.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           FACTION 06: SEVEN NINJA SWORDSMEN OF THE MIST
+           ========================================================================== -->
+      <section class="faction-stage faction-swordsmen-stage" id="faction-seven-swordsmen">
+        <div class="faction-bg-aura aura-swordsmen"></div>
+        <div class="faction-container">
+          <div class="faction-header-bar">
+            <div class="faction-rank-badge rank-mist">
+              <span class="rank-num">RANK 06</span>
+              <span class="rank-type">STATE MARTIAL ORDER // 霧の忍刀七人衆</span>
+            </div>
+            <div class="faction-era-tag"><i class="fa-solid fa-water"></i> BLOODY MIST HERITAGE & EDO TENSEI</div>
+          </div>
+
+          <div class="faction-layout-grid">
+            <div class="faction-visual-col">
+              <div class="faction-media-frame manga-panel frame-mist">
+                <img class="faction-img" src="./assets/image/faction_seven_swordsmen.png" alt="Seven Ninja Swordsmen of the Mist and Legendary Blades" loading="lazy" />
+                <div class="faction-media-overlay overlay-mist"></div>
+                <div class="faction-insignia-stamp stamp-mist">
+                  <span class="insignia-kanji">刀</span>
+                  <span class="insignia-label">SEVEN BLADES</span>
+                </div>
+              </div>
+
+              <!-- Weapon Matrix -->
+              <div class="faction-metric-strip manga-panel">
+                <div class="f-metric">
+                  <span class="fm-label">ORDER CLASSIFICATION</span>
+                  <span class="fm-value highlight-mist">ELITE SPECIAL-OPS SLAUGHTER CORPS</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">WEAPONS ARSENAL</span>
+                  <span class="fm-value">7 LEGENDARY SENTIENT & SPECIALIZED SWORDS</span>
+                </div>
+                <div class="f-metric">
+                  <span class="fm-label">HOME VILLAGE</span>
+                  <span class="fm-value">HIDDEN MIST (KIRIGAKURE)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="faction-intel-col">
+              <span class="intel-classification intel-mist"><i class="fa-solid fa-khanda"></i> CLASSIFIED DOSSIER // 06</span>
+              <h2 class="faction-name text-mist">SEVEN NINJA SWORDSMEN OF THE MIST</h2>
+              <div class="faction-kanji-title">霧の忍刀七人衆 (KIRI NO NINDŌ NANANINSHŪ)</div>
+              
+              <p class="faction-synopsis">
+                An elite martial order founded within Kirigakure consisting of the village's seven greatest bladed combatants. Passed down across bloody generations through brutal battlefield trials, each swordsman wielded one of the seven legendary swords forged to specialize in specific tactical slaughter, sensory destruction, and battlefield dismemberment.
+              </p>
+
+              <div class="faction-breakdown-card manga-panel card-dark-mist">
+                <h3 class="breakdown-title text-mist"><i class="fa-solid fa-shield-virus"></i> THE SEVEN LEGENDARY BLADES</h3>
+                <div class="seven-blades-grid">
+                  <div class="blade-card">
+                    <span class="b-name">1. KUBIKIRIBŌCHŌ</span>
+                    <span class="b-sub">Executioner's Blade</span>
+                    <p>Regenerates from broken iron using the iron harvested directly from the blood of its victims.</p>
+                  </div>
+                  <div class="blade-card">
+                    <span class="b-name">2. SAMEHADA</span>
+                    <span class="b-sub">Shark Skin</span>
+                    <p>Living sentient greatsword that shreds and consumes massive chakra reserves, capable of fusing with its wielder.</p>
+                  </div>
+                  <div class="blade-card">
+                    <span class="b-name">3. NUIBARI</span>
+                    <span class="b-sub">Sewing Needle</span>
+                    <p>Slender rapier attached to indestructible steel wire, puncturing and stitching enemy lines together.</p>
+                  </div>
+                  <div class="blade-card">
+                    <span class="b-name">4. KABUTOWARI</span>
+                    <span class="b-sub">Helmet Splitter</span>
+                    <p>Axe and hammer combo designed to shatter any defensive shield, armor, or fortress wall.</p>
+                  </div>
+                  <div class="blade-card">
+                    <span class="b-name">5. SHIBUKI</span>
+                    <span class="b-sub">Splash Blade</span>
+                    <p>Scroll-lined explosive broadsword combining physical cutting with devastating continuous detonations.</p>
+                  </div>
+                  <div class="blade-card">
+                    <span class="b-name">6. KIBA</span>
+                    <span class="b-sub">Lightning Fangs</span>
+                    <p>Twin lightning-imbued daggers claiming the title of the sharpest swords ever crafted.</p>
+                  </div>
+                  <div class="blade-card">
+                    <span class="b-name">7. HIRAMEKAREI</span>
+                    <span class="b-sub">Twin Broadsword</span>
+                    <p>Dual-handled blade capable of storing chakra and projecting gigantic blades, hammers, or needle constructs.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECTION 09: THE COMPARATIVE POWER INDEX MATRIX
+           ========================================================================== -->
+      <section class="faction-matrix-section" id="faction-comparative-matrix">
+        <div class="matrix-container">
+          <div class="matrix-header text-center">
+            <span class="matrix-kicker"><i class="fa-solid fa-chart-line"></i> HISTORICAL FACTION ANALYSIS</span>
+            <h2 class="matrix-title">THE POWER INDEX MATRIX</h2>
+            <div class="matrix-sub">総合戦力比較 • 組織規模・個別脅威・歴史的影響力の定性評価</div>
+            <p class="matrix-desc">
+              A comparative qualitative assessment across military scale, individual threat tier, geopolitical influence, organizational discipline, and ultimate historical war impact.
+            </p>
+          </div>
+
+          <div class="matrix-table-wrap manga-panel matrix-desktop-only">
+            <table class="faction-comparison-table">
+              <thead>
+                <tr>
+                  <th>FACTION // 組織</th>
+                  <th>ORGANIZATION TYPE</th>
+                  <th>MILITARY SCALE</th>
+                  <th>INDIVIDUAL THREAT</th>
+                  <th>GEOPOLITICAL INFLUENCE</th>
+                  <th>WAR IMPACT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="row-allied">
+                  <td class="cell-faction-name">
+                    <strong class="text-gold">01. ALLIED FORCES</strong>
+                    <small>Five Nations + Samurai</small>
+                  </td>
+                  <td><span class="tag-table tag-coalition">Total Coalition</span></td>
+                  <td><span class="badge-eval eval-max">COLOSSAL (80K+)</span></td>
+                  <td><span class="badge-eval eval-high">HIGH (Five Kage Tier)</span></td>
+                  <td><span class="badge-eval eval-max">MAXIMUM (Planetary)</span></td>
+                  <td><span class="badge-eval eval-max">WORLD PRESERVATION</span></td>
+                </tr>
+                <tr class="row-akatsuki">
+                  <td class="cell-faction-name">
+                    <strong class="text-crimson">02. AKATSUKI</strong>
+                    <small>S-Rank Shadow Syndicate</small>
+                  </td>
+                  <td><span class="tag-table tag-shadow">Shadow Syndicate</span></td>
+                  <td><span class="badge-eval eval-med">ELITE CELL (10 Members)</span></td>
+                  <td><span class="badge-eval eval-max">CATASTROPHIC (S-Rank)</span></td>
+                  <td><span class="badge-eval eval-max">CONTINENTAL THREAT</span></td>
+                  <td><span class="badge-eval eval-max">TRIGGERED 4TH WAR</span></td>
+                </tr>
+                <tr class="row-kara">
+                  <td class="cell-faction-name">
+                    <strong class="text-cyan">03. KARA</strong>
+                    <small>Cybernetic Coven (Boruto)</small>
+                  </td>
+                  <td><span class="tag-table tag-tech">Cybernetic Cult</span></td>
+                  <td><span class="badge-eval eval-med">COVEN (Inners/Outers)</span></td>
+                  <td><span class="badge-eval eval-max">TRANSCENDENT (Ōtsutsuki)</span></td>
+                  <td><span class="badge-eval eval-high">GLOBAL COVERT</span></td>
+                  <td><span class="badge-eval eval-high">PLANETARY HARVEST CRISIS</span></td>
+                </tr>
+                <tr class="row-konoha-suna">
+                  <td class="cell-faction-name">
+                    <strong class="text-green">04. KONOHA × SUNA</strong>
+                    <small>Leaf & Sand Diplomatic Pact</small>
+                  </td>
+                  <td><span class="tag-table tag-treaty">Bilateral Treaty</span></td>
+                  <td><span class="badge-eval eval-high">TWO MAJOR POWERS</span></td>
+                  <td><span class="badge-eval eval-high">HIGH (Hokage & Kazekage)</span></td>
+                  <td><span class="badge-eval eval-high">REGIONAL STABILITY</span></td>
+                  <td><span class="badge-eval eval-high">FOUNDATION OF ALLIANCE</span></td>
+                </tr>
+                <tr class="row-taka">
+                  <td class="cell-faction-name">
+                    <strong class="text-purple">05. TAKA / HEBI</strong>
+                    <small>Sasuke's Strike Unit</small>
+                  </td>
+                  <td><span class="tag-table tag-strike">Strike Unit</span></td>
+                  <td><span class="badge-eval eval-low">COMPACT (4 Members)</span></td>
+                  <td><span class="badge-eval eval-high">EXTREME (Sasuke / Mangekyō)</span></td>
+                  <td><span class="badge-eval eval-med">TACTICAL DISRUPTION</span></td>
+                  <td><span class="badge-eval eval-med">KAGE SUMMIT ASSAULT</span></td>
+                </tr>
+                <tr class="row-swordsmen">
+                  <td class="cell-faction-name">
+                    <strong class="text-mist">06. SEVEN SWORDSMEN</strong>
+                    <small>Mist Martial Order</small>
+                  </td>
+                  <td><span class="tag-table tag-order">State Martial Order</span></td>
+                  <td><span class="badge-eval eval-low">SPECIAL CORPS (7 Blades)</span></td>
+                  <td><span class="badge-eval eval-high">VERY HIGH (Master Swordsmen)</span></td>
+                  <td><span class="badge-eval eval-med">REGIONAL TERROR</span></td>
+                  <td><span class="badge-eval eval-med">BLOODY MIST HERITAGE</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile Responsive Stacked Cards (<= 992px) -->
+          <div class="matrix-mobile-cards-wrap matrix-mobile-only">
+            <div class="matrix-mobile-card manga-panel">
+              <div class="mm-card-header">
+                <div class="mm-card-title-group">
+                  <strong class="mm-card-title text-gold">01. ALLIED FORCES</strong>
+                  <span class="mm-card-sub">Five Nations + Samurai</span>
+                </div>
+                <span class="tag-table tag-coalition">Total Coalition</span>
+              </div>
+              <div class="mm-card-metrics-grid">
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">MILITARY SCALE</span>
+                  <span class="badge-eval eval-max">COLOSSAL (80K+)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">INDIVIDUAL THREAT</span>
+                  <span class="badge-eval eval-high">HIGH (Five Kage Tier)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">GEOPOLITICAL INFLUENCE</span>
+                  <span class="badge-eval eval-max">MAXIMUM (Planetary)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">WAR IMPACT</span>
+                  <span class="badge-eval eval-max">WORLD PRESERVATION</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="matrix-mobile-card manga-panel">
+              <div class="mm-card-header">
+                <div class="mm-card-title-group">
+                  <strong class="mm-card-title text-crimson">02. AKATSUKI</strong>
+                  <span class="mm-card-sub">S-Rank Shadow Syndicate</span>
+                </div>
+                <span class="tag-table tag-shadow">Shadow Syndicate</span>
+              </div>
+              <div class="mm-card-metrics-grid">
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">MILITARY SCALE</span>
+                  <span class="badge-eval eval-med">ELITE CELL (10 Members)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">INDIVIDUAL THREAT</span>
+                  <span class="badge-eval eval-max">CATASTROPHIC (S-Rank)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">GEOPOLITICAL INFLUENCE</span>
+                  <span class="badge-eval eval-max">CONTINENTAL THREAT</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">WAR IMPACT</span>
+                  <span class="badge-eval eval-max">TRIGGERED 4TH WAR</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="matrix-mobile-card manga-panel">
+              <div class="mm-card-header">
+                <div class="mm-card-title-group">
+                  <strong class="mm-card-title text-cyan">03. KARA</strong>
+                  <span class="mm-card-sub">Cybernetic Coven (Boruto)</span>
+                </div>
+                <span class="tag-table tag-tech">Cybernetic Cult</span>
+              </div>
+              <div class="mm-card-metrics-grid">
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">MILITARY SCALE</span>
+                  <span class="badge-eval eval-med">COVEN (Inners/Outers)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">INDIVIDUAL THREAT</span>
+                  <span class="badge-eval eval-max">TRANSCENDENT (Ōtsutsuki)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">GEOPOLITICAL INFLUENCE</span>
+                  <span class="badge-eval eval-high">GLOBAL COVERT</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">WAR IMPACT</span>
+                  <span class="badge-eval eval-high">PLANETARY HARVEST CRISIS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="matrix-mobile-card manga-panel">
+              <div class="mm-card-header">
+                <div class="mm-card-title-group">
+                  <strong class="mm-card-title text-green">04. KONOHA × SUNA</strong>
+                  <span class="mm-card-sub">Leaf & Sand Diplomatic Pact</span>
+                </div>
+                <span class="tag-table tag-treaty">Bilateral Treaty</span>
+              </div>
+              <div class="mm-card-metrics-grid">
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">MILITARY SCALE</span>
+                  <span class="badge-eval eval-high">TWO MAJOR POWERS</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">INDIVIDUAL THREAT</span>
+                  <span class="badge-eval eval-high">HIGH (Hokage & Kazekage)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">GEOPOLITICAL INFLUENCE</span>
+                  <span class="badge-eval eval-high">REGIONAL STABILITY</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">WAR IMPACT</span>
+                  <span class="badge-eval eval-high">FOUNDATION OF ALLIANCE</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="matrix-mobile-card manga-panel">
+              <div class="mm-card-header">
+                <div class="mm-card-title-group">
+                  <strong class="mm-card-title text-purple">05. TAKA / HEBI</strong>
+                  <span class="mm-card-sub">Sasuke's Strike Unit</span>
+                </div>
+                <span class="tag-table tag-strike">Strike Unit</span>
+              </div>
+              <div class="mm-card-metrics-grid">
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">MILITARY SCALE</span>
+                  <span class="badge-eval eval-low">COMPACT (4 Members)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">INDIVIDUAL THREAT</span>
+                  <span class="badge-eval eval-high">EXTREME (Sasuke / Mangekyō)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">GEOPOLITICAL INFLUENCE</span>
+                  <span class="badge-eval eval-med">TACTICAL DISRUPTION</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">WAR IMPACT</span>
+                  <span class="badge-eval eval-med">KAGE SUMMIT ASSAULT</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="matrix-mobile-card manga-panel">
+              <div class="mm-card-header">
+                <div class="mm-card-title-group">
+                  <strong class="mm-card-title text-mist">06. SEVEN SWORDSMEN</strong>
+                  <span class="mm-card-sub">Mist Martial Order</span>
+                </div>
+                <span class="tag-table tag-order">State Martial Order</span>
+              </div>
+              <div class="mm-card-metrics-grid">
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">MILITARY SCALE</span>
+                  <span class="badge-eval eval-low">SPECIAL CORPS (7 Blades)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">INDIVIDUAL THREAT</span>
+                  <span class="badge-eval eval-high">VERY HIGH (Master Swordsmen)</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">GEOPOLITICAL INFLUENCE</span>
+                  <span class="badge-eval eval-med">REGIONAL TERROR</span>
+                </div>
+                <div class="mm-metric-box">
+                  <span class="mm-metric-label">WAR IMPACT</span>
+                  <span class="badge-eval eval-med">BLOODY MIST HERITAGE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECTION 10: CINEMATIC CONCLUSION & QUICK PORTAL NAVIGATION
+           ========================================================================== -->
+      <section class="faction-portal-section" id="faction-final-portal">
+        <div class="portal-container text-center">
+          <div class="portal-quote-decor"><i class="fa-solid fa-scroll"></i></div>
+          <h2 class="portal-quote">"POWER IS NOT ALWAYS MEASURED BY NUMBERS."</h2>
+          <p class="portal-subquote">
+            From vast armies of eighty thousand to solitary rogue squads, the balance of the Shinobi World was forged through conviction, sacrifice, and the clash of unyielding wills.
+          </p>
+
+          <!-- Cross-Page Archive Portals -->
+          <div class="portal-cards-grid">
+            <a href="./village.html" class="portal-card manga-panel">
+              <i class="fa-solid fa-mountain-sun"></i>
+              <h3>VILLAGES ARCHIVE</h3>
+              <p>Explore the Five Great Shinobi Nations, geopolitical bastions, and territories.</p>
+              <span class="portal-btn-label">VIEW WORLD MAP <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <a href="./clans.html" class="portal-card manga-panel">
+              <i class="fa-solid fa-dna"></i>
+              <h3>CLANS CODEX</h3>
+              <p>Discover the noble bloodlines, Kekkei Genkai, and ancestral clan legacies.</p>
+              <span class="portal-btn-label">VIEW CLAN CODEX <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <a href="./shinobi-database.html" class="portal-card manga-panel">
+              <i class="fa-solid fa-address-book"></i>
+              <h3>SHINOBI ARCHIVE</h3>
+              <p>Inspect the complete intelligence dossier of 45 legendary shinobi records.</p>
+              <span class="portal-btn-label">VIEW SHINOBI DOSSIER <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modern Cinematic Footer -->
+    <footer>
+      <img class="footer-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+      <div class="info">
+        <div class="right">
+          <img src="./assets/image/footer.png" alt="Naruto Emblem" />
+        </div>
+        <div class="left">
+          <nav>
+            <a href="https://www.facebook.com/mohamed.el.saadany.529585/" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </nav>
+        </div>
+      </div>
+      <div class="foot">
+        <div class="right">
+          <p>NARUTO © 2025 • The Will of Fire • 木ノ葉隠れの里 • All rights reserved</p>
+        </div>
+        <div class="lefts">
+          <nav><a href="">Legal notice</a></nav>
+          <nav>•</nav>
+          <nav><a href="">Privacy Policy</a></nav>
+          <nav>•</nav>
+          <nav><a href="">Cookies Policy</a></nav>
+          <nav>•</nav>
+          <nav><a href="./main.html">NARUTO.COM</a></nav>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./assets/JS/JavaScript.js"></script>
+    <script>
+      (function() {
+        const toggleBtn = document.getElementById('hud-toggle-btn');
+        const closeBtn = document.getElementById('hud-close-btn');
+        const headerClose = document.getElementById('hud-header-close');
+        const menu = document.getElementById('hud-collapsible-menu');
+        const hudWrapper = document.getElementById('faction-nav-hud');
+
+        function openMenu() {
+          if (menu) {
+            menu.classList.add('is-open');
+            menu.setAttribute('aria-hidden', 'false');
+          }
+          if (toggleBtn) {
+            toggleBtn.style.display = 'none';
+          }
+        }
+
+        function closeMenu() {
+          if (menu) {
+            menu.classList.remove('is-open');
+            menu.setAttribute('aria-hidden', 'true');
+          }
+          if (toggleBtn) {
+            toggleBtn.style.display = 'flex';
+          }
+        }
+
+        if (toggleBtn) toggleBtn.addEventListener('click', openMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (headerClose) headerClose.addEventListener('click', closeMenu);
+
+        // Click outside listener
+        document.addEventListener('click', function(e) {
+          if (hudWrapper && !hudWrapper.contains(e.target)) {
+            closeMenu();
+          }
+        });
+
+        // Close on link click on small screens
+        const hudLinks = document.querySelectorAll('.hud-link');
+        hudLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 992) {
+              closeMenu();
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

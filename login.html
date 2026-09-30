@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>SHINOBI LOGIN | Naruto</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="80 x 60"
+      href="./assets/image/LOGO.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/boot/css/bootstrap.css" />
+    <script src="./assets/boot/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- GSAP Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  </head>
+  <body class="login_page">
+    <header>
+      <div class="logo">
+        <div class="bars"><i class="fa-solid fa-bars"></i></div>
+        <a href="./main.html"><img src="./assets/image/logo1.png" alt="Naruto Logo" /></a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="./main.html">HOME</a></li>
+          <li><a href="./village.html">VILLAGES</a></li>
+          <li><a href="./clans.html">CLANS</a></li>
+          <li><a href="./shinobi-database.html">SHINOBI ARCHIVE</a></li>
+          <li><a href="./alliance.html">ALLIANCE</a></li>
+        </ul>
+      </div>
+      <div class="log">
+        <a class="abutton" href="./login.html">
+          <button type="button">
+            <i
+              class="fa-regular fa-user fa-xs"
+              style="font-weight: bolder"
+            ></i>
+            <nav>LOG IN</nav>
+          </button>
+        </a>
+      </div>
+    </header>
+
+    <main class="auth-page">
+      <img class="hero-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+      <div class="login manga-panel">
+        <div class="auth-header">
+          <i class="fa-solid fa-user-ninja"></i>
+          <h1 class="auth-title">Shinobi Portal • 忍ポータル</h1>
+          <p class="auth-subtitle">Enter your shinobi credentials to access the Hidden Archives</p>
+        </div>
+
+        <form class="login-form" action="./main.html" method="get">
+          <div class="form-group">
+            <label for="username">Shinobi Handle / Username</label>
+            <input
+              id="username"
+              type="text"
+              name="Username"
+              placeholder="Obito .. Is That You ?!"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Secret Seal / Password</label>
+            <input
+              id="password"
+              type="password"
+              name="pass"
+              placeholder="This type Of Genjutsu Does Not Work On Me"
+              required
+            />
+          </div>
+          <div class="submit-wrap">
+            <input type="submit" value="Authenticate • 認証" />
+          </div>
+          <div class="or">OR</div>
+          <div class="do-not-acc">
+            <nav>Not yet registered in the ninja registry? <a href="./Signup.html">Sign Up</a></nav>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <img class="footer-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+      <div class="info">
+        <div class="right">
+          <img src="./assets/image/footer.png" alt="Naruto Emblem" />
+        </div>
+        <div class="left">
+          <nav>
+            <a href="https://www.facebook.com/mohamed.el.saadany.529585/" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </nav>
+        </div>
+      </div>
+      <div class="foot">
+        <div class="right">
+          <p>NARUTO © 2025 • The Will of Fire • 木ノ葉隠れの里 • All rights reserved</p>
+        </div>
+        <div class="lefts">
+          <nav><a href="">Legal notice</a></nav>
+          <nav>•</nav>
+          <nav><a href="">Privacy Policy</a></nav>
+          <nav>•</nav>
+          <nav><a href="">Cookies Policy</a></nav>
+          <nav>•</nav>
+          <nav><a href="./main.html">NARUTO.COM</a></nav>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="./assets/JS/JavaScript.js"></script>
+</html>

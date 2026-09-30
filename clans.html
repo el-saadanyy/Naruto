@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>THE CLAN ARCHIVES | Noble Shinobi Bloodlines</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="80 x 60"
+      href="./assets/image/LOGO.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- GSAP & ScrollTrigger Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+
+  <body class="clans_page">
+    <!-- Dynamic Cinematic Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="bars"><i class="fa-solid fa-bars"></i></div>
+        <a href="./main.html"><img src="./assets/image/logo1.png" alt="Naruto Shippuden Logo" /></a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="./main.html">HOME</a></li>
+          <li><a href="./village.html">VILLAGES</a></li>
+          <li><a href="./clans.html" class="active">CLANS</a></li>
+          <li><a href="./shinobi-database.html">SHINOBI ARCHIVE</a></li>
+          <li><a href="./alliance.html">ALLIANCE</a></li>
+        </ul>
+      </div>
+      <div class="log">
+        <a class="abutton" href="./login.html">
+          <button type="button">
+            <i class="fa-regular fa-user fa-xs" style="font-weight: bolder"></i>
+            <nav>LOG IN</nav>
+          </button>
+        </a>
+      </div>
+    </header>
+
+    <!-- SECTION 01: MINIMAL CINEMATIC CLAN HERO -->
+    <section class="clan-intro-hero">
+      <div class="clan-intro-backdrop">
+        <img class="clan-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+        <div class="clan-intro-aura"></div>
+      </div>
+      <div class="clan-intro-content">
+        <div class="clan-editorial-tag">
+          <span class="tag-accent-bar"></span>
+          <span class="clan-tag-text"><i class="fa-solid fa-dna"></i> 忍の一族 • ANCESTRAL BLOODLINE CODEX</span>
+        </div>
+        <h1 class="clan-hero-title">THE CLAN ARCHIVES</h1>
+        <div class="clan-japanese-sub">忍の一族 • 血継限界の系譜</div>
+        <p class="clan-hero-subtitle">NOBLE LINEAGES, INHERITED TECHNIQUES & SHINOBI HERITAGE</p>
+        <div class="clan-explore-prompt">
+          <span>SCROLL OR CLICK TO INSPECT NOBLE BLOODLINES</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: PINNED CINEMATIC ANCESTRAL CODEX -->
+    <section id="clan-codex" class="clan-codex-section">
+      <div class="clan-ambient-backdrop">
+        <div class="clan-radial-aura"></div>
+        <div class="clan-grid-overlay"></div>
+      </div>
+
+      <div class="clan-stage-wrapper">
+        <div class="clan-stage-container">
+          <!-- LEFT COLUMN: Clan Identity & Animated Vector Crest Mon -->
+          <div class="clan-identity-column">
+            <!-- Tactical HUD Status -->
+            <div class="clan-hud-status">
+              <span class="clan-radar-blip"></span>
+              <span class="clan-hud-label">ANCESTRAL CODEX // 6 NOBLE CLANS</span>
+            </div>
+
+            <!-- Quick Clan Selector Navigation Buttons -->
+            <div class="clan-location-nav" role="tablist" aria-label="Noble Shinobi Clans">
+              <button type="button" class="clan-nav-btn is-active" data-clan="uchiha" role="tab" aria-selected="true" tabindex="0">
+                <span class="clan-btn-dot dot-uchiha"></span>
+                <span class="btn-text">01 UCHIHA</span>
+              </button>
+              <button type="button" class="clan-nav-btn" data-clan="senju" role="tab" aria-selected="false" tabindex="-1">
+                <span class="clan-btn-dot dot-senju"></span>
+                <span class="btn-text">02 SENJU</span>
+              </button>
+              <button type="button" class="clan-nav-btn" data-clan="hyuga" role="tab" aria-selected="false" tabindex="-1">
+                <span class="clan-btn-dot dot-hyuga"></span>
+                <span class="btn-text">03 HYŪGA</span>
+              </button>
+              <button type="button" class="clan-nav-btn" data-clan="uzumaki" role="tab" aria-selected="false" tabindex="-1">
+                <span class="clan-btn-dot dot-uzumaki"></span>
+                <span class="btn-text">04 UZUMAKI</span>
+              </button>
+              <button type="button" class="clan-nav-btn" data-clan="nara" role="tab" aria-selected="false" tabindex="-1">
+                <span class="clan-btn-dot dot-nara"></span>
+                <span class="btn-text">05 NARA</span>
+              </button>
+              <button type="button" class="clan-nav-btn" data-clan="sarutobi" role="tab" aria-selected="false" tabindex="-1">
+                <span class="clan-btn-dot dot-sarutobi"></span>
+                <span class="btn-text">06 SARUTOBI</span>
+              </button>
+            </div>
+
+            <!-- Vector Clan Crest Display Arena -->
+            <div class="clan-crest-arena">
+              <div class="crest-aura-ring"></div>
+              
+              <!-- SVG Crest Vectors for the 6 Noble Clans -->
+              <div class="clan-crest-deck">
+                <!-- Crest 01: Uchiha Clan Fan / Sharingan Mon -->
+                <div class="clan-crest-item crest-uchiha is-active" data-clan="uchiha">
+                  <svg class="clan-svg-mon" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Uchiha Clan Crest">
+                    <circle cx="150" cy="150" r="140" stroke="rgba(226, 90, 42, 0.3)" stroke-width="1.5" stroke-dasharray="4 6" />
+                    <circle cx="150" cy="150" r="115" stroke="rgba(226, 90, 42, 0.5)" stroke-width="2" />
+                    <!-- Uchiha Paper Fan Mon -->
+                    <path d="M 150 45 C 95 45 50 90 50 145 C 50 185 80 215 125 225 L 125 255 L 175 255 L 175 225 C 220 215 250 185 250 145 C 250 90 205 45 150 45 Z" fill="#991b1b" stroke="#dc2626" stroke-width="3" />
+                    <path d="M 50 145 C 50 185 80 215 125 225 L 125 255 L 175 255 L 175 225 C 220 215 250 185 250 145 Z" fill="#f5f0eb" />
+                    <line x1="150" y1="145" x2="150" y2="255" stroke="#991b1b" stroke-width="4" />
+                  </svg>
+                  <div class="crest-caption">
+                    <span class="crest-badge badge-crimson"><i class="fa-solid fa-eye"></i> DŌJUTSU • SHARINGAN</span>
+                    <div class="crest-kanji">うちは一族 • 炎の血統</div>
+                  </div>
+                </div>
+
+                <!-- Crest 02: Senju Clan Mon -->
+                <div class="clan-crest-item crest-senju" data-clan="senju">
+                  <svg class="clan-svg-mon" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Senju Clan Crest">
+                    <circle cx="150" cy="150" r="140" stroke="rgba(52, 211, 153, 0.3)" stroke-width="1.5" stroke-dasharray="4 6" />
+                    <circle cx="150" cy="150" r="115" stroke="rgba(52, 211, 153, 0.5)" stroke-width="2" />
+                    <!-- Senju Vajra Mon -->
+                    <rect x="138" y="50" width="24" height="200" rx="4" fill="#059669" stroke="#34d399" stroke-width="2" />
+                    <circle cx="150" cy="150" r="45" fill="none" stroke="#f5f0eb" stroke-width="3" />
+                    <path d="M 70 150 L 230 150 M 95 95 L 205 205 M 95 205 L 205 95" stroke="#34d399" stroke-width="3" />
+                  </svg>
+                  <div class="crest-caption">
+                    <span class="crest-badge badge-forest"><i class="fa-solid fa-tree"></i> KEKKEI GENKAI • WOOD RELEASE</span>
+                    <div class="crest-kanji">千手一族 • 森の意志</div>
+                  </div>
+                </div>
+
+                <!-- Crest 03: Hyūga Clan Mon -->
+                <div class="clan-crest-item crest-hyuga" data-clan="hyuga">
+                  <svg class="clan-svg-mon" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Hyūga Clan Crest">
+                    <circle cx="150" cy="150" r="140" stroke="rgba(197, 160, 89, 0.3)" stroke-width="1.5" stroke-dasharray="4 6" />
+                    <circle cx="150" cy="150" r="115" stroke="rgba(197, 160, 89, 0.5)" stroke-width="2" />
+                    <!-- Hyūga Flame Within Fan Mon -->
+                    <circle cx="150" cy="150" r="65" fill="rgba(245, 240, 235, 0.08)" stroke="#e5c07b" stroke-width="3" />
+                    <path d="M 150 90 C 130 120 120 140 120 160 C 120 180 135 195 150 195 C 165 195 180 180 180 160 C 180 140 170 120 150 90 Z" fill="#e5c07b" />
+                    <circle cx="150" cy="150" r="18" fill="#0e0e0e" stroke="#fff" stroke-width="2" />
+                  </svg>
+                  <div class="crest-caption">
+                    <span class="crest-badge badge-gold"><i class="fa-solid fa-eye-low-vision"></i> DŌJUTSU • ALL-SEEING BYAKUGAN</span>
+                    <div class="crest-kanji">日向一族 • 白眼と柔拳</div>
+                  </div>
+                </div>
+
+                <!-- Crest 04: Uzumaki Clan Mon -->
+                <div class="clan-crest-item crest-uzumaki" data-clan="uzumaki">
+                  <svg class="clan-svg-mon" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Uzumaki Clan Crest">
+                    <circle cx="150" cy="150" r="140" stroke="rgba(234, 88, 12, 0.3)" stroke-width="1.5" stroke-dasharray="4 6" />
+                    <circle cx="150" cy="150" r="115" stroke="rgba(234, 88, 12, 0.5)" stroke-width="2" />
+                    <!-- Uzumaki Spiral Spiral Mon -->
+                    <circle cx="150" cy="150" r="85" fill="#dc2626" stroke="#f5f0eb" stroke-width="3" />
+                    <path d="M 150 150 m 0 -55 a 55 55 0 0 1 55 55 a 45 45 0 0 1 -45 45 a 35 35 0 0 1 -35 -35 a 25 25 0 0 1 25 -25 a 15 15 0 0 1 15 15" stroke="#f5f0eb" stroke-width="7" stroke-linecap="round" fill="none" />
+                  </svg>
+                  <div class="crest-caption">
+                    <span class="crest-badge badge-orange"><i class="fa-solid fa-certificate"></i> FŪINJUTSU • VITALITY SEAL</span>
+                    <div class="crest-kanji">うずまき一族 • 渦潮と封印</div>
+                  </div>
+                </div>
+
+                <!-- Crest 05: Nara Clan Mon -->
+                <div class="clan-crest-item crest-nara" data-clan="nara">
+                  <svg class="clan-svg-mon" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nara Clan Crest">
+                    <circle cx="150" cy="150" r="140" stroke="rgba(168, 85, 247, 0.3)" stroke-width="1.5" stroke-dasharray="4 6" />
+                    <circle cx="150" cy="150" r="115" stroke="rgba(168, 85, 247, 0.5)" stroke-width="2" />
+                    <!-- Nara Shadow Deer Horn Mon -->
+                    <circle cx="150" cy="150" r="75" fill="rgba(88, 28, 135, 0.3)" stroke="#c084fc" stroke-width="2" />
+                    <path d="M 110 180 Q 130 110 150 110 Q 170 110 190 180" stroke="#f5f0eb" stroke-width="5" stroke-linecap="round" fill="none" />
+                    <path d="M 130 140 Q 100 120 90 90 M 170 140 Q 200 120 210 90" stroke="#c084fc" stroke-width="4" stroke-linecap="round" fill="none" />
+                  </svg>
+                  <div class="crest-caption">
+                    <span class="crest-badge badge-purple"><i class="fa-solid fa-moon"></i> HIDEN • SHADOW MANIPULATION</span>
+                    <div class="crest-kanji">奈良一族 • 影真似と知略</div>
+                  </div>
+                </div>
+
+                <!-- Crest 06: Sarutobi Clan Mon -->
+                <div class="clan-crest-item crest-sarutobi" data-clan="sarutobi">
+                  <svg class="clan-svg-mon" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Sarutobi Clan Crest">
+                    <circle cx="150" cy="150" r="140" stroke="rgba(245, 158, 11, 0.3)" stroke-width="1.5" stroke-dasharray="4 6" />
+                    <circle cx="150" cy="150" r="115" stroke="rgba(245, 158, 11, 0.5)" stroke-width="2" />
+                    <!-- Sarutobi Flame Seal Mon -->
+                    <circle cx="150" cy="150" r="80" fill="rgba(180, 83, 9, 0.25)" stroke="#f59e0b" stroke-width="2" />
+                    <path d="M 150 80 Q 190 130 150 220 Q 110 130 150 80 Z" fill="#ea580c" stroke="#f5f0eb" stroke-width="2" />
+                    <circle cx="150" cy="160" r="14" fill="#fbbf24" />
+                  </svg>
+                  <div class="crest-caption">
+                    <span class="crest-badge badge-amber"><i class="fa-solid fa-fire-flame-curved"></i> ALL-NATURE • FIRE RELEASE</span>
+                    <div class="crest-kanji">猿飛一族 • 飛猿の覚悟</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Visual Frame & Canon Information Dossier Deck -->
+          <div class="clan-dossier-panel">
+            <!-- Visual Media Reveal Deck -->
+            <div class="clan-media-deck">
+              <!-- Frame 01: Uchiha -->
+              <div class="clan-frame frame-uchiha is-active manga-panel" data-clan="uchiha">
+                <img class="clan-img" src="./assets/image/clan_uchiha.jpg" alt="The Uchiha Clan" />
+                <div class="clan-frame-overlay"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-fire"></i> UCHIHA CLAN</div>
+              </div>
+
+              <!-- Frame 02: Senju -->
+              <div class="clan-frame frame-senju manga-panel" data-clan="senju">
+                <img class="clan-img" src="./assets/image/clan_senju.jpg" alt="The Senju Clan" />
+                <div class="clan-frame-overlay"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-tree"></i> SENJU CLAN</div>
+              </div>
+
+              <!-- Frame 03: Hyūga -->
+              <div class="clan-frame frame-hyuga manga-panel" data-clan="hyuga">
+                <img class="clan-img" src="./assets/image/clan_hyuga.jpg" alt="The Hyūga Clan" />
+                <div class="clan-frame-overlay"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-eye"></i> HYŪGA CLAN</div>
+              </div>
+
+              <!-- Frame 04: Uzumaki -->
+              <div class="clan-frame frame-uzumaki manga-panel" data-clan="uzumaki">
+                <img class="clan-img" src="./assets/image/clan_uzumaki.jpg" alt="The Uzumaki Clan" />
+                <div class="clan-frame-overlay"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-certificate"></i> UZUMAKI CLAN</div>
+              </div>
+
+              <!-- Frame 05: Nara -->
+              <div class="clan-frame frame-nara manga-panel" data-clan="nara">
+                <img class="clan-img" src="./assets/image/clan_nara.jpg" alt="The Nara Clan" />
+                <div class="clan-frame-overlay"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-moon"></i> NARA CLAN</div>
+              </div>
+
+              <!-- Frame 06: Sarutobi -->
+              <div class="clan-frame frame-sarutobi manga-panel" data-clan="sarutobi">
+                <img class="clan-img" src="./assets/image/clan_sarutobi.jpg" alt="The Sarutobi Clan" />
+                <div class="clan-frame-overlay"></div>
+                <div class="frame-location-seal"><i class="fa-solid fa-fire-flame-curved"></i> SARUTOBI CLAN</div>
+              </div>
+            </div>
+
+            <!-- Factual Information Dossier Cards Deck -->
+            <div class="clan-content-deck">
+              <!-- Card 01: Uchiha -->
+              <div class="clan-card card-uchiha is-active" data-clan="uchiha">
+                <div class="clan-card-badge badge-crimson">
+                  <span class="c-era-tag">【木ノ葉隠れ】 KONOHAGAKURE NOBLE</span>
+                  <i class="fa-solid fa-eye"></i> CLAN 01
+                </div>
+                <h2 class="clan-card-title">THE UCHIHA CLAN</h2>
+                <div class="clan-card-kanji">うちは一族 • 写輪眼の宿命</div>
+                <p class="clan-card-desc">
+                  Descendants of Indra Ōtsutsuki, the Uchiha wield the legendary Sharingan dōjutsu. Renowned for unparalleled fire release techniques, genjutsu mastery, and the potent Susanoo avatar awakened through profound emotional bonds.
+                </p>
+                <div class="clan-meta-grid">
+                  <span class="c-meta-badge"><i class="fa-solid fa-dna"></i> Sharingan / Mangekyō</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-users"></i> Madara, Itachi, Sasuke</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-shield"></i> Fire / Genjutsu Specialist</span>
+                </div>
+              </div>
+
+              <!-- Card 02: Senju -->
+              <div class="clan-card card-senju" data-clan="senju">
+                <div class="clan-card-badge badge-forest">
+                  <span class="c-era-tag">【木ノ葉隠れ】 FOUNDING LINEAGE</span>
+                  <i class="fa-solid fa-tree"></i> CLAN 02
+                </div>
+                <h2 class="clan-card-title">THE SENJU CLAN</h2>
+                <div class="clan-card-kanji">千手一族 • 千の手を持つ一族</div>
+                <p class="clan-card-desc">
+                  Descendants of Asura Ōtsutsuki and co-founders of Konohagakure. Celebrated as the "Clan with a Thousand Skills," they mastered all chakra natures and inherited the unbreakable Will of Fire, with Hashirama awakening legendary Wood Release.
+                </p>
+                <div class="clan-meta-grid">
+                  <span class="c-meta-badge"><i class="fa-solid fa-dna"></i> Wood Release (Mokuton)</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-users"></i> Hashirama, Tobirama, Tsunade</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-shield"></i> All-Nature Mastery</span>
+                </div>
+              </div>
+
+              <!-- Card 03: Hyūga -->
+              <div class="clan-card card-hyuga" data-clan="hyuga">
+                <div class="clan-card-badge badge-gold">
+                  <span class="c-era-tag">【木ノ葉隠れ】 NOBLEST HOUSE</span>
+                  <i class="fa-solid fa-eye-low-vision"></i> CLAN 03
+                </div>
+                <h2 class="clan-card-title">THE HYŪGA CLAN</h2>
+                <div class="clan-card-kanji">日向一族 • 木ノ葉最古の名門</div>
+                <p class="clan-card-desc">
+                  Direct descendants of Hamura Ōtsutsuki possessing the pure Byakugan eye. Their near-360° chakra perception enables the lethal Gentle Fist (Jūken) martial art, closing tenketsu chakra pathways with surgical precision.
+                </p>
+                <div class="clan-meta-grid">
+                  <span class="c-meta-badge"><i class="fa-solid fa-dna"></i> Byakugan (白眼)</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-users"></i> Neji, Hinata, Hiashi</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-shield"></i> Gentle Fist / Eight Trigrams</span>
+                </div>
+              </div>
+
+              <!-- Card 04: Uzumaki -->
+              <div class="clan-card card-uzumaki" data-clan="uzumaki">
+                <div class="clan-card-badge badge-orange">
+                  <span class="c-era-tag">【渦潮隠れ】 SEALING MASTERS</span>
+                  <i class="fa-solid fa-certificate"></i> CLAN 04
+                </div>
+                <h2 class="clan-card-title">THE UZUMAKI CLAN</h2>
+                <div class="clan-card-kanji">うずまき一族 • 渦潮の生命力</div>
+                <p class="clan-card-desc">
+                  Distant blood relatives of the Senju hailing from Uzushiogakure. Renowned for boundless life force, immense chakra reserves, and forbidden Fūinjutsu sealing chains capable of binding even Nine-Tails tailed beasts.
+                </p>
+                <div class="clan-meta-grid">
+                  <span class="c-meta-badge"><i class="fa-solid fa-dna"></i> Adamantine Sealing Chains</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-users"></i> Naruto, Kushina, Mito, Nagato</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-shield"></i> Fūinjutsu / High Vitality</span>
+                </div>
+              </div>
+
+              <!-- Card 05: Nara -->
+              <div class="clan-card card-nara" data-clan="nara">
+                <div class="clan-card-badge badge-purple">
+                  <span class="c-era-tag">【木ノ葉隠れ】 TACTICAL ARCHIVE</span>
+                  <i class="fa-solid fa-moon"></i> CLAN 05
+                </div>
+                <h2 class="clan-card-title">THE NARA CLAN</h2>
+                <div class="clan-card-kanji">奈良一族 • 鹿と知略の影</div>
+                <p class="clan-card-desc">
+                  Famed for their genius intellect, herbal medicinal wisdom, and sacred deer sanctuary. The Nara command Hiden Shadow Manipulation ninjutsu, serving as top military advisors and Hokage strategists across generations.
+                </p>
+                <div class="clan-meta-grid">
+                  <span class="c-meta-badge"><i class="fa-solid fa-dna"></i> Shadow Imitation (Kagemane)</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-users"></i> Shikamaru, Shikaku, Shikadai</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-shield"></i> Ino-Shika-Chō Strategist</span>
+                </div>
+              </div>
+
+              <!-- Card 06: Sarutobi -->
+              <div class="clan-card card-sarutobi" data-clan="sarutobi">
+                <div class="clan-card-badge badge-amber">
+                  <span class="c-era-tag">【木ノ葉隠れ】 WILL OF FIRE PILLAR</span>
+                  <i class="fa-solid fa-fire-flame-curved"></i> CLAN 06
+                </div>
+                <h2 class="clan-card-title">THE SARUTOBI CLAN</h2>
+                <div class="clan-card-kanji">猿飛一族 • 火遁と忍の覚悟</div>
+                <p class="clan-card-desc">
+                  One of the earliest clans to pledge allegiance to the newly founded Leaf Village. Famed for fierce Fire Release mastery, monkey summons, and the versatile multi-nature genius exemplified by the "Professor" Hiruzen Sarutobi.
+                </p>
+                <div class="clan-meta-grid">
+                  <span class="c-meta-badge"><i class="fa-solid fa-dna"></i> High-Level Fire Release</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-users"></i> Hiruzen, Asuma, Konohamaru</span>
+                  <span class="c-meta-badge"><i class="fa-solid fa-shield"></i> Five-Nature Versatility</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: BLOODLINE & KEKKEI GENKAI ARCHIVE -->
+    <section id="bloodline-archive" class="bloodline-section">
+      <div class="bloodline-container">
+        <div class="section-tag" style="text-align: center; margin-bottom: 8px;">
+          <i class="fa-solid fa-dna"></i> HEREDITARY GENETICS • 血継限界の覚醒
+        </div>
+        <h2 class="bloodline-main-title">THE BLOODLINE ARCHIVE</h2>
+        <p class="bloodline-subtitle">
+          GENETIC ANOMALIES & SECRET HIDEN TRANSMISSIONS PASSED THROUGH NOBLE SHINOBI BLOOD
+        </p>
+
+        <div class="bloodline-grid">
+          <!-- Bloodline Card 1: Dōjutsu (Sharingan & Byakugan) -->
+          <div class="bloodline-card manga-panel">
+            <div class="bloodline-type-badge badge-crimson">
+              <i class="fa-solid fa-eye"></i> OCULAR DŌJUTSU
+            </div>
+            <h3 class="bloodline-card-name">SHARINGAN & BYAKUGAN</h3>
+            <div class="bloodline-kanji">写輪眼 • 白眼 (瞳術血統)</div>
+            <p class="bloodline-desc">
+              Ancient dōjutsu originating from Kaguya Ōtsutsuki. Grants kinetic tracking, jutsu replication, and 360-degree chakra tenketsu sight.
+            </p>
+            <div class="lineage-flow">
+              <span class="flow-step">INDRA / HAMURA</span>
+              <i class="fa-solid fa-arrow-right"></i>
+              <span class="flow-step">OCULAR GENE</span>
+              <i class="fa-solid fa-arrow-right"></i>
+              <span class="flow-step highlight">DŌJUTSU</span>
+            </div>
+          </div>
+
+          <!-- Bloodline Card 2: Elemental Fusion (Mokuton / Hyōton / Yōton) -->
+          <div class="bloodline-card manga-panel">
+            <div class="bloodline-type-badge badge-forest">
+              <i class="fa-solid fa-dna"></i> ELEMENTAL SYNTHESIS
+            </div>
+            <h3 class="bloodline-card-name">WOOD & ICE RELEASE</h3>
+            <div class="bloodline-kanji">木遁 • 氷遁 (二性質融合)</div>
+            <p class="bloodline-desc">
+              Simultaneous chemical fusion of two primordial chakra natures to manifest living flora, organic constructs, or impenetrable crystalline ice mirrors.
+            </p>
+            <div class="lineage-flow">
+              <span class="flow-step">EARTH ＋ WATER</span>
+              <i class="fa-solid fa-arrow-right"></i>
+              <span class="flow-step">GENETIC FUSION</span>
+              <i class="fa-solid fa-arrow-right"></i>
+              <span class="flow-step highlight">MOKUTON</span>
+            </div>
+          </div>
+
+          <!-- Bloodline Card 3: Hiden Secret Arts -->
+          <div class="bloodline-card manga-panel">
+            <div class="bloodline-type-badge badge-purple">
+              <i class="fa-solid fa-scroll"></i> SECRET HIDEN ARTS
+            </div>
+            <h3 class="bloodline-card-name">SHADOW & MIND JUTSU</h3>
+            <div class="bloodline-kanji">影真似 • 心転身 (秘伝伝承)</div>
+            <p class="bloodline-desc">
+              Non-elemental ancestral formulas guarded strictly within clan scrolls. Encompasses shadow binding, telepathic soul transfer, and calorie expansion.
+            </p>
+            <div class="lineage-flow">
+              <span class="flow-step">YIN / YANG CHAKRA</span>
+              <i class="fa-solid fa-arrow-right"></i>
+              <span class="flow-step">HIDEN SCROLL</span>
+              <i class="fa-solid fa-arrow-right"></i>
+              <span class="flow-step highlight">SECRET ART</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: SUPPORTING CLAN ARCHIVE -->
+    <section id="supporting-clans" class="supporting-clans-section">
+      <div class="supporting-container">
+        <div class="section-tag" style="text-align: center; margin-bottom: 8px;">
+          <i class="fa-solid fa-users-viewfinder"></i> ALLIED BASTIONS • 名門各派
+        </div>
+        <h2 class="supporting-title">ALLIED CLANS OF THE SHINOBI WORLD</h2>
+        
+        <div class="supporting-clan-grid">
+          <!-- Clan 01: Aburame -->
+          <div class="support-card manga-panel" tabindex="0">
+            <div class="support-card-head">
+              <span class="support-icon"><i class="fa-solid fa-bug"></i></span>
+              <div class="support-naming">
+                <h4>ABURAME CLAN</h4>
+                <span>油女一族 • 寄壊蟲の巣</span>
+              </div>
+            </div>
+            <p class="support-text">
+              Symbiotic masters who house parasitic Kikaichū insects within their bodies, draining enemy chakra in silence.
+            </p>
+            <div class="support-footer">
+              <span class="s-badge"><i class="fa-solid fa-shield"></i> Insect Hiden</span>
+              <span class="s-badge">Konohagakure</span>
+            </div>
+          </div>
+
+          <!-- Clan 02: Akimichi -->
+          <div class="support-card manga-panel" tabindex="0">
+            <div class="support-card-head">
+              <span class="support-icon"><i class="fa-solid fa-cubes-stacked"></i></span>
+              <div class="support-naming">
+                <h4>AKIMICHI CLAN</h4>
+                <span>秋道一族 • 倍化の術</span>
+              </div>
+            </div>
+            <p class="support-text">
+              Wielders of the Yang Release Multi-Size Technique, converting body calories into crushing physical force and chakra wings.
+            </p>
+            <div class="support-footer">
+              <span class="s-badge"><i class="fa-solid fa-shield"></i> Calorie Expansion</span>
+              <span class="s-badge">Ino-Shika-Chō</span>
+            </div>
+          </div>
+
+          <!-- Clan 03: Inuzuka -->
+          <div class="support-card manga-panel" tabindex="0">
+            <div class="support-card-head">
+              <span class="support-icon"><i class="fa-solid fa-paw"></i></span>
+              <div class="support-naming">
+                <h4>INUZUKA CLAN</h4>
+                <span>犬塚一族 • 獣人合体</span>
+              </div>
+            </div>
+            <p class="support-text">
+              Canine tracking specialists bonded with canine Ninken partners from birth, executing lethal Man-Beast Taijutsu.
+            </p>
+            <div class="support-footer">
+              <span class="s-badge"><i class="fa-solid fa-shield"></i> Ninken Synergy</span>
+              <span class="s-badge">Konohagakure</span>
+            </div>
+          </div>
+
+          <!-- Clan 04: Yamanaka -->
+          <div class="support-card manga-panel" tabindex="0">
+            <div class="support-card-head">
+              <span class="support-icon"><i class="fa-solid fa-brain"></i></span>
+              <div class="support-naming">
+                <h4>YAMANAKA CLAN</h4>
+                <span>山中一族 • 心転身の術</span>
+              </div>
+            </div>
+            <p class="support-text">
+              Sensory telepaths and espionage experts commanding Mind Body Switch techniques to hijack enemy consciousness.
+            </p>
+            <div class="support-footer">
+              <span class="s-badge"><i class="fa-solid fa-shield"></i> Telepathic Espionage</span>
+              <span class="s-badge">Ino-Shika-Chō</span>
+            </div>
+          </div>
+
+          <!-- Clan 05: Kaguya -->
+          <div class="support-card manga-panel" tabindex="0">
+            <div class="support-card-head">
+              <span class="support-icon"><i class="fa-solid fa-bone"></i></span>
+              <div class="support-naming">
+                <h4>KAGUYA CLAN</h4>
+                <span>かぐや一族 • 屍骨脈</span>
+              </div>
+            </div>
+            <p class="support-text">
+              Extinct battle-hungry Kirigakure lineage wielding the rare Shikotsumyaku ability to manipulate skeletal bone density at will.
+            </p>
+            <div class="support-footer">
+              <span class="s-badge"><i class="fa-solid fa-shield"></i> Shikotsumyaku Bone</span>
+              <span class="s-badge">Kirigakure / Extinct</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modern Cinematic Footer -->
+    <footer>
+      <img class="footer-konoha-watermark" src="./assets/image/konohaL.png" alt="" aria-hidden="true" />
+      <div class="info">
+        <div class="right">
+          <img src="./assets/image/footer.png" alt="Naruto Emblem" />
+        </div>
+        <div class="left">
+          <nav>
+            <a href="https://www.facebook.com/mohamed.el.saadany.529585/" aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          </nav>
+          <nav>
+            <a href="" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </nav>
+        </div>
+      </div>
+      <div class="foot">
+        <div class="right">
+          <p>NARUTO © 2025 • The Will of Fire • 木ノ葉隠れの里 • All rights reserved</p>
+        </div>
+        <div class="lefts">
+          <nav><a href="">Legal notice</a></nav>
+          <nav>•</nav>
+          <nav><a href="">Privacy Policy</a></nav>
+          <nav>•</nav>
+          <nav><a href="">Cookies Policy</a></nav>
+          <nav>•</nav>
+          <nav><a href="./main.html">NARUTO.COM</a></nav>
+        </div>
+      </div>
+    </footer>
+    <script src="./assets/JS/JavaScript.js"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+# Core Django Framework
+Django==6.1
+asgiref==3.12.1
+sqlparse==0.6.0
+tzdata==2026.4
+
+# Cross-Origin Resource Sharing
+django-cors-headers==4.9.0
+
+# PostgreSQL Database Driver
+psycopg==3.3.6
+psycopg-binary==3.3.6
