@@ -16,8 +16,7 @@ function StoryChaptersSection() {
       // Chapter 01: ORIGIN
       const chOrigin = containerRef.current?.querySelector('.chapter-origin');
       if (chOrigin) {
-        const bleedNum = chOrigin.querySelector('.chapter-bleed-num');
-        const img = chOrigin.querySelector('.portrait-frame img');
+        const img = chOrigin.querySelector('.origin-bg-img, img');
 
         const tl01 = gsap.timeline({
           scrollTrigger: {
@@ -32,19 +31,6 @@ function StoryChaptersSection() {
           { opacity: 0, y: 35 },
           { opacity: 1, y: 0, duration: 0.85, ease: 'power2.out' }
         );
-
-        if (bleedNum) {
-          gsap.to(bleedNum, {
-            y: -40,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: chOrigin,
-              start: 'top 90%',
-              end: 'bottom top',
-              scrub: 0.6,
-            },
-          });
-        }
 
         if (img) {
           gsap.fromTo(
@@ -67,8 +53,7 @@ function StoryChaptersSection() {
       // Chapter 02: ASCENSION
       const chAscension = containerRef.current?.querySelector('.chapter-ascension');
       if (chAscension) {
-        const numBg = chAscension.querySelector('.chapter-num-bg');
-        const img = chAscension.querySelector('.dynamic-image-wrap img');
+        const img = chAscension.querySelector('.ascension-bg-img, img');
 
         const tl02 = gsap.timeline({
           scrollTrigger: {
@@ -83,19 +68,6 @@ function StoryChaptersSection() {
           { opacity: 0, y: 35 },
           { opacity: 1, y: 0, duration: 0.85, ease: 'power2.out' }
         );
-
-        if (numBg) {
-          gsap.to(numBg, {
-            y: -30,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: chAscension,
-              start: 'top 90%',
-              end: 'bottom top',
-              scrub: 0.6,
-            },
-          });
-        }
 
         if (img) {
           gsap.fromTo(
@@ -118,7 +90,7 @@ function StoryChaptersSection() {
       // Chapter 03: CLIMAX
       const chClimax = containerRef.current?.querySelector('.chapter-climax');
       if (chClimax) {
-        const bgImg = chClimax.querySelector('.climax-bg-img');
+        const bgImg = chClimax.querySelector('.climax-bg-img, img');
 
         const tl03 = gsap.timeline({
           scrollTrigger: {
@@ -164,67 +136,73 @@ function StoryChaptersSection() {
         <h2 className="section-heading">THE JOURNEY OF A SHINOBI</h2>
       </div>
 
-      {/* Chapter 01: ORIGIN (Open Editorial Asymmetry) */}
-      <section className="chapter-origin">
-        <div className="chapter-bleed-num">01</div>
-        <div className="story-text">
+      {/* Chapter 01: ORIGIN (Cinematic Full-Bleed Story Panel) */}
+      <section className="chapter-origin manga-panel">
+        <img
+          className="origin-bg-img"
+          src="/assets/image/main5.jpg"
+          alt="Naruto's lonely childhood in Konoha"
+        />
+        <div className="origin-overlay">
           <span className="chapter-badge-origin">
             <i className="fa-solid fa-fire"></i> CHAPTER 01 • ORIGIN{' '}
             <span className="ch-kanji">【起】孤独と宿命</span>
           </span>
           <h2>The Jinchūriki Boy</h2>
-          <p>
-            Naruto’s childhood was marked by a deep and haunting darkness. Isolated from the very
-            moment he could walk, he grew up surrounded by cold stares and whispered hatred from the
-            villagers who feared the Nine-Tails sealed within him. He never knew the warmth of a
-            family or the comfort of being understood; instead, he wandered through empty streets and
-            silent nights, questioning why he existed at all. The loneliness carved itself into his
-            heart, turning every day into a quiet battle against despair. Yet, beneath that darkness,
-            a stubborn spark remained—one that refused to let the world break him.
-          </p>
-          <p>
-            Growing up as an orphan in the Hidden Leaf Village, he had no parents to guide him, no
-            warm voice to comfort him, and no family to return to at the end of the day. What made it
-            worse was that the villagers avoided him, whispering behind his back and treating him
-            like an outcast because of the Nine-Tails sealed inside him. Naruto spent his early years
-            longing for even a small piece of affection — a smile, a friend, someone who would see him
-            as more than a monster. This constant isolation shaped his heart, filling it with both
-            sadness and an unbreakable determination to prove his worth to the world.
-          </p>
-        </div>
-        <div className="portrait-frame manga-panel">
-          <img src="/assets/image/main5.jpg" alt="Naruto's lonely childhood in Konoha" />
+          <div className="origin-text-grid">
+            <p>
+              Naruto’s childhood was marked by a deep and haunting darkness. Isolated from the very
+              moment he could walk, he grew up surrounded by cold stares and whispered hatred from the
+              villagers who feared the Nine-Tails sealed within him. He never knew the warmth of a
+              family or the comfort of being understood; instead, he wandered through empty streets and
+              silent nights, questioning why he existed at all. The loneliness carved itself into his
+              heart, turning every day into a quiet battle against despair. Yet, beneath that darkness,
+              a stubborn spark remained—one that refused to let the world break him.
+            </p>
+            <p>
+              Growing up as an orphan in the Hidden Leaf Village, he had no parents to guide him, no
+              warm voice to comfort him, and no family to return to at the end of the day. What made it
+              worse was that the villagers avoided him, whispering behind his back and treating him
+              like an outcast because of the Nine-Tails sealed inside him. Naruto spent his early years
+              longing for even a small piece of affection — a smile, a friend, someone who would see him
+              as more than a monster. This constant isolation shaped his heart, filling it with both
+              sadness and an unbreakable determination to prove his worth to the world.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Chapter 02: ASCENSION (Dynamic Image-Left Layout) */}
-      <section className="chapter-ascension">
-        <div className="chapter-num-bg">02</div>
-        <div className="dynamic-image-wrap manga-panel">
-          <img src="/assets/image/main9.jpg" alt="Sage Mode Naruto confronting Pain" />
-        </div>
-        <div className="story-text">
+      {/* Chapter 02: ASCENSION (Cinematic Full-Bleed Story Panel) */}
+      <section className="chapter-ascension manga-panel">
+        <img
+          className="ascension-bg-img"
+          src="/assets/image/main9.jpg"
+          alt="Sage Mode Naruto confronting Pain"
+        />
+        <div className="ascension-overlay">
           <span className="chapter-badge-ascension">
             <i className="fa-solid fa-bolt"></i> CHAPTER 02 • ASCENSION{' '}
             <span className="ch-kanji">【承】師弟と継承</span>
           </span>
           <h2>The Hidden Leaf’s Chosen Savior</h2>
-          <p>
-            As Naruto grew older, he threw himself into intense training, determined to prove his
-            worth. He spent years mastering various ninja techniques—from the Shadow Clone Jutsu to
-            the Rasengan—and each skill he learned pushed him to become stronger. Over time, his power
-            and confidence grew, and people started to see that he was far more than the
-            troublemaking kid they once knew. His relentless training and unbreakable spirit gave him
-            an important role in every major battle, until he eventually became the strongest ninja in
-            Konoha and its true savior in times of danger.
-          </p>
-          <p>
-            Naruto faced the greatest threat ever to strike the Hidden Leaf when Pain launched his
-            devastating attack. Despite the destruction and the fear that spread through the village,
-            Naruto stood firm as Konoha’s final hope. Through courage, growth, and unshakable
-            determination, he confronted Pain head-on and ultimately defeated him, ending the terror
-            and saving the entire village from complete annihilation.
-          </p>
+          <div className="ascension-text-grid">
+            <p>
+              As Naruto grew older, he threw himself into intense training, determined to prove his
+              worth. He spent years mastering various ninja techniques—from the Shadow Clone Jutsu to
+              the Rasengan—and each skill he learned pushed him to become stronger. Over time, his power
+              and confidence grew, and people started to see that he was far more than the
+              troublemaking kid they once knew. His relentless training and unbreakable spirit gave him
+              an important role in every major battle, until he eventually became the strongest ninja in
+              Konoha and its true savior in times of danger.
+            </p>
+            <p>
+              Naruto faced the greatest threat ever to strike the Hidden Leaf when Pain launched his
+              devastating attack. Despite the destruction and the fear that spread through the village,
+              Naruto stood firm as Konoha’s final hope. Through courage, growth, and unshakable
+              determination, he confronted Pain head-on and ultimately defeated him, ending the terror
+              and saving the entire village from complete annihilation.
+            </p>
+          </div>
         </div>
       </section>
 
