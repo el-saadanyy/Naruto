@@ -201,7 +201,7 @@ function ShinobiChronicleSection() {
           ease: 'none',
         })
         .to(
-          ['.chronicle-timeline-deck', '.chronicle-editorial-head', '.chronicle-num.num-03'],
+          ['.chronicle-timeline-bar', '.chronicle-narrative-deck', '.num-03'],
           {
             opacity: 0.25,
             y: -20,
