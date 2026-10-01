@@ -203,6 +203,7 @@ CORS_ALLOWED_ORIGINS = get_list_env(
     default=[
         'http://127.0.0.1:5173',
         'http://localhost:5173',
+        'https://naruto-beta.vercel.app',
     ]
 )
 CORS_ALLOW_CREDENTIALS = True
@@ -214,6 +215,7 @@ CSRF_TRUSTED_ORIGINS = get_list_env(
     default=[
         'http://127.0.0.1:5173',
         'http://localhost:5173',
+        'https://naruto-beta.vercel.app',
     ]
 )
 # Cross-Origin Cookie Configuration
