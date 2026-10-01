@@ -63,7 +63,12 @@ DEBUG = get_bool_env('DJANGO_DEBUG', default=True)
 # Allowed hosts configuration
 ALLOWED_HOSTS = get_list_env(
     'DJANGO_ALLOWED_HOSTS',
-    default=['127.0.0.1', 'localhost', 'testserver']
+    default=[
+        '127.0.0.1',
+        'localhost',
+        'testserver',
+        'naruto-production-9f86.up.railway.app',
+    ]
 )
 
 
