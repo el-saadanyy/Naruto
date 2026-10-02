@@ -2,11 +2,14 @@ import json
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from django.http import JsonResponse
 from django.middleware.csrf import get_token
 from django.views.decorators.http import require_http_methods
+
+username_validator = UnicodeUsernameValidator()
 
 
 @require_http_methods(["GET"])
@@ -87,17 +90,29 @@ def signup_view(request):
     if password != confirm_password:
         return JsonResponse({"error": "Secret seals / passwords do not match."}, status=400)
 
-    # 3. Validate email format
+    # 3. Validate username format
+    try:
+        username_validator(username)
+    except ValidationError:
+        return JsonResponse({
+            "error": "Shinobi handle contains invalid characters. Use only letters, numbers, and @/./+/-/_."
+        }, status=400)
+
+    # 4. Validate email format
     try:
         validate_email(email)
     except ValidationError:
         return JsonResponse({"error": "Enter a valid ninja registry email address."}, status=400)
 
-    # 4. Validate username uniqueness
+    # 5. Validate username uniqueness
     if User.objects.filter(username__iexact=username).exists():
         return JsonResponse({"error": f"Shinobi handle '{username}' is already claimed by another ninja."}, status=400)
 
-    # 5. Validate password requirements
+    # 6. Validate email uniqueness
+    if User.objects.filter(email__iexact=email).exists():
+        return JsonResponse({"error": "A shinobi account with this email address already exists."}, status=400)
+
+    # 7. Validate password requirements
     try:
         validate_password(password)
     except ValidationError as e:

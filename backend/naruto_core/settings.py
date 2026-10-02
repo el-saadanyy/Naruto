@@ -241,5 +241,4 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = get_bool_env('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=True)
     SECURE_HSTS_PRELOAD = get_bool_env('SECURE_HSTS_PRELOAD', default=True)
 
-    if get_bool_env('SECURE_PROXY_SSL_HEADER', default=True):
-        SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
