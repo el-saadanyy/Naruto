@@ -377,16 +377,7 @@ function ProfilePage() {
 
   if (!isAuthenticated || !user) {
     return (
-      <main
-        className="profile-page auth-page"
-        style={{
-          padding: '80px 20px',
-          minHeight: '80vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <main className="profile-page auth-page">
         <div className="login manga-panel" style={{ maxWidth: '480px', width: '100%', textAlign: 'center' }}>
           <div className="auth-header">
             <i
@@ -429,7 +420,7 @@ function ProfilePage() {
   }
 
   return (
-    <main className="profile-page" style={{ minHeight: '85vh', paddingBottom: '80px' }}>
+    <main className="profile-page">
       <img
         className="hero-konoha-watermark"
         src="/assets/image/konohaL.png"
@@ -449,23 +440,11 @@ function ProfilePage() {
               </div>
 
               <div className="profile-identity-info">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
-                  <span
-                    style={{
-                      background: 'rgba(153, 27, 27, 0.4)',
-                      border: '1px solid var(--primary-crimson-bright, #dc2626)',
-                      color: 'var(--text-cream, #f5f0eb)',
-                      fontSize: '0.75rem',
-                      fontWeight: 700,
-                      letterSpacing: '1px',
-                      padding: '2px 8px',
-                      borderRadius: '4px',
-                      textTransform: 'uppercase',
-                    }}
-                  >
+                <div className="profile-badge-row">
+                  <span className="profile-role-badge">
                     REGISTERED OPERATIVE
                   </span>
-                  <span style={{ color: 'var(--secondary-gold, #c5a059)', fontSize: '0.85rem' }}>ID #{user.id}</span>
+                  <span className="profile-ninja-id">ID #{user.id}</span>
                 </div>
                 <h1 className="profile-username">
                   {user.username}
@@ -473,7 +452,7 @@ function ProfilePage() {
                 <p className="profile-email">
                   <i
                     className="fa-regular fa-envelope"
-                    style={{ marginRight: '6px', color: 'var(--secondary-gold, #c5a059)' }}
+                    style={{ color: 'var(--secondary-gold, #c5a059)' }}
                   ></i>
                   {user.email}
                 </p>
@@ -482,20 +461,11 @@ function ProfilePage() {
 
             {/* Right: Enrolled info & Quick Action */}
             <div className="profile-dossier-meta">
-              <span style={{ color: 'var(--text-dim, #78716c)', fontSize: '0.85rem' }}>
-                <i className="fa-regular fa-calendar-check" style={{ marginRight: '6px' }}></i>
+              <span className="profile-enrolled-tag">
+                <i className="fa-regular fa-calendar-check"></i>
                 Enrolled: {formatDate(profileData?.date_joined)}
               </span>
-              <span
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  color: '#4ade80',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                }}
-              >
+              <span className="profile-status-badge">
                 <i className="fa-solid fa-shield-halved"></i> SESSION ACTIVE // 認証済み
               </span>
             </div>
@@ -503,162 +473,61 @@ function ProfilePage() {
 
           {/* Stats Bar */}
           <div className="profile-stats-grid">
-            <div
-              style={{
-                background: 'rgba(8, 8, 8, 0.6)',
-                padding: '16px 20px',
-                borderRadius: '8px',
-                border: '1px solid rgba(197, 160, 89, 0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-              }}
-            >
-              <i
-                className="fa-solid fa-bookmark"
-                style={{ fontSize: '1.8rem', color: 'var(--secondary-gold-bright, #e5c07b)' }}
-              ></i>
-              <div>
-                <div
-                  style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-cream, #f5f0eb)', lineHeight: 1 }}
-                >
+            <div className="profile-stat-card profile-stat-card--total">
+              <i className="fa-solid fa-bookmark profile-stat-icon"></i>
+              <div className="profile-stat-info">
+                <div className="profile-stat-count">
                   {favorites.length}
                 </div>
-                <div
-                  style={{
-                    fontSize: '0.8rem',
-                    color: 'var(--text-muted, #a8a29e)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                  }}
-                >
+                <div className="profile-stat-label">
                   Total Bookmarks
                 </div>
               </div>
             </div>
 
-            <div
-              style={{
-                background: 'rgba(8, 8, 8, 0.6)',
-                padding: '16px 20px',
-                borderRadius: '8px',
-                border: '1px solid rgba(220, 38, 38, 0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-              }}
-            >
-              <i
-                className="fa-solid fa-user-ninja"
-                style={{ fontSize: '1.8rem', color: 'var(--primary-crimson-bright, #dc2626)' }}
-              ></i>
-              <div>
-                <div
-                  style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-cream, #f5f0eb)', lineHeight: 1 }}
-                >
+            <div className="profile-stat-card profile-stat-card--shinobi">
+              <i className="fa-solid fa-user-ninja profile-stat-icon"></i>
+              <div className="profile-stat-info">
+                <div className="profile-stat-count">
                   {shinobiFavorites.length}
                 </div>
-                <div
-                  style={{
-                    fontSize: '0.8rem',
-                    color: 'var(--text-muted, #a8a29e)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                  }}
-                >
+                <div className="profile-stat-label">
                   Shinobi Bookmarks
                 </div>
               </div>
             </div>
 
-            <div
-              style={{
-                background: 'rgba(8, 8, 8, 0.6)',
-                padding: '16px 20px',
-                borderRadius: '8px',
-                border: '1px solid rgba(56, 189, 248, 0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-              }}
-            >
-              <i className="fa-solid fa-users-viewfinder" style={{ fontSize: '1.8rem', color: '#38bdf8' }}></i>
-              <div>
-                <div
-                  style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-cream, #f5f0eb)', lineHeight: 1 }}
-                >
+            <div className="profile-stat-card profile-stat-card--clan">
+              <i className="fa-solid fa-users-viewfinder profile-stat-icon"></i>
+              <div className="profile-stat-info">
+                <div className="profile-stat-count">
                   {clanFavorites.length}
                 </div>
-                <div
-                  style={{
-                    fontSize: '0.8rem',
-                    color: 'var(--text-muted, #a8a29e)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                  }}
-                >
+                <div className="profile-stat-label">
                   Clan Bookmarks
                 </div>
               </div>
             </div>
 
-            <div
-              style={{
-                background: 'rgba(8, 8, 8, 0.6)',
-                padding: '16px 20px',
-                borderRadius: '8px',
-                border: '1px solid rgba(249, 115, 22, 0.25)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-              }}
-            >
-              <i className="fa-solid fa-landmark" style={{ fontSize: '1.8rem', color: '#f97316' }}></i>
-              <div>
-                <div
-                  style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-cream, #f5f0eb)', lineHeight: 1 }}
-                >
+            <div className="profile-stat-card profile-stat-card--village">
+              <i className="fa-solid fa-landmark profile-stat-icon"></i>
+              <div className="profile-stat-info">
+                <div className="profile-stat-count">
                   {villageFavorites.length}
                 </div>
-                <div
-                  style={{
-                    fontSize: '0.8rem',
-                    color: 'var(--text-muted, #a8a29e)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                  }}
-                >
+                <div className="profile-stat-label">
                   Village Bookmarks
                 </div>
               </div>
             </div>
 
-            <div
-              style={{
-                background: 'rgba(8, 8, 8, 0.6)',
-                padding: '16px 20px',
-                borderRadius: '8px',
-                border: '1px solid rgba(236, 72, 153, 0.25)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-              }}
-            >
-              <i className="fa-solid fa-fire-flame-curved" style={{ fontSize: '1.8rem', color: '#ec4899' }}></i>
-              <div>
-                <div
-                  style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-cream, #f5f0eb)', lineHeight: 1 }}
-                >
+            <div className="profile-stat-card profile-stat-card--bijuu">
+              <i className="fa-solid fa-fire-flame-curved profile-stat-icon"></i>
+              <div className="profile-stat-info">
+                <div className="profile-stat-count">
                   {bijuuFavorites.length}
                 </div>
-                <div
-                  style={{
-                    fontSize: '0.8rem',
-                    color: 'var(--text-muted, #a8a29e)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                  }}
-                >
+                <div className="profile-stat-label">
                   Bijuu Bookmarks
                 </div>
               </div>
@@ -668,34 +537,13 @@ function ProfilePage() {
       </section>
 
       {/* SECTION 1: Bookmarked Shinobi Grid Section */}
-      <section style={{ maxWidth: '1280px', margin: '20px auto 0', padding: '0 24px' }}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '24px',
-            borderBottom: '1px solid var(--border-subtle, rgba(255, 255, 255, 0.07))',
-            paddingBottom: '16px',
-          }}
-        >
+      <section className="profile-section">
+        <div className="profile-section-header">
           <div>
-            <h2
-              style={{
-                fontFamily: 'var(--font-heading, "Long Shot", sans-serif)',
-                fontSize: '1.8rem',
-                color: 'var(--text-cream, #f5f0eb)',
-                letterSpacing: '1px',
-                margin: 0,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-              }}
-            >
-              <i className="fa-solid fa-bookmark" style={{ color: 'var(--secondary-gold-bright, #e5c07b)' }}></i>
+            <h2 className="profile-section-title">
               CLASSIFIED SHINOBI BOOKMARKS • お気に入り忍
             </h2>
-            <p style={{ color: 'var(--text-muted, #a8a29e)', margin: '4px 0 0', fontSize: '0.9rem' }}>
+            <p className="profile-section-desc">
               Your personally selected registry of legendary shinobi dossiers.
             </p>
           </div>
@@ -727,40 +575,12 @@ function ProfilePage() {
             ))}
           </div>
         ) : (
-          <div
-            className="db-empty-state manga-panel"
-            style={{
-              padding: '48px 30px',
-              textAlign: 'center',
-              background: 'rgba(14, 14, 14, 0.7)',
-              borderRadius: '12px',
-              border: '1px dashed var(--border-subtle, rgba(255, 255, 255, 0.15))',
-            }}
-          >
-            <i
-              className="fa-solid fa-bookmark"
-              style={{ fontSize: '2.5rem', color: 'var(--text-dim, #78716c)', marginBottom: '14px' }}
-            ></i>
-            <h3
-              style={{
-                fontFamily: 'var(--font-heading, "Long Shot", sans-serif)',
-                fontSize: '1.5rem',
-                color: 'var(--text-cream, #f5f0eb)',
-                letterSpacing: '1px',
-                marginBottom: '8px',
-              }}
-            >
+          <div className="profile-empty-state manga-panel">
+            <i className="fa-solid fa-bookmark profile-empty-state-icon"></i>
+            <h3 className="profile-empty-state-title">
               NO CLASSIFIED SHINOBI BOOKMARKED YET
             </h3>
-            <p
-              style={{
-                color: 'var(--text-muted, #a8a29e)',
-                maxWidth: '480px',
-                margin: '0 auto 20px',
-                fontSize: '0.95rem',
-                lineHeight: 1.6,
-              }}
-            >
+            <p className="profile-empty-state-text">
               Explore the 45 legendary shinobi archives and click the bookmark seal on any operative card to pin them
               to your personal dossier.
             </p>
@@ -781,34 +601,13 @@ function ProfilePage() {
       </section>
 
       {/* SECTION 2: Bookmarked Clans Section */}
-      <section style={{ maxWidth: '1280px', margin: '50px auto 0', padding: '0 24px' }}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '24px',
-            borderBottom: '1px solid var(--border-subtle, rgba(255, 255, 255, 0.07))',
-            paddingBottom: '16px',
-          }}
-        >
+      <section className="profile-section">
+        <div className="profile-section-header">
           <div>
-            <h2
-              style={{
-                fontFamily: 'var(--font-heading, "Long Shot", sans-serif)',
-                fontSize: '1.8rem',
-                color: 'var(--text-cream, #f5f0eb)',
-                letterSpacing: '1px',
-                margin: 0,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-              }}
-            >
-              <i className="fa-solid fa-shield-halved" style={{ color: 'var(--primary-crimson-bright, #dc2626)' }}></i>
+            <h2 className="profile-section-title">
               BOOKMARKED NOBLE & ALLIED CLANS • お気に入り一族
             </h2>
-            <p style={{ color: 'var(--text-muted, #a8a29e)', margin: '4px 0 0', fontSize: '0.9rem' }}>
+            <p className="profile-section-desc">
               Your preserved ancestral bloodline codex and allied clan records.
             </p>
           </div>
@@ -834,13 +633,7 @@ function ProfilePage() {
             Loading clan bookmarks...
           </div>
         ) : favoritedClanRecords.length > 0 ? (
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-              gap: '24px',
-            }}
-          >
+          <div className="profile-cards-grid">
             {favoritedClanRecords.map((clan) => (
               <div
                 key={clan.id}
@@ -1054,40 +847,12 @@ function ProfilePage() {
             ))}
           </div>
         ) : (
-          <div
-            className="db-empty-state manga-panel"
-            style={{
-              padding: '48px 30px',
-              textAlign: 'center',
-              background: 'rgba(14, 14, 14, 0.7)',
-              borderRadius: '12px',
-              border: '1px dashed var(--border-subtle, rgba(255, 255, 255, 0.15))',
-            }}
-          >
-            <i
-              className="fa-solid fa-shield-halved"
-              style={{ fontSize: '2.5rem', color: 'var(--text-dim, #78716c)', marginBottom: '14px' }}
-            ></i>
-            <h3
-              style={{
-                fontFamily: 'var(--font-heading, "Long Shot", sans-serif)',
-                fontSize: '1.5rem',
-                color: 'var(--text-cream, #f5f0eb)',
-                letterSpacing: '1px',
-                marginBottom: '8px',
-              }}
-            >
+          <div className="profile-empty-state manga-panel">
+            <i className="fa-solid fa-shield-halved profile-empty-state-icon"></i>
+            <h3 className="profile-empty-state-title">
               NO CLANS BOOKMARKED YET
             </h3>
-            <p
-              style={{
-                color: 'var(--text-muted, #a8a29e)',
-                maxWidth: '480px',
-                margin: '0 auto 20px',
-                fontSize: '0.95rem',
-                lineHeight: 1.6,
-              }}
-            >
+            <p className="profile-empty-state-text">
               Visit the Ancestral Codex to bookmark noble bloodlines and allied clan bastions to your profile.
             </p>
             <Link
@@ -1107,34 +872,13 @@ function ProfilePage() {
       </section>
 
       {/* SECTION 3: Bookmarked Shinobi Villages Section */}
-      <section style={{ maxWidth: '1280px', margin: '50px auto 0', padding: '0 24px' }}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '24px',
-            borderBottom: '1px solid var(--border-subtle, rgba(255, 255, 255, 0.07))',
-            paddingBottom: '16px',
-          }}
-        >
+      <section className="profile-section">
+        <div className="profile-section-header">
           <div>
-            <h2
-              style={{
-                fontFamily: 'var(--font-heading, "Long Shot", sans-serif)',
-                fontSize: '1.8rem',
-                color: 'var(--text-cream, #f5f0eb)',
-                letterSpacing: '1px',
-                margin: 0,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-              }}
-            >
-              <i className="fa-solid fa-landmark" style={{ color: '#f97316' }}></i>
+            <h2 className="profile-section-title">
               BOOKMARKED SHINOBI VILLAGES • お気に入り里
             </h2>
-            <p style={{ color: 'var(--text-muted, #a8a29e)', margin: '4px 0 0', fontSize: '0.9rem' }}>
+            <p className="profile-section-desc">
               Your sovereign hidden village strongholds across the Five Great Nations.
             </p>
           </div>
@@ -1160,13 +904,7 @@ function ProfilePage() {
             Loading village bookmarks...
           </div>
         ) : favoritedVillageRecords.length > 0 ? (
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-              gap: '24px',
-            }}
-          >
+          <div className="profile-cards-grid">
             {favoritedVillageRecords.map((village) => (
               <div
                 key={village.id}
@@ -1297,40 +1035,12 @@ function ProfilePage() {
             ))}
           </div>
         ) : (
-          <div
-            className="db-empty-state manga-panel"
-            style={{
-              padding: '48px 30px',
-              textAlign: 'center',
-              background: 'rgba(14, 14, 14, 0.7)',
-              borderRadius: '12px',
-              border: '1px dashed var(--border-subtle, rgba(255, 255, 255, 0.15))',
-            }}
-          >
-            <i
-              className="fa-solid fa-landmark"
-              style={{ fontSize: '2.5rem', color: 'var(--text-dim, #78716c)', marginBottom: '14px' }}
-            ></i>
-            <h3
-              style={{
-                fontFamily: 'var(--font-heading, "Long Shot", sans-serif)',
-                fontSize: '1.5rem',
-                color: 'var(--text-cream, #f5f0eb)',
-                letterSpacing: '1px',
-                marginBottom: '8px',
-              }}
-            >
+          <div className="profile-empty-state manga-panel">
+            <i className="fa-solid fa-landmark profile-empty-state-icon"></i>
+            <h3 className="profile-empty-state-title">
               NO SHINOBI VILLAGES BOOKMARKED YET
             </h3>
-            <p
-              style={{
-                color: 'var(--text-muted, #a8a29e)',
-                maxWidth: '480px',
-                margin: '0 auto 20px',
-                fontSize: '0.95rem',
-                lineHeight: 1.6,
-              }}
-            >
+            <p className="profile-empty-state-text">
               Explore the Shinobi World Atlas to bookmark sovereign hidden villages to your profile.
             </p>
             <Link
@@ -1350,34 +1060,13 @@ function ProfilePage() {
       </section>
 
       {/* SECTION 4: Bookmarked Tailed Beasts Section */}
-      <section style={{ maxWidth: '1280px', margin: '50px auto 0', padding: '0 24px' }}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '24px',
-            borderBottom: '1px solid var(--border-subtle, rgba(255, 255, 255, 0.07))',
-            paddingBottom: '16px',
-          }}
-        >
+      <section className="profile-section">
+        <div className="profile-section-header">
           <div>
-            <h2
-              style={{
-                fontFamily: 'var(--font-heading, "Long Shot", sans-serif)',
-                fontSize: '1.8rem',
-                color: 'var(--text-cream, #f5f0eb)',
-                letterSpacing: '1px',
-                margin: 0,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-              }}
-            >
-              <i className="fa-solid fa-fire-flame-curved" style={{ color: '#ec4899' }}></i>
+            <h2 className="profile-section-title">
               BOOKMARKED TAILED BEASTS • お気に入り尾獣
             </h2>
-            <p style={{ color: 'var(--text-muted, #a8a29e)', margin: '4px 0 0', fontSize: '0.9rem' }}>
+            <p className="profile-section-desc">
               Your catalog of primordial chakra titans and living calamities.
             </p>
           </div>
@@ -1403,13 +1092,7 @@ function ProfilePage() {
             Loading tailed beast bookmarks...
           </div>
         ) : favoritedBijuuRecords.length > 0 ? (
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-              gap: '24px',
-            }}
-          >
+          <div className="profile-cards-grid">
             {favoritedBijuuRecords.map((bijuu) => (
               <div
                 key={bijuu.id}
@@ -1551,40 +1234,12 @@ function ProfilePage() {
             ))}
           </div>
         ) : (
-          <div
-            className="db-empty-state manga-panel"
-            style={{
-              padding: '48px 30px',
-              textAlign: 'center',
-              background: 'rgba(14, 14, 14, 0.7)',
-              borderRadius: '12px',
-              border: '1px dashed var(--border-subtle, rgba(255, 255, 255, 0.15))',
-            }}
-          >
-            <i
-              className="fa-solid fa-fire-flame-curved"
-              style={{ fontSize: '2.5rem', color: 'var(--text-dim, #78716c)', marginBottom: '14px' }}
-            ></i>
-            <h3
-              style={{
-                fontFamily: 'var(--font-heading, "Long Shot", sans-serif)',
-                fontSize: '1.5rem',
-                color: 'var(--text-cream, #f5f0eb)',
-                letterSpacing: '1px',
-                marginBottom: '8px',
-              }}
-            >
+          <div className="profile-empty-state manga-panel">
+            <i className="fa-solid fa-fire-flame-curved profile-empty-state-icon"></i>
+            <h3 className="profile-empty-state-title">
               NO TAILED BEASTS BOOKMARKED YET
             </h3>
-            <p
-              style={{
-                color: 'var(--text-muted, #a8a29e)',
-                maxWidth: '480px',
-                margin: '0 auto 20px',
-                fontSize: '0.95rem',
-                lineHeight: 1.6,
-              }}
-            >
+            <p className="profile-empty-state-text">
               Explore the Nine Tailed Beasts chronicle to bookmark primordial chakra titans to your profile.
             </p>
             <Link

@@ -2475,20 +2475,29 @@ button.abutton nav {
    SHINOBI PROFILE & DOSSIER RESPONSIVE STYLES
    ========================================================================== */
 
+.profile-page {
+  min-height: 85vh;
+  padding-bottom: 80px;
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .profile-hero-section {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 40px 24px 20px;
+  padding: 120px 24px 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .profile-dossier-card {
-  padding: 36px 30px;
-  background: linear-gradient(135deg, rgba(14, 14, 14, 0.95) 0%, rgba(21, 21, 21, 0.9) 100%);
+  padding: 36px 32px;
+  background: linear-gradient(145deg, rgba(14, 14, 14, 0.96) 0%, rgba(20, 20, 20, 0.92) 100%);
   border: 1px solid var(--border-crimson, rgba(153, 27, 27, 0.45));
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(153, 27, 27, 0.12);
   position: relative;
-  overflow: hidden;
 }
 
 .profile-dossier-header {
@@ -2502,7 +2511,8 @@ button.abutton nav {
 .profile-dossier-identity {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 22px;
+  min-width: 0;
 }
 
 .profile-avatar-circle {
@@ -2510,35 +2520,71 @@ button.abutton nav {
   height: 90px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(153, 27, 27, 0.6) 0%, rgba(8, 8, 8, 0.9) 100%);
+  background: radial-gradient(circle, rgba(153, 27, 27, 0.7) 0%, rgba(10, 10, 10, 0.95) 100%);
   border: 2px solid var(--secondary-gold-bright, #e5c07b);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--secondary-gold-bright, #e5c07b);
   font-size: 2.5rem;
-  box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+  box-shadow: 0 0 24px rgba(197, 160, 89, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-avatar-circle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 32px rgba(220, 38, 38, 0.5);
 }
 
 .profile-identity-info {
   min-width: 0;
 }
 
+.profile-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.profile-role-badge {
+  background: rgba(153, 27, 27, 0.4);
+  border: 1px solid var(--primary-crimson-bright, #dc2626);
+  color: var(--text-cream, #f5f0eb);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.profile-ninja-id {
+  color: var(--secondary-gold, #c5a059);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 .profile-username {
   font-family: var(--font-heading, "Long Shot", sans-serif);
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
   letter-spacing: 1.5px;
   color: var(--text-cream, #f5f0eb);
   margin: 0 0 4px;
   text-transform: uppercase;
   word-break: break-word;
+  line-height: 1.1;
 }
 
 .profile-email {
   color: var(--text-muted, #a8a29e);
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   word-break: break-all;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .profile-dossier-meta {
@@ -2549,18 +2595,198 @@ button.abutton nav {
   text-align: right;
 }
 
+.profile-enrolled-tag {
+  color: var(--text-dim, #78716c);
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* STATS GRID */
 .profile-stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-top: 30px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-top: 28px;
   padding-top: 24px;
   border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.07));
 }
 
-@media (max-width: 1024px) {
+.profile-stat-card {
+  background: rgba(8, 8, 8, 0.65);
+  padding: 16px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.profile-stat-card--total {
+  border-color: rgba(197, 160, 89, 0.4);
+  background: linear-gradient(135deg, rgba(197, 160, 89, 0.14) 0%, rgba(8, 8, 8, 0.8) 100%);
+}
+
+.profile-stat-card--shinobi {
+  border-color: rgba(220, 38, 38, 0.3);
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(8, 8, 8, 0.8) 100%);
+}
+
+.profile-stat-card--clan {
+  border-color: rgba(56, 189, 248, 0.3);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(8, 8, 8, 0.8) 100%);
+}
+
+.profile-stat-card--village {
+  border-color: rgba(249, 115, 22, 0.35);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(8, 8, 8, 0.8) 100%);
+}
+
+.profile-stat-card--bijuu {
+  border-color: rgba(236, 72, 153, 0.35);
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(8, 8, 8, 0.8) 100%);
+}
+
+.profile-stat-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  width: 32px;
+  text-align: center;
+}
+
+.profile-stat-card--total .profile-stat-icon { color: var(--secondary-gold-bright, #e5c07b); }
+.profile-stat-card--shinobi .profile-stat-icon { color: var(--primary-crimson-bright, #dc2626); }
+.profile-stat-card--clan .profile-stat-icon { color: #38bdf8; }
+.profile-stat-card--village .profile-stat-icon { color: #f97316; }
+.profile-stat-card--bijuu .profile-stat-icon { color: #ec4899; }
+
+.profile-stat-info {
+  min-width: 0;
+}
+
+.profile-stat-count {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-cream, #f5f0eb);
+  line-height: 1;
+}
+
+.profile-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted, #a8a29e);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* SECTIONS (SHINOBI, CLAN, VILLAGE, BIJUU) */
+.profile-section {
+  max-width: 1280px;
+  margin: 48px auto 0;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.profile-section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.07));
+  padding-bottom: 16px;
+}
+
+.profile-section-title {
+  font-family: var(--font-heading, "Long Shot", sans-serif);
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  color: var(--text-cream, #f5f0eb);
+  letter-spacing: 1.2px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.profile-section-desc {
+  color: var(--text-muted, #a8a29e);
+  margin: 4px 0 0;
+  font-size: clamp(0.82rem, 2vw, 0.9rem);
+}
+
+.profile-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.profile-empty-state {
+  padding: 44px 24px;
+  text-align: center;
+  background: rgba(14, 14, 14, 0.75);
+  border-radius: 12px;
+  border: 1px dashed var(--border-subtle, rgba(255, 255, 255, 0.15));
+}
+
+.profile-empty-state-icon {
+  font-size: 2.5rem;
+  color: var(--text-dim, #78716c);
+  margin-bottom: 14px;
+}
+
+.profile-empty-state-title {
+  font-family: var(--font-heading, "Long Shot", sans-serif);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: var(--text-cream, #f5f0eb);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.profile-empty-state-text {
+  color: var(--text-muted, #a8a29e);
+  max-width: 480px;
+  margin: 0 auto 20px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1100px) {
   .profile-stats-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .profile-stat-card--total {
+    grid-column: 1 / -1;
+    justify-content: center;
+    gap: 18px;
+    padding: 16px 24px;
   }
 }
 
@@ -2570,28 +2796,41 @@ button.abutton nav {
     align-items: flex-start;
     gap: 18px;
   }
-
   .profile-dossier-meta {
-    align-items: flex-start;
+    align-items: center;
     text-align: left;
     width: 100%;
     padding-top: 14px;
     border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 880px) {
+  .profile-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .profile-stat-card--total {
+    grid-column: 1 / -1;
+    justify-content: center;
+    gap: 16px;
+    padding: 14px 20px;
   }
 }
 
 @media (max-width: 768px) {
   .profile-hero-section {
-    padding: 24px 16px 16px;
+    padding: 105px 16px 16px;
   }
-
+  .profile-section {
+    margin: 36px auto 0;
+    padding: 0 16px;
+  }
   .profile-dossier-card {
-    padding: 24px 18px;
-  }
-
-  .profile-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    padding: 26px 20px;
   }
 }
 
@@ -2603,48 +2842,135 @@ button.abutton nav {
     gap: 16px;
     width: 100%;
   }
-
   .profile-avatar-circle {
-    width: 76px;
-    height: 76px;
-    font-size: 2rem;
+    width: 78px;
+    height: 78px;
+    font-size: 2.1rem;
   }
-
   .profile-identity-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
-  .profile-username {
-    font-size: clamp(1.5rem, 5.5vw, 2rem);
+  .profile-badge-row {
+    justify-content: center;
   }
-
+  .profile-email {
+    justify-content: center;
+  }
   .profile-dossier-meta {
-    align-items: center;
-    text-align: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .profile-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 18px;
+  }
+  .profile-stat-card--total {
+    grid-column: 1 / -1;
+    justify-content: center;
+    gap: 14px;
+    padding: 14px 16px;
+  }
+  .profile-stat-card {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .profile-stat-icon {
+    font-size: 1.4rem;
+    width: 26px;
+  }
+  .profile-stat-count {
+    font-size: 1.35rem;
+  }
+  .profile-stat-label {
+    font-size: 0.72rem;
+  }
+  .profile-section-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .profile-section-header .card-inspect-btn {
+    align-self: flex-start;
+    width: 100%;
+    justify-content: center;
+  }
+  .profile-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-hero-section {
+    padding: 95px 12px 12px;
+  }
+  .profile-section {
+    margin: 28px auto 0;
+    padding: 0 12px;
+  }
+  .profile-dossier-card {
+    padding: 22px 14px;
+  }
+  .profile-stat-card {
+    padding: 10px 10px;
+    gap: 8px;
+  }
+  .profile-stat-icon {
+    font-size: 1.25rem;
+    width: 22px;
+  }
+  .profile-stat-count {
+    font-size: 1.25rem;
+  }
+  .profile-stat-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.3px;
+  }
+  .profile-empty-state {
+    padding: 32px 16px;
+  }
+  .profile-empty-state .card-inspect-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
 @media (max-width: 360px) {
   .profile-hero-section {
-    padding: 18px 10px 12px;
+    padding: 88px 8px 10px;
   }
-
+  .profile-section {
+    padding: 0 8px;
+  }
   .profile-dossier-card {
-    padding: 18px 12px;
+    padding: 18px 10px;
   }
-
   .profile-avatar-circle {
-    width: 68px;
-    height: 68px;
+    width: 66px;
+    height: 66px;
     font-size: 1.8rem;
   }
-
   .profile-stats-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 8px;
+  }
+  .profile-stat-card {
+    padding: 8px 8px;
+    gap: 6px;
+  }
+  .profile-stat-icon {
+    font-size: 1.15rem;
+    width: 18px;
+  }
+  .profile-stat-count {
+    font-size: 1.15rem;
+  }
+  .profile-stat-label {
+    font-size: 0.62rem;
   }
 }
 
