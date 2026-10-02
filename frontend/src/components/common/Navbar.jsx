@@ -96,12 +96,60 @@ function Navbar() {
               ALLIANCE
             </NavLink>
           </li>
-          {isAuthenticated && (
-            <li>
-              <NavLink to="/profile" className={({ isActive }) => (isActive ? 'active' : '')}>
-                PROFILE
-              </NavLink>
-            </li>
+          {isAuthenticated ? (
+            <>
+              <li>
+                <NavLink to="/profile" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  PROFILE
+                </NavLink>
+              </li>
+              <li className="mobile-only-nav-item">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileOpen(false);
+                    logout();
+                  }}
+                  className="mobile-nav-logout-btn"
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    fontFamily: 'var(--font-accent)',
+                    fontSize: '1.05rem',
+                    fontWeight: 800,
+                    letterSpacing: '2px',
+                    color: '#f87171',
+                    padding: '13px 18px',
+                    background: 'rgba(153, 27, 27, 0.15)',
+                    border: '1px solid var(--border-crimson, rgba(153, 27, 27, 0.45))',
+                    borderRadius: '8px',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                    boxSizing: 'border-box',
+                  }}
+                >
+                  <span>LOG OUT</span>
+                  <i className="fa-solid fa-right-from-bracket"></i>
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="mobile-only-nav-item">
+                <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  <span>LOG IN</span>
+                  <i className="fa-solid fa-right-to-bracket" style={{ fontSize: '0.85rem' }}></i>
+                </NavLink>
+              </li>
+              <li className="mobile-only-nav-item">
+                <NavLink to="/signup" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  <span>SIGN UP</span>
+                  <i className="fa-solid fa-user-plus" style={{ fontSize: '0.85rem' }}></i>
+                </NavLink>
+              </li>
+            </>
           )}
         </ul>
       </div>
@@ -127,11 +175,12 @@ function Navbar() {
               }}
             >
               <i className="fa-solid fa-user-ninja" style={{ color: 'var(--primary-crimson-bright, #dc2626)' }}></i>
-              <span>{user.username}</span>
+              <span className="shinobi-badge-name">{user.username}</span>
             </Link>
             <button
               type="button"
               onClick={logout}
+              className="desktop-logout-btn"
               style={{
                 background: 'rgba(153, 27, 27, 0.4)',
                 border: '1px solid var(--border-crimson, rgba(153, 27, 27, 0.45))',

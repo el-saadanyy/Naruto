@@ -90,6 +90,8 @@ function SignupForm() {
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
+              wordBreak: 'break-word',
+              overflowWrap: 'anywhere',
             }}
           >
             <i className="fa-solid fa-triangle-exclamation" style={{ color: '#f87171' }}></i>

@@ -399,7 +399,10 @@ function ProfilePage() {
               favorites.
             </p>
           </div>
-          <div style={{ marginTop: '24px', display: 'flex', gap: '12px', justifyContent: 'center' }}>
+          <div
+            className="profile-unauth-actions"
+            style={{ marginTop: '24px', display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}
+          >
             <Link
               to="/login"
               className="card-inspect-btn"
@@ -436,49 +439,16 @@ function ProfilePage() {
       />
 
       {/* Profile Header Dossier Section */}
-      <section style={{ maxWidth: '1280px', margin: '0 auto', padding: '40px 24px 20px' }}>
-        <div
-          className="manga-panel"
-          style={{
-            padding: '36px 30px',
-            background: 'linear-gradient(135deg, rgba(14, 14, 14, 0.95) 0%, rgba(21, 21, 21, 0.9) 100%)',
-            border: '1px solid var(--border-crimson, rgba(153, 27, 27, 0.45))',
-            borderRadius: '12px',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6)',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '24px',
-            }}
-          >
+      <section className="profile-hero-section">
+        <div className="manga-panel profile-dossier-card">
+          <div className="profile-dossier-header">
             {/* Left: Avatar & Identity */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-              <div
-                style={{
-                  width: '90px',
-                  height: '90px',
-                  borderRadius: '50%',
-                  background: 'radial-gradient(circle, rgba(153, 27, 27, 0.6) 0%, rgba(8, 8, 8, 0.9) 100%)',
-                  border: '2px solid var(--secondary-gold-bright, #e5c07b)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'var(--secondary-gold-bright, #e5c07b)',
-                  fontSize: '2.5rem',
-                  boxShadow: '0 0 20px rgba(197, 160, 89, 0.3)',
-                }}
-              >
+            <div className="profile-dossier-identity">
+              <div className="profile-avatar-circle">
                 <i className="fa-solid fa-user-ninja"></i>
               </div>
 
-              <div>
+              <div className="profile-identity-info">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
                   <span
                     style={{
@@ -497,19 +467,10 @@ function ProfilePage() {
                   </span>
                   <span style={{ color: 'var(--secondary-gold, #c5a059)', fontSize: '0.85rem' }}>ID #{user.id}</span>
                 </div>
-                <h1
-                  style={{
-                    fontFamily: 'var(--font-heading, "Long Shot", sans-serif)',
-                    fontSize: '2.2rem',
-                    letterSpacing: '1.5px',
-                    color: 'var(--text-cream, #f5f0eb)',
-                    margin: '0 0 4px',
-                    textTransform: 'uppercase',
-                  }}
-                >
+                <h1 className="profile-username">
                   {user.username}
                 </h1>
-                <p style={{ color: 'var(--text-muted, #a8a29e)', margin: 0, fontSize: '0.95rem' }}>
+                <p className="profile-email">
                   <i
                     className="fa-regular fa-envelope"
                     style={{ marginRight: '6px', color: 'var(--secondary-gold, #c5a059)' }}
@@ -520,15 +481,7 @@ function ProfilePage() {
             </div>
 
             {/* Right: Enrolled info & Quick Action */}
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-end',
-                gap: '8px',
-                textAlign: 'right',
-              }}
-            >
+            <div className="profile-dossier-meta">
               <span style={{ color: 'var(--text-dim, #78716c)', fontSize: '0.85rem' }}>
                 <i className="fa-regular fa-calendar-check" style={{ marginRight: '6px' }}></i>
                 Enrolled: {formatDate(profileData?.date_joined)}
@@ -549,16 +502,7 @@ function ProfilePage() {
           </div>
 
           {/* Stats Bar */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '16px',
-              marginTop: '30px',
-              paddingTop: '24px',
-              borderTop: '1px solid var(--border-subtle, rgba(255, 255, 255, 0.07))',
-            }}
-          >
+          <div className="profile-stats-grid">
             <div
               style={{
                 background: 'rgba(8, 8, 8, 0.6)',

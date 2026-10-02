@@ -151,16 +151,25 @@ def login_view(request):
     except (ValueError, json.JSONDecodeError):
         return JsonResponse({"error": "Malformed JSON payload."}, status=400)
 
-    username = (data.get("username") or "").strip()
+    identifier = (data.get("username") or data.get("email") or "").strip()
     password = data.get("password") or ""
 
-    if not username or not password:
+    if not identifier or not password:
         return JsonResponse({"error": "Both username and password are required."}, status=400)
 
-    user = authenticate(request, username=username, password=password)
+    # 1. Try direct authentication by username
+    user = authenticate(request, username=identifier, password=password)
+
+    # 2. If direct match fails, try resolving by email or case-insensitive handle
+    if user is None:
+        user_candidate = User.objects.filter(email__iexact=identifier).first()
+        if not user_candidate:
+            user_candidate = User.objects.filter(username__iexact=identifier).first()
+        if user_candidate:
+            user = authenticate(request, username=user_candidate.username, password=password)
 
     if user is None:
-        return JsonResponse({"error": "Invalid shinobi handle or secret seal."}, status=400)
+        return JsonResponse({"error": "Invalid shinobi handle or secret seal."}, status=401)
 
     if not user.is_active:
         return JsonResponse({"error": "Shinobi account is inactive."}, status=403)

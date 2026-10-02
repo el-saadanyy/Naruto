@@ -202,6 +202,13 @@ header .bars.active {
   transform: scale(1.1);
 }
 
+header .bars:focus-visible {
+  outline: 2px solid var(--secondary-gold-bright, #e5c07b);
+  outline-offset: 4px;
+  box-shadow: 0 0 12px var(--gold-glow, rgba(197, 160, 89, 0.45));
+  border-radius: 4px;
+}
+
 header .logo img {
   height: 76px;
   width: auto;
@@ -2212,7 +2219,6 @@ button.abutton nav {
   .dossier-card-desc {
     font-size: 0.75rem;
   }
-}
 
 /* ==========================================================================
    AUTHENTICATION SCREENS (login.html & Signup.html)
@@ -2223,11 +2229,12 @@ button.abutton nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 155px 20px 80px;
+  padding: 140px 20px 80px;
   background: 
     radial-gradient(circle at 50% 35%, rgba(153, 27, 27, 0.16) 0%, transparent 65%),
     linear-gradient(180deg, #080808 0%, #0e0e0e 100%);
   position: relative;
+  overflow-x: hidden;
 }
 
 .login, .signup-card {
@@ -2259,10 +2266,12 @@ button.abutton nav {
 
 .auth-title {
   font-family: var(--font-display);
-  font-size: 2.4rem;
-  letter-spacing: 2px;
+  font-size: clamp(1.45rem, 4.2vw, 2.3rem);
+  letter-spacing: clamp(1px, 0.35vw, 2px);
   color: var(--text-cream);
   text-transform: uppercase;
+  line-height: 1.25;
+  word-break: break-word;
 }
 
 .auth-subtitle {
@@ -2360,6 +2369,283 @@ button.abutton nav {
 .do-not-acc a:hover {
   color: #fff;
   text-shadow: 0 0 10px var(--gold-glow);
+}
+
+/* Responsive Authentication Panels */
+@media (max-width: 768px) {
+  .auth-page {
+    padding: 110px 16px 60px;
+    min-height: calc(100vh - 40px);
+  }
+
+  .login, .signup-card {
+    padding: 34px 24px;
+    border-radius: 12px;
+  }
+
+  .auth-header {
+    margin-bottom: 22px;
+  }
+
+  .auth-header i {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+  }
+
+  .login-form .form-group {
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 95px 12px 50px;
+  }
+
+  .login, .signup-card {
+    padding: 26px 18px;
+    border-radius: 10px;
+  }
+
+  .auth-subtitle {
+    font-size: 0.84rem;
+    margin-top: 4px;
+  }
+
+  .login-form input[type="text"],
+  .login-form input[type="email"],
+  .login-form input[type="password"] {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .login-form input[type="submit"] {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .login-form .or {
+    margin: 18px 0;
+    font-size: 0.76rem;
+  }
+
+  .do-not-acc {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .auth-page {
+    padding: 90px 10px 40px;
+  }
+
+  .login, .signup-card {
+    padding: 22px 12px;
+  }
+
+  .auth-title {
+    font-size: clamp(1.22rem, 5vw, 1.45rem);
+  }
+}
+
+/* Mobile Navigation Auth Items & Header Crowding Prevention */
+.mobile-only-nav-item {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .mobile-only-nav-item {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-logout-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .shinobi-badge-name {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   SHINOBI PROFILE & DOSSIER RESPONSIVE STYLES
+   ========================================================================== */
+
+.profile-hero-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 24px 20px;
+}
+
+.profile-dossier-card {
+  padding: 36px 30px;
+  background: linear-gradient(135deg, rgba(14, 14, 14, 0.95) 0%, rgba(21, 21, 21, 0.9) 100%);
+  border: 1px solid var(--border-crimson, rgba(153, 27, 27, 0.45));
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-dossier-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.profile-dossier-identity {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.profile-avatar-circle {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(153, 27, 27, 0.6) 0%, rgba(8, 8, 8, 0.9) 100%);
+  border: 2px solid var(--secondary-gold-bright, #e5c07b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-gold-bright, #e5c07b);
+  font-size: 2.5rem;
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+}
+
+.profile-identity-info {
+  min-width: 0;
+}
+
+.profile-username {
+  font-family: var(--font-heading, "Long Shot", sans-serif);
+  font-size: 2.2rem;
+  letter-spacing: 1.5px;
+  color: var(--text-cream, #f5f0eb);
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+.profile-email {
+  color: var(--text-muted, #a8a29e);
+  margin: 0;
+  font-size: 0.95rem;
+  word-break: break-all;
+}
+
+.profile-dossier-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  text-align: right;
+}
+
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.07));
+}
+
+@media (max-width: 1024px) {
+  .profile-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .profile-dossier-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .profile-dossier-meta {
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-hero-section {
+    padding: 24px 16px 16px;
+  }
+
+  .profile-dossier-card {
+    padding: 24px 18px;
+  }
+
+  .profile-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .profile-dossier-identity {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .profile-avatar-circle {
+    width: 76px;
+    height: 76px;
+    font-size: 2rem;
+  }
+
+  .profile-identity-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-username {
+    font-size: clamp(1.5rem, 5.5vw, 2rem);
+  }
+
+  .profile-dossier-meta {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-hero-section {
+    padding: 18px 10px 12px;
+  }
+
+  .profile-dossier-card {
+    padding: 18px 12px;
+  }
+
+  .profile-avatar-circle {
+    width: 68px;
+    height: 68px;
+    font-size: 1.8rem;
+  }
+
+  .profile-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }
 
 /* ==========================================================================
